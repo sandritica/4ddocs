@@ -16,6 +16,12 @@ displayed_sidebar: docs
 
 ## Descripción 
 
+:::warning
+
+Este comando no puede utilizarse en proyectos porque la librería de imágenes sólo está disponible en bases de datos binarias.
+
+:::
+
 <!--REF #_command_.PICTURE LIBRARY LIST.Summary-->El comando PICTURE LIBRARY LIST devuelve los números de referencia y los nombres de las imágenes almacenadas en la librería de imágenes de la base de datos.<!-- END REF--> 
 
 Después de llamarlo, usted recupera los números de referencia en el array *refsImag* y los nombres en el array *nomsImag*. Los dos arrays están sincronizados: el elemento n de *refsImag* es el número de referencia de la imagen de la librería cuyo nombre es devuelto en el elemento n de *nomsImagenes*.
