@@ -3,16 +3,18 @@ id: WebFormClass
 title: WebForm
 ---
 
+
 La clase `WebForm` contiene funciones y propiedades que permiten manejar sus componentes de páginas Qodly. Los objetos `4D.WebForm` se instancian con el comando [`webForm`](../commands/web-form.md).
 
 <details><summary>Historia</summary>
 
 | Lanzamiento | Modificaciones                                                                  |
 | ----------- | ------------------------------------------------------------------------------- |
-| 20 R6       | Adición de enableState() y disableState() |
-| 20 R2       | Añadidos                                                                        |
+| 20 R6       | Adición de enableState() y disableState()|
+| 20 R2       | Añadidos|
 
 </details>
+
 
 ### Comandos y funciones
 
@@ -25,13 +27,14 @@ La clase `WebForm` contiene funciones y propiedades que permiten manejar sus com
 | [<!-- INCLUDE #WebFormClass.setMessage().Syntax -->](#setmessage)<br/><!-- INCLUDE #WebFormClass.setMessage().Summary -->       |
 | [<!-- INCLUDE #WebFormClass.setWarning().Syntax -->](#setwarning)<br/><!-- INCLUDE #WebFormClass.setWarning().Summary -->       |
 
+
 ### *.componentName*
 
 <!-- REF WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](WebFormItemClass.md)<!-- END REF -->
 
 #### Descripción
 
-The components of web pages are <!-- REF WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these web pages.
+Los componentes de las páginas web son <!-- REF WebFormClass.componentName.Summary -->objetoss que están disponibles directamente como propiedades<!-- END REF --> de estas páginas web.
 
 Los objetos devueltos son de la clase [`4D.WebFormItem`](WebFormItemClass.md). Estos objetos tienen funciones que puede utilizar para gestionar sus componentes de forma dinámica.
 
@@ -43,14 +46,13 @@ shared singleton Class constructor()
 	var myForm : 4D.WebForm
 	var component : 4D.WebFormItem
 	
-	myForm:=webForm  //returns the web page as an object, each property is a component
-	component:=myForm.myImage  //returns the myImage component of the web page
+	myForm:=webForm  //devuelve la página web como un objeto, cada propiedad es un componente
+	component:=myForm.myImage  //devuelve el componente myImage de la página web
 
 ```
-
 :::info
 
-While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. Puede interactuar con las propiedades y funciones del objeto `webForm` subyacente a través de `myForm`. For example, you can dynamically manipulate page components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
+Aunque es posible que `myForm` no muestre las propiedades típicas de un objeto cuando se examina en el depurador, se comporta como si fuera el objeto `webForm` real. Puede interactuar con las propiedades y funciones del objeto `webForm` subyacente a través de `myForm`. Por ejemplo, puede manipular dinámicamente los componentes de la página o transmitir mensajes a páginas web utilizando funciones especializadas como `myForm.setMessage()`.
 
 :::
 
@@ -59,14 +61,9 @@ While `myForm` may not display typical object properties when examined in the de
 <!-- REF #WebFormClass.disableState().Syntax -->**.disableState**( *state* : Text)<!-- END REF -->
 
 <!-- REF #WebFormClass.disableState().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                         |
 | ---------- | ---- | :-: | --------------------------------------------------- |
 | state      | Text |  -> | Nombre del estado a desactivar en el formulario web |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
@@ -74,7 +71,6 @@ While `myForm` may not display typical object properties when examined in the de
 La función `.disableState()` <!-- REF #WebFormClass.disableState().Summary -->desactiva la renderización del *estado* en la página web actual<!-- END REF -->.
 
 Esta función no hace nada si:
-
 - el *state* no está habilitado actualmente en la página web,
 - el *estado* no existe para la página web.
 
@@ -82,19 +78,17 @@ Si [activa](#enablestate) o desactiva varios estados en la misma función usuari
 
 Para más información sobre los estados de las páginas web, consulte la sección [Estados en la documentación de Qodly](https://developer.4d.com/qodly/4DQodlyPro/pageLoaders/states/stateOverview).
 
+
+
+
 ### .enableState()
 
 <!-- REF #WebFormClass.enableState().Syntax -->**.enableState**( *state* : Text )<!-- END REF -->
 
 <!-- REF #WebFormClass.enableState().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                      |
 | ---------- | ---- | :-: | ------------------------------------------------ |
 | state      | Text |  -> | Nombre del estado a activar en el formulario web |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
@@ -102,7 +96,6 @@ Para más información sobre los estados de las páginas web, consulte la secci�
 La función `.enableState()` <!-- REF #WebFormClass.enableState().Summary -->activa la renderización del *state* en la página web actual<!-- END REF -->.
 
 Esta función no hace nada si:
-
 - el *estado* ya ha sido activado en la página web,
 - el *estado* no existe para la página web.
 
@@ -121,19 +114,15 @@ Function authenticationError()
 	End if
 ```
 
+
 ### .setError()
 
 <!-- REF #WebFormClass.setError().Syntax -->**.setError**( *msg* : Text)<!-- END REF -->
 
 <!-- REF #WebFormClass.setError().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                     |
 | ---------- | ---- | :-: | ----------------------------------------------- |
 | msg        | Text |  -> | Mensaje de error a mostrar en el formulario web |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
@@ -164,14 +153,9 @@ Si la funcionalidad [**Provide feedback**](https://developer.4d.com/qodly/4DQodl
 <!-- REF #WebFormClass.setMessage().Syntax -->**.setMessage**( *msg* : Text)<!-- END REF -->
 
 <!-- REF #WebFormClass.setMessage().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                           |
 | ---------- | ---- | :-: | ----------------------------------------------------- |
 | msg        | Text |  -> | Mensaje de información a mostrar en el formulario web |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
@@ -202,14 +186,9 @@ Si la funcionalidad [**Provide feedback**](https://developer.4d.com/qodly/4DQodl
 <!-- REF #WebFormClass.setWarning().Syntax -->**.setWarning**( *msg* : Text)<!-- END REF -->
 
 <!-- REF #WebFormClass.setWarning().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                              |
 | ---------- | ---- | :-: | -------------------------------------------------------- |
 | msg        | Text |  -> | Mensaje de advertencia para mostrar en el formulario web |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
