@@ -3,11 +3,12 @@ id: WebFormItemClass
 title: WebFormItem
 ---
 
+
 La clase `4D.WebFormItem` le permite manejar el comportamiento de sus componentes webform Qodly.
 
 Los objetos `4D.WebFormItem` son propiedades del objeto [`4D.WebForm`](WebFormClass.md) devuelto por el comando [`Web Form`](../commands/web-form.md).
 
-When you call the [`Web Form`](../commands/web-form.md) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](https://developer.4d.com/qodly/4DQodlyPro/pageLoaders/pageLoaderOverview#server-side) in your webform.
+Cuando llama al comando [`Web Form`](../commands/web-form.md), el objeto proxy `4D.WebForm` devuelto tiene tantos `4D.WebFormItems` como componentes con [**server-side references**](https://developer.4d.com/qodly/4DQodlyPro/pageLoaders/pageLoaderOverview#server-side) en su webform.
 
 Por ejemplo, `WebFormObject.myImage` hace referencia al componente de imagen con `myImage` como referencia del servidor.
 
@@ -19,48 +20,44 @@ Por ejemplo, `WebFormObject.myImage` hace referencia al componente de imagen con
 
 </details>
 
+
 ### Objeto WebFormItem
 
-|                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------- |
+||
+|---|
 | [<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addcssclass)<br/><!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->          |
 | [<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)<br/><!-- INCLUDE #WebFormItemClass.hide().Summary -->                               |
 | [<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removecssclass)<br/><!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary --> |
 | [<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)<br/><!-- INCLUDE #WebFormItemClass.show().Summary -->                               |
+
+
 
 ### .addCSSClass()
 
 <!-- REF #WebFormItemClass.addCSSClass().Syntax -->**.addCSSClass**(*className* : Text)<!-- END REF -->
 
 <!-- REF #WebFormItemClass.addCSSClass().Params -->
-
-<div class="no-index">
-
-| Parámetros | Tipo |     | Descripción                                   |
-| ---------- | ---- | :-: | --------------------------------------------- |
-| className  | Text |  -> | Nombre de la clase CSS a añadir al componente |
-
-</div>
+|Parámetros|Tipo||Descripción|
+|---------|--- |:---:|------|
+|className|Text|->|Nombre de la clase CSS a añadir al componente|
 <!-- END REF -->
 
 #### Descripción
 
 La función `.addCSSClass` <!-- REF #WebFormItemClass.addCSSClass().Summary -->añade la clase especificada en *className* al componente<!-- END REF -->.
 
+
+
 ### .hide()
 
 <!-- REF #WebFormItemClass.hide().Syntax -->**.hide**()<!-- END REF -->
 
 <!-- REF #WebFormItemClass.hide().Params -->
-
-<div class="no-index">
-
-| Parámetros | Tipo |     | Descripción                  |
-| ---------- | ---- | :-: | ---------------------------- |
-|            |      |     | No requiere ningún parámetro |
-
-</div>
+|Parámetros|Tipo||Descripción|
+|---------|--- |:---:|------|
+||||No requiere ningún parámetro|
 <!-- END REF -->
+
 
 #### Descripción
 
@@ -81,48 +78,45 @@ exposed Function isHidden()
 	myComponent:=Web Form.myImage
 	myComponent.hide()  // Oculta el componente que tiene "myImage" como referencia servidor. 
 ```
-
 2. En Qodly Studio: seleccione el componente imagen en la página e introduzca una referencia del lado del servidor en el panel Propiedades > Server Side, por ejemplo "myImage".
 3. Seleccione el componente Button y añádale un evento `onclick`.
 4. Adjunta la función `isHidden` al evento.
 
+
+
 ### .removeCSSClass()
+
 
 <!-- REF #WebFormItemClass.removeCSSClass().Syntax -->**.removeCSSClass**(*className*: Text)<!-- END REF -->
 
 <!-- REF #WebFormItemClass.removeCSSClass().Params -->
-
-<div class="no-index">
-
 | Parámetros | Tipo |     | Descripción                                      |
 | ---------- | ---- | :-: | ------------------------------------------------ |
 | className  | Text |  -> | Nombre de la clase CSS a eliminar del componente |
-
-</div>
 <!-- END REF -->
 
 #### Descripción
 
 La función `.removeCSSClass()` <!-- REF #WebFormItemClass.removeCSSClass().Summary -->elimina la clase especificada en *className* del componente<!-- END REF -->.
 
+
+
 ### .show()
 
 <!-- REF #WebFormItemClass.show().Syntax -->**.show**()<!-- END REF -->
 
+
 <!-- REF #WebFormItemClass.show().Params -->
-
-<div class="no-index">
-
-| Parámetros | Tipo |     | Descripción                  |
-| ---------- | ---- | :-: | ---------------------------- |
-|            |      |     | No requiere ningún parámetro |
-
-</div>
+|Parámetros|Tipo||Descripción|
+|---------|--- |:---:|------|
+||||No requiere ningún parámetro|
 <!-- END REF -->
+
 
 #### Descripción
 
 La función `.show()` <!-- REF #WebFormItemClass.show().Summary -->hace visible el componente<!-- END REF -->. Si el componente ya era visible, la función no hace nada.
+
 
 ## Ver también
 
