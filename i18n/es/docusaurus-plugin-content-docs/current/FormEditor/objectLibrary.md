@@ -3,12 +3,14 @@ id: objectLibrary
 title: Librerías de objetos
 ---
 
+
 Puede utilizar librerías de objetos en sus formularios. Una librería de objetos ofrece una colección de objetos preconfigurados que pueden ser utilizados en sus formularios mediante un simple copiar y pegar o arrastrar y soltar.
 
 4D propone dos tipos de librerías de objetos:
 
 - una librería de objetos estándar y preconfigurada, disponible en todos sus proyectos.
 - librerías de objetos personalizadas, que puede utilizar para almacenar sus objetos formularios favoritos o formularios proyecto completos.
+
 
 ## Utilización de la librería de objetos estándar
 
@@ -19,9 +21,10 @@ La librería se muestra en una ventana aparte:
 
 ![](../assets/en/FormEditor/library2.png)
 
+
 :::info
 
-Some objects in this library are only available if a [specific component](../Extensions/overview.md#components-developed-by-4d) is loaded in the application. For example, 4D Write Pro areas need the [4D Write Pro Interface](https://github.com/4d/4D-WritePro-Interface) component to be loaded.
+Algunos objetos de esta librería solo están disponibles si se carga un [componente específico](../Extensions/overview.md#components-developed-by-4d) en la aplicación. Por ejemplo, las áreas 4D Write Pro necesitan que se cargue el componente [4D Write Pro Interface](https://github.com/4d/4D-WritePro-Interface).
 
 :::
 
@@ -32,11 +35,13 @@ La ventana tiene las siguientes características principales:
   ![](../assets/en/FormEditor/library3.png)
 - Para utilizar un objeto de la librería en su formulario, puede:
   - hacer clic derecho en un objeto y seleccionar **Copiar** en el menú contextual
-  - or drag and drop the object from the library The object is then added to the form.
+  - o arrastre y suelte el objeto desde la librería.
+El objeto se añadirá al formulario.
 
 Esta librería es de sólo lectura. Si desea editar objetos por defecto o crear su propia librería de objetos preconfigurados o formularios proyecto, deberá crear una librería de objetos personalizada (ver abajo).
 
 Todos los objetos propuestos en la librería de objetos estándar se describen en [esta sección](../FormEditor/objectLibrary.md).
+
 
 ## Crear y utilizar librerías de objetos personalizadas
 
@@ -45,6 +50,7 @@ Puede crear y utilizar librerías de objetos personalizadas en 4D. A custom obje
 Los objetos se almacenan con todas sus propiedades, incluidos sus métodos. Las librerías se arman y utilizan mediante simples operaciones de arrastrar y soltar o copiar y pegar.
 
 Mediante el uso de librerías, se pueden construir fondos de objetos de formulario agrupados por familias gráficas, por funcionalidades, etc.
+
 
 ### Crear una librería de objetos
 
@@ -61,7 +67,6 @@ Puede crear tantas librerías como desee por proyecto. Una librería creada y co
 Una determinada librería de objetos sólo puede ser abierta por un proyecto a la vez. Sin embargo, se pueden abrir varias librerías diferentes en el mismo proyecto.
 
 Para abrir una librería de objetos personalizada, seleccione el comando **Abrir>Librería de objetos...** en el menú **Archivo** o en la barra de herramientas de 4D. Aparece una caja de diálogo estándar para abrir archivos, que le permite seleccionar la librería de objetos que desea abrir. Puede seleccionar los siguientes tipos de archivos:
-
 - **.4dproject**
 - **.4dz**
 
@@ -69,6 +74,7 @@ De hecho, las librerías de objetos personalizadas son proyectos 4D clásicos. S
 
 - formularios proyecto
 - páginas formulario 1
+
 
 ### Crear una librería de objetos
 
@@ -85,6 +91,7 @@ Las principales operaciones están disponibles en el menú contextual o en el me
 - **Borrar** - elimina el objeto de la librería
 - **Renombrar** - aparece una caja de diálogo que permite cambiar el nombre del elemento. Tenga en cuenta que los nombres de los objetos deben ser únicos en una librería.
 
+
 Puede colocar objetos individuales (incluidos los subformularios) o conjuntos de objetos en una librería de objetos. Cada objeto o conjunto se agrupa en un solo elemento:
 
 ![](../assets/en/FormEditor/library6.png)
@@ -94,7 +101,6 @@ Una librería de objetos puede contener hasta 32.000 elementos.
 Los objetos se copian con todas sus propiedades, tanto gráficas como funcionales, incluidos sus métodos. Estas propiedades se mantienen en su totalidad cuando el elemento se copia en un formulario o en otra librería.
 
 #### Objetos dependientes
-
 El uso de copiar y pegar o arrastrar y soltar con ciertos objetos de librería también hace que se copien sus objetos dependientes. Por ejemplo, si se copia un botón, se copiará también el método del objeto que se pueda adjuntar. Estos objetos dependientes no se pueden copiar ni arrastrar y soltar directamente.
 
 A continuación se muestra una lista de objetos dependientes que se pegarán en la librería al mismo tiempo que el objeto principal que los utiliza (cuando corresponda):
@@ -104,4 +110,3 @@ A continuación se muestra una lista de objetos dependientes que se pegarán en 
 - Imágenes
 - Mensajes de ayuda (asociados a un campo)
 - Métodos objeto
-
