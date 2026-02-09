@@ -5,20 +5,20 @@ slug: /commands/encrypt-data-file
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Encrypt data file.Syntax-->**Encrypt data file** ( *rutaEstruct* : Text ; *rutaDatos* : Text {; newPassPhrase | newDataKey {; *carpetaArchivo* : Text {; curPassPhrase | curDataKey {; *nomMetod* : Text}}}} ) : Text<!-- END REF-->
+<!--REF #_command_.Encrypt data file.Syntax-->**Encrypt data file** ( *structurePath* : Text ; *dataPath* : Text {; *newPassPhrase* : Text {; *archiveFolder* : Text {; *curPassPhrase* : Text {; *methodName* : Text}}}} ) : Text<br/>**Encrypt data file** ( *structurePath* : Text ; *dataPath* : Text {; *newDataKey* : Object {; *archiveFolder* : Text {; *curDataKey* : Object {; *methodName* : Text}}}} ) : Text<!-- END REF-->
 <!--REF #_command_.Encrypt data file.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| rutaEstruct | Text | &#8594; | Nombre de ruta del archivo de estructura |
-| rutaDatos | Text | &#8594; | Nombre de ruta del archivo de datos a cifrar |
-| newPassPhrase &#124; newDataKey | Texto, Objeto | &#8594; | En caso de reemplazo: nueva passPhrase (texto) o nueva llave de cifrado (objeto) |
-| carpetaArchivo | Text | &#8594; | Nombre de ruta de la carpeta donde se guardarán los archivos originales |
-| curPassPhrase &#124; curDataKey | Texto, Objeto | &#8594; | passPhrase actual (texto) o llave de encripción actual(objeto) |
-| nomMetod | Text | &#8594; | Nombre del método de retrollamada 4D |
+| structurePath | Text | &#8594;  | Nombre de ruta del archivo de estructura |
+| dataPath | Text | &#8594;  | Nombre de ruta del archivo de datos a cifrar |
+| newPassPhrase | Text | &#8594;  | En caso de reemplazo: nueva passPhrase |
+| newDataKey | Object | &#8594;  | En caso de reemplazo: nueva llave de cifrado (object) |
+| archiveFolder | Text | &#8594;  | Nombre de ruta de la carpeta donde se guardarán los archivos originales |
+| curPassPhrase | Text | &#8594;  | passPhrase actual |
+| curDataKey | Object | &#8594;  | Llave de encripción actual |
+| methodName | Text | &#8594;  | Nombre del método de retrollamada 4D |
 | Resultado | Text | &#8592; | Nombre completo de la carpeta donde se guardaron los archivos originales |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -41,6 +41,7 @@ En el parámetro *rutaDatos*, puede pasar una cadena vacía, un nombre de archiv
 * **Para cifrar la base de datos por primera vez**, solo necesita pasar el parámetro *newPassPhrase* o *newDataKey* (los parámetros *curPassPhrase* o *curDataKey* no deben proporcionarse):  
    * *newPassPhrase*: cadena utilizada para generar la llave de cifrado (SHA de 256 bits)  
    * *newDataKey*: objeto (con propiedad *encodedKey*) que contiene una nueva llave de cifrado de datos. Esta llave debería haberse generado con el comando [New data key](new-data-key.md).  
+
 **Nota:** *newPassPhrase* (o *newDataKey*) no se agrega al llavero 4D.
 * **Para volver a cifrar una base de datos** (es decir, la base de datos ya se ha cifrado), debe pasar tanto el parámetro *newPassPhrase* (o *newDataKey*), como la frase de contraseña actual (o la llave de datos actual). Esto es necesario para descifrar la base de datos antes de volver a cifrarla. Esta información se puede proporcionar de las siguientes maneras:  
    * pasando parámetros válidos de *curPassPhrase* (o *curDataKey*) al comando,  
@@ -128,7 +129,7 @@ Vuelva a cifrar un archivo de datos encriptados con la llave actual (por ejemplo
 
 ## Ver también 
 
-  
+[4D Blog - New 4D commands to work with encrypted data](https://blog.4d.com/new-4d-commands-to-work-with-encrypted-data/)  
 [Data file encryption status](data-file-encryption-status.md)  
 [Decrypt data BLOB](decrypt-data-blob.md)  
 [Encrypt data BLOB](encrypt-data-blob.md)  
@@ -140,5 +141,3 @@ Vuelva a cifrar un archivo de datos encriptados con la llave actual (por ejemplo
 | --- | --- |
 | Número de comando | 1610 |
 | Hilo seguro | no |
-
-
