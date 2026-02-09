@@ -5,16 +5,14 @@ slug: /commands/edit-item
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.EDIT ITEM.Syntax-->**EDIT ITEM** ( * ; *objeto* : Text {; *elemento* : Integer} )<br/>**EDIT ITEM** ( *objeto* : Field, Variable {; *elemento* : Integer} )<!-- END REF-->
+<!--REF #_command_.EDIT ITEM.Syntax-->**EDIT ITEM** ( * ; *object* : Text {; *item* : Integer} )<br/>**EDIT ITEM** ( *object* : Table, Variable {; *item* : Integer} )<!-- END REF-->
 <!--REF #_command_.EDIT ITEM.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una tabla o variable |
 | objeto | any | &#8594; | Nombre del objeto (si se especifica *) o Tabla o variable (si se omite *) |
 | elemento | Integer | &#8594; | Número de elemento |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -31,7 +29,8 @@ Este comando aplica a los siguientes objetos editables:
 * Subformularios (en este caso, sólo un nombre de objeto, el subformulario, puede pasarse en *objeto*)
 * Formularios listados mostrados utilizando los comandos [DISPLAY SELECTION](display-selection.md) o [MODIFY SELECTION](modify-selection.md).
 
-Si el comando se utiliza con un objeto editable que no está en la lista, actúa de la misma forma que el comando [GOTO OBJECT](goto-object.md). El comando no hace nada si la lista o el array están vacíos o son invisibles. Igualmente, si la lista o el array no son editables, el comando sólo selecciona el elemento especificado sin cambiar a modo edición. En el caso de los list boxes, si la columna no permite la entrada de texto (entrada por casillas de selección o por listas deplegables únicamente), el elemento especificado toma el foco.
+Si el comando se utiliza con un objeto editable que no está en la lista, actúa de la misma forma que el comando [GOTO OBJECT](goto-object.md). 
+El comando no hace nada si la lista o el array están vacíos o son invisibles. Igualmente, si la lista o el array no son editables, el comando sólo selecciona el elemento especificado sin cambiar a modo edición. En el caso de los list boxes, si la columna no permite la entrada de texto (entrada por casillas de selección o por listas deplegables únicamente), el elemento especificado toma el foco.
 
 El parámetro opcional *elemento* le permite designar la posición del elemento (lista jerárquica) o el número de línea (list box, formularios listados y subformulario en modo “selección múltiple”) para cambiar a modo de edición. Si no pasa este parámetro, el comando se aplica al elemento actual de *objeto*. Si no hay elemento actual, el primer elemento de *objeto* cambia a modo edición.
 
@@ -43,7 +42,6 @@ El parámetro opcional *elemento* le permite designar la posición del elemento 
 ## Ejemplo 1 
 
 Este comando puede ser particularmente útil cuando crea un nuevo elemento en una lista jerárquica. Cuando se llama el comando, el último elemento añadido o insertado en la lista se convierte automáticamente en editable, sin que el usuario tenga que efectuar alguna acción especifica.   
-  
 El siguiente código puede ser el método de un botón que le permite insertar un nuevo elemento en una lista existente. El texto por defecto “Nuevo\_elemento” está listo automáticamente para ser cambiado:
 
 ```4d
@@ -80,5 +78,3 @@ Dadas dos columnas de un list box donde los nombres de las variables asociadas s
 | --- | --- |
 | Número de comando | 870 |
 | Hilo seguro | no |
-
-
