@@ -7,13 +7,12 @@ displayed_sidebar: docs
 
 <!--REF #_command_.Drop position.Syntax-->**Drop position** ( colNum | posXImagen ) : Integer<!-- END REF-->
 <!--REF #_command_.Drop position.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| colNum &#124; posXImagen | Entero largo | &#8592; | Número de columna del list box (-1 si el soltar ocurre más allá de la última columna)o <br/>Posición coordenada X en la imagen |
-| Resultado | Integer | &#8592; | Número (array/ list box) o posición (lista jerárquica) o Posición en cadena (texto/combo box) o elemento de destino o -1 si soltar ocurrió más allá del último elemento del array o de la lista |
-</div>
+| columnNumber | Integer | &#8592; | Número de columna del list box (-1 si el soltar ocurre más allá de la última columna) |
+| pictPosY | Integer | &#8592; | Posición de coordenada Y en la imagen |
+| Resultado | Integer | &#8592; | Número (list box) o • Posición (lista jerárquica) o • Posición en cadena (texto/combo box/Área 4D Write Pro) del elemento de destino o • -1 si soltar ocurrió más allá del último elemento de la lista |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -22,7 +21,6 @@ displayed_sidebar: docs
 
 Generalmente, se utiliza Drop position cuando administra un evento arrastrar y soltar que se produce en un array, un list box, una lista jerárquica, un campo de texto o una imagen o un área 4D Write Pro.
 
-* Si el objeto de destino es un array, el comando devuelve un número de elemento.
 * Si el objeto de destino es un list box, el comando devuelve un número de línea. En este caso, el comando también devuelve el número de columna donde se soltó en el parámetro opcional *colNum*.
 * Si el objeto de destino es una lista jerárquica, el comando devuelve una posición del elemento.
 * Si el objeto de destino es una variable o un campo tipo texto, o un combo box, el comando devuelve una posición de carácter al interior de la cadena.  
@@ -102,5 +100,3 @@ El método de objeto list box de la izquierda (destino) contiene el siguiente c�
 | --- | --- |
 | Número de comando | 608 |
 | Hilo seguro | no |
-
-
