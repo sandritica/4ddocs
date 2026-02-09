@@ -5,23 +5,21 @@ slug: /commands/dom-parse-xml-source
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.DOM Parse XML source.Syntax-->**DOM Parse XML source** ( *doc* : Text {; *validacion* : Boolean {; dtd | esquema}} ) : Text<!-- END REF-->
+<!--REF #_command_.DOM Parse XML source.Syntax-->**DOM Parse XML source** ( *document* : Text {; *validation* : Boolean {; *dtd* : Text }} ) : Text<br/>**DOM Parse XML source** ( *document* : Text {; *validation* : Boolean {; *schema* : Text }} ) : Text<!-- END REF-->
 <!--REF #_command_.DOM Parse XML source.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| doc | Text | &#8594; | Ruta de acceso del documento |
-| validacion | Boolean | &#8594; | True = Validación False = No validación |
-| dtd &#124; esquema | Cadena | &#8594; | Ubicación de la DTD o del esquema XML |
+| document | Text | &#8594; | Ruta de acceso del documento |
+| validation | Boolean | &#8594; | True = Validación False = No validación |
+| dtd | Text | &#8594;  | Ubicación de la DTD |
+| schema | Text | &#8594;  | Ubicación del esquema XML |
 | Resultado | Text | &#8592; | Referencia del elemento XML |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
 <!--REF #_command_.DOM Parse XML source.Summary-->El comando DOM Parse XML source analiza un documento que contiene una estructura XML y devuelve una referencia para este documento.<!-- END REF--> El comando puede validar o no el documento vía una DTD o un esquema XML (documento XSD, XML Schema Definition). 
-
 El documento puede estar en el disco o en Internet/Intranet. 
 
 **Nota:** la ejecución del comando **DOM Parse XML source** es síncrona.
@@ -31,6 +29,8 @@ En el parámetro *documento* puede pasar:
 * una ruta de acceso completa estándar (del tipo C:\\\\Carpeta\\\\Archivo\\\\... bajo Windows y MacintoshHD:Carpeta:Archivo bajo Mac OS),
 * o una ruta Unix bajo Mac OS (la cual debe comenzar por /).
 * o una ruta red de tipo http://www.sitio.com/Archivo o ftp://publico.ftp.com...
+* o una cadena vacía para mostrar una caja de diálogo Abrir archivo.  
+
 
 El parámetro booleano *validacion* permite indicar si validar o no la estructura. 
 
@@ -38,10 +38,10 @@ El parámetro booleano *validacion* permite indicar si validar o no la estructur
 * Si *validacion* es igual a False, la estructura no se validará.
 
 Si pasa True en *validacion* y omite el tercer parámetro, el comando intentará validar la estructura XML vía una referencia DTD o XSD que se encuentra en la estructura misma. La validación puede ser indirecta: si la estructura contiene una referencia a un archivo DTD que contiene una referencia a un archivo XSD, el comando intentará efectuar las dos validaciones.  
+
 El tercer parámetro permite designar una DTD específica o un esquema XML para el análisis del documento. Si utiliza este parámetro, el comando no tendrá en cuenta la DTD referenciada en el documento XML. 
 
 **Validación por DTD**
-
 Hay dos formas de especificar una DTD:
 
 * Como una referencia. Para hacerlo, pase la ruta de acceso completa de la nueva DTD (extensión “dtd”) en el parámetro *dtd*. Si el documento indicado no contiene una DTD válida, el parámetro *dtd* se ignora y se genera un error.
@@ -69,7 +69,7 @@ Apertura sin validación de un documento XML en disco:
 Apertura sin validación de un documento XML ubicado junto al archivo de estructura de la base:
 
 ```4d
- $xml_Ref_Estruct:=DOM Parse XML source("importar.xml")
+ $xml_Ref_Estruct:=DOM Parse XML source("import.xml")
 ```
 
 ## Ejemplo 3 
@@ -77,7 +77,7 @@ Apertura sin validación de un documento XML ubicado junto al archivo de estruct
 Apertura de un documento XML ubicado en el disco y validación utilizando un DTD ubicado en el disco:
 
 ```4d
- $xml_Ref_Estruct:=DOM Parse XML source("C:\\importar.xml";True;"C:\\importar_dtd.xml")
+ $xml_Ref_Estruct:=DOM Parse XML source("C:\\importar.xml";True;"C:\\import_dtd.xml")
 ```
 
 ## Ejemplo 4 
@@ -85,7 +85,7 @@ Apertura de un documento XML ubicado en el disco y validación utilizando un DTD
 Apertura sin validación de un documento XML ubicado en un URL específico:
 
 ```4d
- $xml_Ref_Estruct:=DOM Parse XML source("http://www.4DHispano.com/xml/importar.xml")
+ $xml_Ref_Estruct:=DOM Parse XML source("http://www.4D.com/xml/import.xml")
 ```
 
 ## Variables y conjuntos del sistema 
@@ -104,5 +104,3 @@ Si el comando ha sido ejecutado correctamente, la variable sistema OK toma el va
 | Número de comando | 719 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
