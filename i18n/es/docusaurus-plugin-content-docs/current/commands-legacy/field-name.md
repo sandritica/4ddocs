@@ -5,16 +5,15 @@ slug: /commands/field-name
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Field name.Syntax-->**Field name** ( *campPtr* : Puntero, Entero largo ) : Text<br/>**Field name** ( *numTabla* ; *numCamp* : Integer ) : Text<!-- END REF-->
+<!--REF #_command_.Field name.Syntax-->**Field name** ( *fieldPtr* : Pointer ) : Text<br/>**Field name** ( *tableNum* : Integer ; *fieldNum* : Integer ) : Text<!-- END REF-->
 <!--REF #_command_.Field name.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| campPtr &#124; tablaNum | Puntero, Entero largo | &#8594; | Puntero a un campo o número de tabla |
-| numCamp | Integer | &#8594; | Número de campo si se pasa un número de tabla como primer parámetro |
-| Resultado | Text | &#8592; | Nombre del campo |
-</div>
+| fieldPtr  | Pointer | &#8594;  | Puntero a un campo  |
+| tableNum | Integer | &#8594;  | Número de tabla |
+| fieldNum | Integer | &#8594;  | Número de campo si se pasa un número de tabla como primer parámetro |
+| Function result | Text | &#8592; | Nombre del campo |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -45,7 +44,6 @@ Este ejemplo muestra una alerta. Este método pasa un puntero a un campo:
  ALERT("El número del campo "+Field name($1)+" de la tabla "
  +Table name(Table($1))+" debe ser de más de cinco caracteres.")
 ```
-
 ## Ver también 
 
 [Field](field.md)  
@@ -58,5 +56,3 @@ Este ejemplo muestra una alerta. Este método pasa un puntero a un campo:
 | --- | --- |
 | Número de comando | 257 |
 | Hilo seguro | yes |
-
-
