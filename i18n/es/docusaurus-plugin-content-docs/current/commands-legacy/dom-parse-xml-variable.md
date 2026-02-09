@@ -7,15 +7,14 @@ displayed_sidebar: docs
 
 <!--REF #_command_.DOM Parse XML variable.Syntax-->**DOM Parse XML variable** ( *variable* : Blob, Text {; *validacion* : Boolean {; dtd | esquema}} ) : Text<!-- END REF-->
 <!--REF #_command_.DOM Parse XML variable.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | variable | Blob, Text | &#8594; | Nombre de la variable |
-| validacion | Boolean | &#8594; | True = Validación por la DTD, False = No validacion |
-| dtd &#124; esquema | Cadena | &#8594; | Ubicación de la DTD o del esquema XML |
+| validation | Boolean | &#8594; | True = Validación por la DTD, False = No validacion |
+| dtd | Text | &#8594;  | Ubicación de la DTD |
+| schema | Text | &#8594;  | Ubicación del esquema XML |
 | Resultado | Text | &#8592; | Referencia del elemento XML |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -38,6 +37,7 @@ Hay dos formas de especificar un DTD:
 
 * como una referencia. Para hacer esto, pase la ruta de acceso completa de la nueva DTD (extensión "dtd) en el parámetro *dtd*. Si el documento indicado no contiene una DTD válida, el parámetro *dtd* se ignora y se genera un error.
 * directamente en un texto. En este caso, si el contenido del parámetro comienza por “<?xml”, 4D lo considerará como la DTD; de lo contrario, 4D lo considerará como una ruta de acceso.
+
 **Validación por esquema** 
 Para validar el documento vía un esquema XML, sólo debe pasar un archivo o URL con una extensión "xsd" en lugar de una "dtd" en el tercer parámetro. La validación por esquema XML se considera más flexible y poderosa que la validación por DTD. El lenguaje de documentos XSD está basado en lenguaje XML. Los esquemas XML soportan particularmente tipos de datos. Para mayor información sobre los esquemas XML, consulte la siguiente dirección: *http://www.w3.org/XML/Schema*.
 
@@ -92,5 +92,3 @@ Si el comando se ejecuta correctamente, la variable sistema OK toma el valor 1\.
 | Número de comando | 720 |
 | Hilo seguro | yes |
 | Modifica variables | OK, error |
-
-
