@@ -5,18 +5,16 @@ slug: /commands/dom-create-xml-ref
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.DOM Create XML Ref.Syntax-->**DOM Create XML Ref** ( *raiz* : Text {; *nomEspacio* : Text} {; *nSNom* : Text ; *nSValor* : Text} {; ...(*nSNom* : Text, *nSValor* : Text)} ) : Text<!-- END REF-->
+<!--REF #_command_.DOM Create XML Ref.Syntax-->**DOM Create XML Ref** ( *root* : Text {; *nameSpace* : Text} {; *nameSpaceName* : Text ; *nameSpaceValue* : Text} {; ...(*nameSpaceName* : Text ; *nameSpaceValue* : Text)} ) : Text<!-- END REF-->
 <!--REF #_command_.DOM Create XML Ref.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| raiz | Text | &#8594; | Nombre del elemento raíz |
-| nomEspacio | Text | &#8594; | Valor del espacio de nombre (namespace) |
-| nSNom | Text | &#8594; | Nombre del espacio de nombre |
-| nSValor | Text | &#8594; | Valor de espacio de nombre |
+| root | Text | &#8594; | Nombre del elemento raíz |
+| nameSpace | Text | &#8594; | Valor del espacio de nombre (namespace) |
+| nameSpaceName | Text | &#8594; | Nombre del espacio de nombre |
+| nameSpaceValue | Text | &#8594; | Valor de espacio de nombre |
 | Resultado | Text | &#8592; | Referencia del elemento XML raíz |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -26,7 +24,6 @@ displayed_sidebar: docs
 Pase en el parámetro *raiz* el nombre del elemento raíz del árbol XML. 
 
 Pase en el parámetro opcional *nomEspacio* la declaración del valor del espacio de nombre (namespace) del árbol (por ejemplo “http://www.4dhispano.com”). 
-
 Note que es posible poner un prefijo al parámetro *raiz* con el nombre del espacio seguido de dos punto*s :* (por ejemplo “MiNombreEspacio:MiRaiz”). En este caso, el parámetro *nomEspacio* especificando el valor del espacio de nombre es obligatorio. 
 
 **Nota:** el espacio de nombre es una cadena que permite garantizar la unicidad de los nombres de las variables XML. Por lo general, se utiliza un URL como http://www.misitio.com/miurl. El URL no necesariamente tiene que ser válido, pero tiene que ser único. 
@@ -56,40 +53,41 @@ Este código produce el siguiente resultado:
 Creación de un árbol XML con un espacio de nombre: 
 
 ```4d
- var vRefElem : Text
- $Raiz:="MiNombreEspacio:MiRaiz"
- $Nombreespacio:="http://www.4DHispano.com/tech/nombreespacio"
- vRefElem:=DOM Create XML Ref($Raiz;$Nombreespacio)
+ var vElemRef : Text
+ $Root:="MyNameSpace:MyRoot"
+ $Namespace:="http://www.4D.com/tech/namespace"
+ vElemRef:=DOM Create XML Ref($Root;$Namespace)
 ```
 
 Este código da el siguiente resultado:
 
 ```XML
-<Minombreespacio:Miraiz xmlns:Minombreespacio="http://www.4DHispano.com/tech/nombreespacio"/>
+<MyNameSpace:MyRoot xmlns:MyNameSpace="http://www.4D.com/tech/namespace"/>
 ```
 
 ## Ejemplo 3 
 
+
 Creación de un árbol XML con varios espacios de nombre: 
 
 ```4d
- var vRefElem : Text
- var 80;$aNSNom1;$aNSNom2;$aNSValor1;$aNSValor2 : Text
- $Raiz:="MiNombreEspacio:MiRaiz"
- $Nombreespacio:="http://www.4DHispano.com/tech/nombreespacio"
- $aNSNom1:="NSNom1"
- $aNSNom2:="NSNom2"
- $aNSValor1:="http://www.4DHispano.com/Prod/nombreespacio"
- $aNSValor2:="http://www.4DHispano.com/Mkt/nombreespacio"
- vRefElem:=DOM Create XML Ref($Raiz;$Nombreespacio;$aNSNom1;$aNSValor1;$aNSNom2;$aNSValor2)
+ var vElemRef : Text
+ var $aNSName1;$aNSName2;$aNSValue1;$aNSValue2 : Text
+ $Root:="MyNameSpace:MyRoot"
+ $Namespace:="http://www.4D.com/tech/namespace"
+ $aNSName1:="NSName1"
+ $aNSName2:="NSName2"
+ $aNSValue1:="http://www.4D.com/Prod/namespace"
+ $aNSValue2:="http://www.4D.com/Mkt/namespace"
+ vElemRef:=DOM Create XML Ref($Root;$Namespace;$aNSName1;$aNSValue1;$aNSName2;$aNSValue2)
 ```
 
 Este código produce el siguiente resultado:
 
 ```XML
-<MiNombreEspacio:MiRaiz xmlns:MiNombreEspacio="http://www.4DHispano.com/tech/nombreEspacio"
-NSNom1="http://www.4DHispano.com/Prod/nombreespacio"
-NSNom2="http://www.4DHispano.com/Mkt/nombreespacio"/>
+<MyNameSpace:MyRoot xmlns:MyNameSpace="http://www.4D.com/tech/nameSpace"
+NSName1="http://www.4D.com/Prod/namespace"
+NSName2="http://www.4D.com/Mkt/namespace"/>
 ```
 
 ## Variables y conjuntos del sistema 
@@ -108,5 +106,3 @@ Si el comando se ejecutó correctamente, la variable sistema OK toma el valor 1\
 | Número de comando | 861 |
 | Hilo seguro | yes |
 | Modifica variables | OK, error |
-
-
