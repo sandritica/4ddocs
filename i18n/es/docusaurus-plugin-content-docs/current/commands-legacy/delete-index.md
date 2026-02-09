@@ -7,13 +7,12 @@ displayed_sidebar: docs
 
 <!--REF #_command_.DELETE INDEX.Syntax-->**DELETE INDEX** ( *Ptrcamp* : Puntero, Cadena {; *} )<br/>**DELETE INDEX** ( *nomIndex* : Puntero, Cadena {; *} )<!-- END REF-->
 <!--REF #_command_.DELETE INDEX.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| Ptrcamp &#124; nomIndex | Puntero, Cadena | &#8594; | Puntero al campo del cual borrar los índices o Nombre del índice a borrar |
-| * | Operador | &#8594; | Si se pasa = operación asincrónica |
-</div>
+| Ptrcamp | Pointer, Text | &#8594;  | Puntero al campo del cual borrar los índices |
+| nomIndex | Pointer, Text | &#8594; | Nombre del índice a borrar |
+| * | Operator | &#8594; | Si se pasa = operación asincrónica |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -55,5 +54,3 @@ Este ejemplo ilustra las dos sintaxis del comando:
 | --- | --- |
 | Número de comando | 967 |
 | Hilo seguro | yes |
-
-
