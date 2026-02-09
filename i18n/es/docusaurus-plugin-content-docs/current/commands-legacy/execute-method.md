@@ -7,19 +7,18 @@ displayed_sidebar: docs
 
 <!--REF #_command_.EXECUTE METHOD.Syntax-->**EXECUTE METHOD** ( *nomMetodo* : Text ; *result* : Variable {; ...*param* : Expression} )<br/>**EXECUTE METHOD** ( *nomMetodo* : Text ; * {; ...*param* : Expression} )<!-- END REF-->
 <!--REF #_command_.EXECUTE METHOD.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| nomMetodo | Text | &#8594; | Nombre del método de proyecto a ejecutar |
-| result | Variable, Operator | &#8592; | Variable que recibe el resultado del método * para un método que no devuelve un resultado |
-| param | Expression | &#8594; | Parámetro(s) del método |
-</div>
+| methodName | Text | &#8594;  | Nombre del método de proyecto a ejecutar |
+| result | Variable | &#8592; | Variable que recibe el resultado del método |
+| * | Operator | &#8594; | Método que no devuelve un resultado |
+| param | Expression | &#8594;  | Parámetro(s) del método |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.EXECUTE METHOD.Summary-->El comando EXECUTE METHOD provoca la ejecución del método de proyecto *nomMetodo* pasando los parámetros en *param1.<!-- END REF-->..paramN*. Puede pasar el nombre de un método que puede ser llamado desde la base o el componente que ejecuta el comando.
+<!--REF #_command_.EXECUTE METHOD.Summary-->El comando EXECUTE METHOD provoca la ejecución del método de proyecto *nomMetodo* pasando los parámetros en *param1.<!-- END REF-->...paramN*. Puede pasar el nombre de un método que puede ser llamado desde la base o el componente que ejecuta el comando.
 
 En *result*, puede pasar una variable que reciba el resultado de la ejecución de *nomMetodo* (valor ubicado en $0 al interior de *nomMetodo*). Si el método no devuelve un resultado, pase *\** como segundo parámetro.
 
@@ -42,5 +41,3 @@ Si este comando se ejecuta correctamente, la variable sistema OK toma el valor 1
 | Número de comando | 1007 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
