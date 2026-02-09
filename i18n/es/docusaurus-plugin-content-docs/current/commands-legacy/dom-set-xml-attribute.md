@@ -5,16 +5,14 @@ slug: /commands/dom-set-xml-attribute
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.DOM SET XML ATTRIBUTE.Syntax-->**DOM SET XML ATTRIBUTE** ( *elementRef* : Text ; *nomAtrib* : Text ; *valorAtrib* : Text, Boolean, Integer, Real, Time, Date {; ...(*nomAtrib* : Text, *valorAtrib* : Text, Boolean, Integer, Real, Time, Date)} )<!-- END REF-->
+<!--REF #_command_.DOM SET XML ATTRIBUTE.Syntax-->**DOM SET XML ATTRIBUTE** ( *elementRef* : Text ; *attribName* : Text ; *attrValue* : Text, Boolean, Integer, Real, Time, Date {; ...(*attribName* : Text ; *attrValue* : Text, Boolean, Integer, Real, Time, Date)} )<!-- END REF-->
 <!--REF #_command_.DOM SET XML ATTRIBUTE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | elementRef | Text | &#8594; | Referencia del elemento XML |
-| nomAtrib | Text | &#8594; | Atributo a definir |
-| valorAtrib | Text, Boolean, Integer, Real, Time, Date | &#8594; | Nuevo valor del atributo |
-</div>
+| attribName | Text | &#8594; | Atributo a definir |
+| attrValue | Text, Boolean, Integer, Real, Time, Date | &#8594; | Nuevo valor del atributo |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -22,12 +20,11 @@ displayed_sidebar: docs
 <!--REF #_command_.DOM SET XML ATTRIBUTE.Summary-->El comando DOM SET XML ATTRIBUTE  permite añadir uno o varios atributos al elemento XML cuya referencia se pasa en el parámetro *refElement*.<!-- END REF--> También permite definir el valor de cada atributo definido. 
 
 Pase en los parámetros *nomAtrib* y *valorAtrib* respectivamente el atributo a escribir y su valor (en forma de variables, campos, o valores literales). Puede pasar tantos atributos/valores como quiera.
-
 El parámetro *valorAtrib* puede ser de tipo texto o de otro tipo (Booleano, entero, real, fecha u hora). Si pasa un valor de un tipo diferente a texto, 4D se encarga de su conversión a texto, de acuerdo a los siguientes principios:
 
 | **Tipo** | **Ejemplo de valor convertido**               |
 | -------- | --------------------------------------------- |
-| Booleano | "true" o "false" (no traducido)               |
+| Boolean | "true" o "false" (no traducido)               |
 | Entero   | "123456"                                      |
 | Real     | "12.34" (el separador decimal siempre es ".") |
 | Fecha    | "2006-12-04T00:00:00Z" (estándar RFC 3339)    |
@@ -77,5 +74,3 @@ Si el comando se ejecuta correctamente, la variable sistema OK toma el valor 1\.
 | Número de comando | 866 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
