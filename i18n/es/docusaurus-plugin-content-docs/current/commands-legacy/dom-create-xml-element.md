@@ -5,18 +5,16 @@ slug: /commands/dom-create-xml-element
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.DOM Create XML element.Syntax-->**DOM Create XML element** ( *elementRef* : Text ; *xRuta* : Text {; *nomAtrib* : Text ; *valorAtrib* : Text, Boolean, Integer, Real, Time, Date} {; ...(*nomAtrib* : Text, *valorAtrib* : Text, Boolean, Integer, Real, Time, Date)} ) : Text<!-- END REF-->
+<!--REF #_command_.DOM Create XML element.Syntax-->**DOM Create XML element** ( *elementRef* : Text ; *xPath* : Text {; *attribName* : Text ; *attrValue* : Text, Boolean, Integer, Real, Time, Date} {; ...(*attribName* : Text ; *attrValue* : Text, Boolean, Integer, Real, Time, Date)} ) : Text<!-- END REF-->
 <!--REF #_command_.DOM Create XML element.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | elementRef | Text | &#8594; | Referencia del elemento XML raíz |
-| xRuta | Text | &#8594; | Ruta XPath del elemento XML a crear |
-| nomAtrib | Text | &#8594; | Atributo a definir |
-| valorAtrib | Text, Boolean, Integer, Real, Time, Date | &#8594; | Nuevo valor del atributo |
+| xPath | Text | &#8594; | Ruta XPath del elemento XML a crear |
+| attribName | Text | &#8594; | Atributo a definir |
+| attrValue | Text, Boolean, Integer, Real, Time, Date | &#8594; | Nuevo valor del atributo |
 | Resultado | Text | &#8592; | Referencia del elemento XML creado |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -33,7 +31,7 @@ En *xRuta*, pase la ruta de acceso del elemento a crear en notación XPath (para
 | para\[1\]      | Designa el primer hijo para del nodo de contexto |
 | para\[last()\] | Designa el último hijo para del nodo de contexto |
 
-**Nota de compatibilidad:** **a partir de la v18 R3, la implementación de XPath en 4D es más compatible. Por razones de compatibilidad, la implementación no estándar anterior se mantiene de forma predeterminada en las bases convertidas. Si desea beneficiarse de las funcionalidades extendidas en sus bases convertidas, debe seleccionar la opción de compatibilidad *Utilizar XPath estándar de Página Compatibilidad.* 
+**Nota de compatibilidad:* a partir de la v18 R3, la implementación de XPath en 4D es más compatible. Por razones de compatibilidad, la implementación no estándar anterior se mantiene de forma predeterminada en las bases convertidas. Si desea beneficiarse de las funcionalidades extendidas en sus bases convertidas, debe seleccionar la opción de compatibilidad *Utilizar XPath estándar de Página Compatibilidad.* 
 
 Es posible pasar directamente en *xRuta* un nombre de elemento simple con el fin de crear un subelemento a partir del elemento actual (ver el ejemplo 3).
 
@@ -59,8 +57,16 @@ El comando devuelve en resultado la referencia XML del elemento creado.
 
 Queremos crear el siguiente elemento: 
 
-```json
-                                      
+```xml
+     <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<RootElement>
+   <Elem1>
+      <Elem2>
+         <Elem3> </Elem3>
+         <Elem3> </Elem3>
+      </Elem2>
+   </Elem1>
+</RootElement>                                 
 ```
 
 Para hacerlo, simplemente escribimos:
@@ -74,15 +80,19 @@ Para hacerlo, simplemente escribimos:
 
 ## Ejemplo 2 
 
-Queremos crear el siguiente elemento (contiene los atributos): \[#codeXML\]<?xml version="1.0" encoding="UTF-8" standalone="no" ?>  
-<RootElement>  
-<Elem1>  
-<Elem2>  
-<Elem3 Font=Verdana Size=10> </Elem3>  
-<Elem3 Font=Verdana Size=8> </Elem3>  
-</Elem2>  
-</Elem1>  
-</RootElement>\[#/codeRAW\]
+Queremos crear el siguiente elemento (contiene los atributos):
+
+```xml
+       <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<RootElement>
+   <Elem1>
+      <Elem2>
+         <Elem3 Font=Verdana Size=10> </Elem3>
+         <Elem3 Font=Verdana Size=8> </Elem3>
+      </Elem2>
+   </Elem1>
+</RootElement>                               
+```
 
 Para hacerlo, simplemente escribimos:
 
@@ -113,8 +123,18 @@ Si desea insertar un elemento después, puede escribir:
 
 Tiene entonces:
 
-```json
-                                                
+```xml
+     <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<RootElement>
+   <Elem1>
+      <Elem2>
+         <Elem3 Font=Verdana Size=10> </Elem3>
+         <Elem3 Font=Arial> </Elem3>
+         <Elem3 Font=Verdana Size=8> </Elem3>
+      </Elem2>
+   </Elem1>
+</RootElement>
+                                           
 ```
 
 ## Ejemplo 3 
@@ -165,5 +185,3 @@ Se genera un error cuando:
 | Número de comando | 865 |
 | Hilo seguro | yes |
 | Modifica variables | OK, error |
-
-
