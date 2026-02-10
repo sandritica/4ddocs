@@ -5,17 +5,15 @@ slug: /commands/get-highlight
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET HIGHLIGHT.Syntax-->**GET HIGHLIGHT** ( {* ;} *objeto* : Field, Variable, any ; *inicioSel* : Integer ; *finSel* : Integer )<!-- END REF-->
+<!--REF #_command_.GET HIGHLIGHT.Syntax-->**GET HIGHLIGHT** ( {* ;} *object* : Variable, Field, any ; *startSel* : Integer ; *endSel* : Integer )<!-- END REF-->
 <!--REF #_command_.GET HIGHLIGHT.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
-| objeto | Field, Variable, any | &#8594; | Nombre del objeto (si se especifica *) o campo o variable (si se omite *) |
-| inicioSel | Integer | &#8592; | Posición del inicio de la selección de texto |
-| finSel | Integer | &#8592; | Posición del fin de la selección de texto |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
+| object | Field, Variable, any | &#8594; | Nombre del objeto (si se especifica *) o campo o variable (si se omite *) |
+| startSel | Integer | &#8592; | Posición del inicio de la selección de texto |
+| endSel | Integer | &#8592; | Posición del fin de la selección de texto |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -29,6 +27,7 @@ Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nom
 El texto puede ser seleccionado por el usuario o por el comando [HIGHLIGHT TEXT](highlight-text.md).
 
 El parámetro *inicioSel* devuelve la posición del primer carácter seleccionado.   
+
 El parámetro *finSel* devuelve la posición del último carácter seleccionado más uno. 
 
 Si los valores devueltos de *inicioSel* y *finSel* son iguales, el usuario no ha seleccionado ningún texto, y el punto de inserción está ubicado antes del carácter especificado por *inicioSel*. 
@@ -37,7 +36,7 @@ Si el objeto designado por el parámetro *objeto* no se encuentra en el formular
 
 ## Ejemplo 1 
 
-El siguiente ejemplo obtiene el texto seleccionado en el campo *\[Productos\]Comentarios*: 
+El siguiente ejemplo obtiene el texto seleccionado en el campo *\[Products\]Comments*: 
 
 ```4d
 GET HIGHLIGHT([Products]Comments;vFirst;vLast)
@@ -45,7 +44,6 @@ If(vFirst < vlast)
     ALERT("The selected text is:"+Substring([Products]Comments;vFirst;vLast-vFirst))
 End if
 ```
-
 
 ## Ejemplo 2 
 
@@ -72,5 +70,3 @@ Modificación del estilo del texto resaltado:
 | --- | --- |
 | Número de comando | 209 |
 | Hilo seguro | no |
-
-
