@@ -5,16 +5,14 @@ slug: /commands/font-file
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Font file.Syntax-->**Font file** ( *familiaFuente* : Text {; *estiloFuente* : Integer} ) : any<!-- END REF-->
+<!--REF #_command_.Font file.Syntax-->**Font file** ( *fontFamily* : Text {; *fontStyle* : Integer} ) : Object<!-- END REF-->
 <!--REF #_command_.Font file.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | familiaFuente | Text | &#8594; | Nombre de la familia de fuente |
 | estiloFuente | Integer | &#8594; | Estilo de fuente: 0=normal (por defecto), 1=negrita, 2=itálica |
-| Resultado | Null, Object | &#8592; | Objeto archivo fuente |
-</div>
+| Resultado | Object | &#8592; | Objeto archivo fuente (null si la fuente no está instalada) |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -57,5 +55,3 @@ Desea asegurarse de que la fuente utilizada en un área de texto esté disponibl
 | --- | --- |
 | Número de comando | 1700 |
 | Hilo seguro | yes |
-
-
