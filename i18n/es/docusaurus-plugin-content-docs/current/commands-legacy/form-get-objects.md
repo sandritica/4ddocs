@@ -5,17 +5,15 @@ slug: /commands/form-get-objects
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.FORM GET OBJECTS.Syntax-->**FORM GET OBJECTS** ( *arrObjetos* : Text array {; *arrVariables* : Pointer array {; *arrPags* : Integer array}} {; *opcionPag* : Integer, *} )<!-- END REF-->
+<!--REF #_command_.FORM GET OBJECTS.Syntax-->**FORM GET OBJECTS** ( *objectsArray* : Text array {; *variablesArray* : Pointer array {; *pagesArray* : Integer array}} {; *formPageOption* : Integer } )<!-- END REF-->
 <!--REF #_command_.FORM GET OBJECTS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | arrObjetos | Text array | &#8592; | Nombre de los objetos del formulario |
 | arrVariables | Pointer array | &#8592; | Punteros a variables o campos asociados a los objetos |
 | arrPags | Integer array | &#8592; | Número de página de cada objeto |
-| opcionPag | Integer, * | &#8594; | 1=Página actual del formulario, 2=Todas las páginas, 4=Páginas heredadas<br/>Si se pasa * (obsoleto) = página actual con objetos heredados |
-</div>
+| formPageOption | Integer | &#8594;  | 1=Página actual del formulario, 2=Todas las páginas, 4=Páginas heredadas |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -43,7 +41,6 @@ El parámetro opcional *opcionPag* permite designar la(s) parte(s) del formulari
 | Form all pages    | Entero largo | 2     | Devuelve todos los objetos de todas las páginas, excluyendo los objetos heredados                             |
 | Form current page | Entero largo | 1     | Devuelve todos los objetos de la página actual, incluyendo la página 0, pero excluyendo los objetos heredados |
 | Form inherited    | Entero largo | 4     | Devuelve sólo los objetos heredados                                                                           |
-  
   
 **Nota de compatibilidad**: pasar el parámetro *\** es equivalente a pasar Form current page+Form inherited. La sintaxis con el parámetro *\** ahora es obsoleta y no debe ser utilizarse más.
 
@@ -133,5 +130,3 @@ Usted quiere cargar un formulario y obtener la lista de todos los objetos de los
 | --- | --- |
 | Número de comando | 898 |
 | Hilo seguro | no |
-
-
