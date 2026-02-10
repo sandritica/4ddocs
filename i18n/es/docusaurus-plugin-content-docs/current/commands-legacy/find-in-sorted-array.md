@@ -5,26 +5,22 @@ slug: /commands/find-in-sorted-array
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Find in sorted array.Syntax-->**Find in sorted array** ( *array* : Array ; *valor* : Expression ; > or < {; *posPrim* : Integer {; *posUlt* : Integer}} ) : Boolean<!-- END REF-->
+<!--REF #_command_.Find in sorted array.Syntax-->**Find in sorted array** ( *array* : Array ; *value* : Expression ; *>_or_<* : Comparator {; *posFirst* : Integer {; *posLast* : Integer}} ) : Boolean<!-- END REF-->
 <!--REF #_command_.Find in sorted array.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | array | Array | &#8594; | Array a buscar |
-| valor | Expression | &#8594; | Valor del mismo tipo a buscar en el array |
-| > or < | Operador | &#8594; | > si el array está en orden ascendente, < si el está en orden descendente |
-| posPrim | Integer | &#8592; | Posición de su primera aparición si se encuentra el valor; de lo contrario la posición donde debe insertarse el valor |
-| posUlt | Integer | &#8592; | Posición de su última ocurrencia si se encuentra el valor; de lo contrario lo mismo que posPrim |
+| value | Expression | &#8594; | Valor del mismo tipo a buscar en el array |
+| >_or_< | Comparator | &#8594; | > si el array está en orden ascendente, < si el está en orden descendente |
+| posFirst | Integer | &#8592; | Posición de su primera aparición si se encuentra el valor; de lo contrario la posición donde debe insertarse el valor |
+| posLast | Integer | &#8592; | Posición de su última ocurrencia si se encuentra el valor; de lo contrario lo mismo que posPrim |
 | Resultado | Boolean | &#8592; | True si al menos un elemento en el array corresponde al valor, de lo contrario False |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.Find in sorted array.Summary-->**Tema:** Arrays
-
-El nuevo comando **Find in sorted array** devuelve **true** si al menos un elemento en el *array* ordenado con el *valor* y opcionalmente devuelve la posición de los elementos correspondientes.<!-- END REF--> A diferencia de [Find in array](find-in-array.md), **Find in sorted array** sólo funciona con un *array* ordenado y ofrece información sobre la posición de las ocurrencias, lo que le permite insertar elementos si es necesario.
+<!--REF #_command_.Find in sorted array.Summary-->El  comando **Find in sorted array** devuelve **true** si al menos un elemento en el *array* ordenado con el *valor* y opcionalmente devuelve la posición de los elementos correspondientes.<!-- END REF--> A diferencia de [Find in array](find-in-array.md), **Find in sorted array** sólo funciona con un *array* ordenado y ofrece información sobre la posición de las ocurrencias, lo que le permite insertar elementos si es necesario.
 
 El *array* debe estar ya ordenado y debe coincidir con el orden especificado por el parámetro *\> or <* (es decir, el símbolo "mayor que" para el orden ascendente y el símbolo "menor que" para el orden descendente). El comando **Find in sorted array** tomará ventaja de la ordenación y uso de un algoritmo de *búsqueda binaria*, que es mucho más eficiente para grandes arrays (para más información, consulte la [página algoritmo de búsqueda binaria en Wikipedia](http://en.wikipedia.org/wiki/Binary%5Fsearch%5Falgorithm)). Sin embargo, si el array no está ordenado correctamente, el resultado puede ser incorrecto.
 
@@ -70,7 +66,6 @@ Usted quiere encontrar el número de ocurrencias de las cadenas que comienzan po
     $output:=$output+$array{$i}+"\n"
  End for
 ```
-
 ## Ver también 
 
 [Count in array](count-in-array.md)  
@@ -83,5 +78,3 @@ Usted quiere encontrar el número de ocurrencias de las cadenas que comienzan po
 | --- | --- |
 | Número de comando | 1333 |
 | Hilo seguro | yes |
-
-
