@@ -5,14 +5,13 @@ slug: /commands/flush-cache
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.FLUSH CACHE.Syntax-->**FLUSH CACHE** ({ tam | *  })<!-- END REF-->
+<!--REF #_command_.FLUSH CACHE.Syntax-->**FLUSH CACHE** ({ size | *  })<!-- END REF-->
 <!--REF #_command_.FLUSH CACHE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| tam &#124; * | Real, Operador | &#8594; | * para liberar la memoria caché completamente, o número de bytes a liberar en la caché |
-</div>
+| size | Real | &#8594;  | Número de bytes a liberar en la caché |
+| * | Operator | &#8594;  | Liberar la memoria caché completamente |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -39,5 +38,3 @@ Normalmente, no es necesario llamar a este comando, ya que 4D guarda las modific
 | --- | --- |
 | Número de comando | 297 |
 | Hilo seguro | yes |
-
-
