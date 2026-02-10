@@ -5,15 +5,14 @@ slug: /commands/font-list
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.FONT LIST.Syntax-->**FONT LIST** ( *fuentes* : Text array {; *tipoLista* : Integer, *} )<!-- END REF-->
+<!--REF #_command_.FONT LIST.Syntax-->**FONT LIST** ( *fonts* : Text array {; *listType* : Integer } )<br/>**FONT LIST** ( *fonts* : Text array {; *} )<!-- END REF-->
 <!--REF #_command_.FONT LIST.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| fuentes | Text array | &#8592; | Array de nombres de fuentes disponibles |
-| tipoLista | Integer, * | &#8594; | Tipo de lista de fuente a devolver o * para devolver los nombres de fuente en macOS |
-</div>
+| fonts | Text array | &#8592; | Array de nombres de fuentes |
+| listType | Integer | &#8594;  | Tipo de lista de fuente a devolver |
+| * | Operator | &#8594;  | Devolver los nombres de fuente en macOS |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -28,11 +27,10 @@ El parámetro *tipoLista* permite designar el tipo de la lista de fuente a obten
 | Recent fonts   | Entero largo | 2     | *fuentes* contiene la lista de fuentes recientes (lista de fuentes utilizadas durante la sesión 4D). Esta lista es utilizada particularmente por las áreas de texto multiestilo.                                                                                                                                                                                                                                                                                                         |
 | System fonts   | Entero largo | 0     | *fuentes* contiene la lista de todas las fuentes del sistema. Opción por defecto si se omite *tipoLista*.                                                                                                                                                                                                                                                                                                                                                                                |
 
-Bajo macOS, cuando se pasa el parámetro opcional *\**, el comando llena el array *fuentes* con los nombres de las fuentes y no con los nombres de las familias de fuentes. La operación por defecto simplifica la gestión programada de áreas de texto enriquecidas, que utilizan familias de fuente. Si pasa el parámetro *\**, los nombres de fuente, por ejemplo "Arial bold", "Arial italic", "Arial narrow italic," son devueltos en lugar de las familias, tales como "Arial", "Arial black" o "Arial narrow".
+En macOS, cuando se pasa el parámetro opcional *\**, el comando llena el array *fuentes* con los nombres de las fuentes y no con los nombres de las familias de fuentes. La operación por defecto simplifica la gestión programada de áreas de texto enriquecidas, que utilizan familias de fuente. Si pasa el parámetro *\**, los nombres de fuente, por ejemplo "Arial bold", "Arial italic", "Arial narrow italic," son devueltos en lugar de las familias, tales como "Arial", "Arial black" o "Arial narrow".
+En Windows, el parámetro *\** no tiene efecto. El comando devuelve siempre las familias de fuentes.
 
-Bajo Windows, el parámetro *\** no tiene efecto. El comando devuelve siempre las familias de fuentes.
-
-**Nota:** bajo Mac OS, si utiliza el resultado de este comando con el comando [ST SET ATTRIBUTES](st-set-attributes.md) en un área de texto multiestilo, no debe pasar el parámetro *\** (sólo familias de fuentes soportadas como Attribute font name). Esta limitación no aplica a áreas 4D Write Pro, que aceptan fuentes o nombres de familias de fuentes. 
+**Nota:** en Mac OS, si utiliza el resultado de este comando con el comando [ST SET ATTRIBUTES](st-set-attributes.md) en un área de texto multiestilo, no debe pasar el parámetro *\** (sólo familias de fuentes soportadas como Attribute font name). Esta limitación no aplica a áreas 4D Write Pro, que aceptan fuentes o nombres de familias de fuentes. 
 
 ### Fuentes vectoriales 
 
@@ -42,7 +40,6 @@ En macOS, este principio aplica desde macOS 10.4 (las fuentes de mapa de bits Qu
 
 Bajo Windows, este principio se aplica comenzando con 4D v15 R4\. Con el fin de ayudar a los desarrolladores a seleccionar sólo fuentes modernas para sus interfaces, sólo las fuentes vectoriales "TrueType" u "OpenType" se listan. Por ejemplo, "ASI\_Mono", "MS Sans Serif" y "Syistem" ya no están disponibles. Además, también se ignoran los nombres GDI; sólo los nombres de familias de fuente DirectWrite son soportados. Por ejemplo, las fuentes "Arial Black" o "Segoe UI Black" no están en la lista; Sólo "Arial" y "Segoe" se devuelven.
 
-  
 **Notas de compatibilidad para Windows:**
 
 * Las fuentes de mapa de bits se pueden seguir utilizando en sus formularios 4D (excepto en las áreas 4D Write Pro). Simplemente se eliminan de la lista devuelta por este comando. Sin embargo, para asegurar la compatibilidad con futuras versiones de 4D y Windows, se recomienda utilizar sólo las familias de fuentes DirectWrite.
@@ -84,5 +81,3 @@ Usted quiere obtener una lista de fuentes recientes:
 | --- | --- |
 | Número de comando | 460 |
 | Hilo seguro | yes |
-
-
