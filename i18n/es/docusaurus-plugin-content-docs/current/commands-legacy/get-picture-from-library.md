@@ -5,15 +5,14 @@ slug: /commands/get-picture-from-library
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET PICTURE FROM LIBRARY.Syntax-->**GET PICTURE FROM LIBRARY** ( refImag | nomImag ; *imagen* : Picture )<!-- END REF-->
+<!--REF #_command_.GET PICTURE FROM LIBRARY.Syntax-->**GET PICTURE FROM LIBRARY** ( *picRef* : Integer ; *picture* : Picture )<br/>**GET PICTURE FROM LIBRARY** ( *picName* : Text ; *picture* : Picture )<!-- END REF-->
 <!--REF #_command_.GET PICTURE FROM LIBRARY.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| refImag &#124; nomImag | Entero largo, Cadena | &#8594; | Número de referencia o nombre de una imagen de la librería de imágenes |
-| imagen | Picture | &#8592; | Imagen de la librería de imágenes |
-</div>
+| picRef | Integer | &#8594; | Número de referencia de una imagen de la librería de imágenes |
+| picName | Text | &#8594;  | Nombre de una imagen de la librería de imágenes|
+| picture | Picture | &#8592; | Imagen de la librería de imágenes |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -24,9 +23,11 @@ Este comando no puede utilizarse en proyectos porque la librería de imágenes s
 
 :::
 
-<!--REF #_command_.GET PICTURE FROM LIBRARY.Summary-->El comando GET PICTURE FROM LIBRARY devuelve en el parámetro *imagen* la imagen de la librería de imágenes cuyo número de referencia se pasa en *refImag* o cuyo nombre se pasa en *nomImag*.<!-- END REF-->
 
-Si no hay una imagen con ese nombre o número de referencia, GET PICTURE FROM LIBRARY no modifica *imagen*. 
+<!--REF #_command_.GET PICTURE FROM LIBRARY.Summary-->El comando GET PICTURE FROM LIBRARY devuelve en el parámetro *picture* la imagen de la librería de imágenes cuyo número de referencia se pasa en *picRef* o cuyo nombre se pasa en *picName*.<!-- END REF-->
+
+
+Si no hay una imagen con ese nombre o número de referencia, GET PICTURE FROM LIBRARY no modifica *picture*. 
 
 ## Ejemplo 1 
 
@@ -69,5 +70,3 @@ Si no hay suficiente memoria para devolver la imagen, se genera el error -108\. 
 | Número de comando | 565 |
 | Hilo seguro | no |
 | Modifica variables | OK, error |
-
-
