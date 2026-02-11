@@ -5,23 +5,21 @@ slug: /commands/get-picture-metadata
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET PICTURE METADATA.Syntax-->**GET PICTURE METADATA** ( *imagen* : Picture ; *nomMeta* : Text ; *ContenidoMeta* : Variable {; ...(*nomMeta* : Text, *ContenidoMeta* : Variable)} )<!-- END REF-->
+<!--REF #_command_.GET PICTURE METADATA.Syntax-->**GET PICTURE METADATA** ( *picture* : Picture ; *metaName* : Text ; *metaContents* : Variable {; ...(*metaName* : Text ; *metaContents* : Variable)} )<!-- END REF-->
 <!--REF #_command_.GET PICTURE METADATA.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| imagen | Picture | &#8594; | Imagen de la cual obtener los metadatos |
-| nomMeta | Text | &#8594; | Nombre o ruta de acceso del bloque a leer |
-| ContenidoMeta | Variable | &#8592; | Contenido del metadato |
-</div>
+| Picture | &#8594; | Imagen de la cual obtener los metadatos |
+| metaName | Text | &#8594; | Nombre o ruta de acceso del bloque a leer |
+| metaContents | Variable | &#8592; | Contenido del metadato |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.GET PICTURE METADATA.Summary-->El comando **GET PICTURE METADATA** permite leer el contenido de los metadatos (o meta-tags) presentes en *imagen* (campo o variable imagen 4D).<!-- END REF--> Para mayor información sobre metadatos, consulte la descripción del comando [SET PICTURE METADATA](set-picture-metadata.md).
+<!--REF #_command_.GET PICTURE METADATA.Summary-->El comando **GET PICTURE METADATA** permite leer el contenido de los metadatos (o meta-tags) presentes en *Picture* (campo o variable imagen 4D).<!-- END REF--> Para mayor información sobre metadatos, consulte la descripción del comando [SET PICTURE METADATA](set-picture-metadata.md).
 
-En el parámetro *nomMeta*, pase una cadena especificando el tipo de metadato a recuperar. Puede pasar:
+En el parámetro *metaName*, pase una cadena especificando el tipo de metadato a recuperar. Puede pasar:
 
 * una constante del tema *Nombres de metadatos imágenes* con una ruta de etiqueta,
 * el nombre de un bloque completo de metadatos ("TIFF", "EXIF", "GPS" o "IPTC"),
@@ -29,8 +27,8 @@ En el parámetro *nomMeta*, pase una cadena especificando el tipo de metadato a 
 
 Pase en el parámetro *ContenidoMeta* la variable destinada a recibir los metadatos. 
 
-* Si pasa una ruta de etiqueta en *nomMeta*, el parámetro *ContenidoMeta* contiene directamente el valor a leer. El valor se convertirá en el tipo de la variable (si el tipo de variable no se ha definido, se utilizará el tipo texto por defecto. Las variables de tipo texto serán formateadas en XML (estándar XMP). Puede pasar un array cuando el metadato contiene más de un valor (este es el caso, particularmente, para las etiquetas IPTC Keywords).
-* Si pasa un nombre de bloque o una cadena vacía en *nomMeta*, el parámetro *ContenidoMeta* debe ser una referencia valida del elemento DOM XML. En este caso, el contenido del bloque designado (o de todos los bloques si pasó una cadena vacía en *nomMeta*) se copia nuevamente en el elemento de referencia.
+* Si pasa una ruta de etiqueta en *nomMeta*, el parámetro *metaContents* contiene directamente el valor a leer. El valor se convertirá en el tipo de la variable (si el tipo de variable no se ha definido, se utilizará el tipo texto por defecto. Las variables de tipo texto serán formateadas en XML (estándar XMP). Puede pasar un array cuando el metadato contiene más de un valor (este es el caso, particularmente, para las etiquetas IPTC Keywords).
+* Si pasa un nombre de bloque o una cadena vacía en *nomMeta*, el parámetro *metaContents* debe ser una referencia valida del elemento DOM XML. En este caso, el contenido del bloque designado (o de todos los bloques si pasó una cadena vacía en *metaName*) se copia nuevamente en el elemento de referencia.
 
 ## Ejemplo 1 
 
@@ -110,5 +108,3 @@ La variable sistema *OK* devuelve 1 si la recuperación de los metadatos es corr
 | Número de comando | 1122 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
