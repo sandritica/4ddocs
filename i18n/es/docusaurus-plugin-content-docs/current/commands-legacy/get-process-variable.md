@@ -5,21 +5,19 @@ slug: /commands/get-process-variable
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET PROCESS VARIABLE.Syntax-->**GET PROCESS VARIABLE** ( *proceso* : Integer ; *srcVar* : Variable ; *dstVar* : Variable {; ...(*srcVar* : Variable, *dstVar* : Variable)} )<!-- END REF-->
+<!--REF #_command_.GET PROCESS VARIABLE.Syntax-->**GET PROCESS VARIABLE** ( *process* : Integer ; *srcVar* : Variable ; *dstVar* : Variable {; ...(*srcVar* : Variable ; *dstVar* : Variable)} )<!-- END REF-->
 <!--REF #_command_.GET PROCESS VARIABLE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| proceso | Integer | &#8594; | Número de proceso fuente |
+| process | Integer | &#8594; | Número de proceso fuente |
 | srcVar | Variable | &#8594; | Variable fuente |
 | dstVar | Variable | &#8592; | Variable de destino |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.GET PROCESS VARIABLE.Summary-->El comando GET PROCESS VARIABLE lee el valor de las variables proceso *srcVar* (*srvVar2*, etc.) desde el proceso fuente cuyo número se pasa en *proceso* y devuelve sus valores actuales en las variables *dstVar* (*dstVar2*, etc.) del proceso actual.<!-- END REF-->
+<!--REF #_command_.GET PROCESS VARIABLE.Summary-->El comando GET PROCESS VARIABLE lee el valor de las variables proceso *srcVar* (*srvVar2*, etc.) desde el proceso fuente cuyo número se pasa en *process* y devuelve sus valores actuales en las variables *dstVar* (*dstVar2*, etc.) del proceso actual.<!-- END REF-->
 
 Cada variable fuente puede ser una variable, un array o un elemento de array. Sin embargo, tenga en cuenta las restricciones listadas más adelante en esta sección.
 
@@ -27,19 +25,18 @@ En cada pareja de variables *srcVar;dstVar*, las dos variables deben ser de tipo
 
 El proceso actual “ojea” las variables del proceso fuente, el proceso fuente no es advertido de ninguna manera de que otro proceso está leyendo la instancia de sus variables.
 
-**4D Server:** utilizando 4D Client, puede leer las variables en un proceso de destino ejecutado en el equipo servidor (procedimiento almacenado). Para hacer esto, coloque un signo menos antes del número de identificación del proceso en el parámetro *proceso*.
-
+**4D Server:** utilizando 4D Client, puede leer las variables en un proceso de destino ejecutado en el equipo servidor (procedimiento almacenado). Para hacer esto, coloque un signo menos antes del número de identificación del proceso en el parámetro *process*. 
 La comunicación proceso “Intermachine”, ofrecida por los comandos GET PROCESS VARIABLE, [SET PROCESS VARIABLE](set-process-variable.md "SET PROCESS VARIABLE") y [VARIABLE TO VARIABLE](variable-to-variable.md "VARIABLE TO VARIABLE"), es posible únicamente desde el cliente al servidor. Siempre es un proceso cliente el que lee o escribe las variables de un procedimiento almacenado. 
 
-**Tip:** si no conoce el número de identificación del proceso servidor, aún puede utilizar las variables interproceso del servidor. Para hacer esto, puede utilizar cualquier valor negativo en *proceso*. En otras palabras, no es necesario conocer el número de identificación del proceso para poder utilizar el comando GET PROCESS VARIABLE con las variables interproceso del servidor. Esta posibilidad es muy útil particularmente cuando un procedimiento almacenado se lanza utilizando el método base On server startup. Como los equipos cliente no conocen automáticamente el número de identificación de ese proceso, todo valor negativo puede pasarse en el parámetro *proceso*.
+**Tip:** si no conoce el número de identificación del proceso servidor, aún puede utilizar las variables interproceso del servidor. Para hacer esto, puede utilizar cualquier valor negativo en *process*. En otras palabras, no es necesario conocer el número de identificación del proceso para poder utilizar el comando GET PROCESS VARIABLE con las variables interproceso del servidor. Esta posibilidad es muy útil particularmente cuando un procedimiento almacenado se lanza utilizando el método base On server startup. Como los equipos cliente no conocen automáticamente el número de identificación de ese proceso, todo valor negativo puede pasarse en el parámetro *proceso*.
 
 ### Restricciones 
 
-GET PROCESS VARIABLE no acepta variables locales como variables fuente. 
+**GET PROCESS VARIABLE** no acepta variables locales como variables fuente. 
 
 Por otra parte, las variables de destino pueden ser interproceso, proceso o locales. Los valores se “reciben” únicamente en las variables, no en los campos.
 
-GET PROCESS VARIABLE acepta todo tipo de variable fuente, proceso o interproceso, excepto:
+**GET PROCESS VARIABLE** acepta todo tipo de variable fuente, proceso o interproceso, excepto:
 
 * Punteros
 * Array de punteros
@@ -126,5 +123,3 @@ Ver el ejemplo del comando DRAG AND DROP PROPERTIES.
 | --- | --- |
 | Número de comando | 371 |
 | Hilo seguro | no |
-
-
