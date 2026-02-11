@@ -7,15 +7,13 @@ displayed_sidebar: docs
 
 <!--REF #_command_.INSERT IN BLOB.Syntax-->**INSERT IN BLOB** ( *BLOB* : Blob ; *offset* : Integer ; *numero* : Integer {; *relleno* : Integer} )<!-- END REF-->
 <!--REF #_command_.INSERT IN BLOB.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | Blob | Blob | &#8594; | BLOB en el cual insertar los bytes |
 | offset | Integer | &#8594; | Posición de inicio de inserción de los bytes |
 | numero | Integer | &#8594; | Número de bytes a insertar |
 | relleno | Integer | &#8594; | Valor de byte por defecto (0x00..0xFF) 0x00 si se omite |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -28,7 +26,7 @@ Antes de llamar el comando, pase en la variable del parámetro *offset* la posic
 
 ### Nota 
 
-**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver *Pasar blobs y objetos blob a comandos 4D* en developer.4d.com.
+**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver [Pasar blobs y objetos blob a comandos 4D](../Concepts/dt_blob.md#passing-blobs-and-blob-objects-to-4d-commands).
 
 ## Ver también 
 
@@ -40,5 +38,3 @@ Antes de llamar el comando, pase en la variable del parámetro *offset* la posic
 | --- | --- |
 | Número de comando | 559 |
 | Hilo seguro | yes |
-
-
