@@ -7,19 +7,17 @@ displayed_sidebar: docs
 
 <!--REF #_command_.LIST TO BLOB.Syntax-->**LIST TO BLOB** ( *lista* : Integer ; *BLOB* : Blob {; *} )<!-- END REF-->
 <!--REF #_command_.LIST TO BLOB.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | lista | Integer | &#8594; | Lista jerárquica a almacenar en el BLOB |
 | Blob | Blob | &#8594; | BLOB a recibir la lista jerárquica |
 | * | Operador | &#8594; | * añadir el valor |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LIST TO BLOB.Summary-->El comando LIST TO BLOB almacena la lista jerárquica *list* en el BLOB *blob*.<!-- END REF-->
+<!--REF #_command_.LIST TO BLOB.Summary-->El comando **LIST TO BLOB** almacena la lista jerárquica *list* en el BLOB *blob*.<!-- END REF-->
 
 Si especifica el parámetro opcional \*, la lista jerárquica se añade al final del BLOB y el tamaño del BLOB se extiende en consecuencia. Utilizando el parámetro opcional \*, usted puede almacenar secuencialmente todo número de variables o listas (ver otros comandos BLOB) en un BLOB, siempre y cuando haya memoria suficiente. 
 
@@ -35,7 +33,7 @@ Después de llamar el comando, si la lista se ha guardado correctamente, la vari
 
 ### Nota 
 
-**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver *Pasar blobs y objetos blob a comandos 4D* en developer.4d.com.
+**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver [Pasar blobs y objetos blob a comandos 4D](../Concepts/dt_blob.md#passing-blobs-and-blob-objects-to-4d-commands).
 
 ## Ejemplo 
 
@@ -55,5 +53,3 @@ Ver el ejemplo del comando [BLOB to list](blob-to-list.md "BLOB to list").
 | Número de comando | 556 |
 | Hilo seguro | no |
 | Modifica variables | OK |
-
-
