@@ -5,19 +5,18 @@ slug: /commands/get-table-properties
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET TABLE PROPERTIES.Syntax-->**GET TABLE PROPERTIES** ( *PtrTabla* : Puntero, Entero largo ; *invisible* : Boolean {; *trigGuardarNuevo* : Boolean {; *trigGuardaReg* : Boolean {; *trigBorrarReg* : Boolean {; *trigCargReg* : Boolean}}}} )<br/>**GET TABLE PROPERTIES** ( *numTabla* : Puntero, Entero largo ; *invisible* : Boolean {; *trigGuardarNuevo* : Boolean {; *trigGuardaReg* : Boolean {; *trigBorrarReg* : Boolean {; *trigCargReg* : Boolean}}}} )<!-- END REF-->
+<!--REF #_command_.GET TABLE PROPERTIES.Syntax-->**GET TABLE PROPERTIES** ( *tablePtr* : Pointer ; *invisible* : Boolean {; *trigSaveNew* : Boolean {; *trigSaveRec* : Boolean {; *trigDelRec* : Boolean {; *trigLoadRec* : Boolean}}}} )<br/>**GET TABLE PROPERTIES** ( *tableNum* : Integer ; *invisible* : Boolean {; *trigSaveNew* : Boolean {; *trigSaveRec* : Boolean {; *trigDelRec* : Boolean {; *trigLoadRec* : Boolean}}}} )<!-- END REF-->
 <!--REF #_command_.GET TABLE PROPERTIES.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| PtrTabla&#124;numTabla | Puntero, Entero largo | &#8594; | Puntero de tabla o número de tabla |
+| tablePtr | Pointer | &#8594; | Puntero de tabla |
+| tableNum | Integer | &#8594;  | Número de tabla |
 | invisible | Boolean | &#8592; | True = Invisible, False = Visible |
-| trigGuardarNuevo | Boolean | &#8592; | True = Trigger “On saving new record” activado; de lo contrario, False |
-| trigGuardaReg | Boolean | &#8592; | True = Trigger “On saving an existing record” activado; de lo contrario, False |
-| trigBorrarReg | Boolean | &#8592; | True = Trigger “On deleting a record” activado; de lo contrario, False |
-| trigCargReg | Boolean | &#8592; | *** No usado (obsoleto) *** |
-</div>
+| trigSaveNew | Boolean | &#8592; | True = Trigger “On saving new record” activado; de lo contrario, False |
+| trigSaveRec | Boolean | &#8592; | True = Trigger “On saving an existing record” activado; de lo contrario, False |
+| trigDelRec | Boolean | &#8592; | True = Trigger “On deleting a record” activado; de lo contrario, False |
+| trigLoadRec | Boolean | &#8592; | *** No usado (obsoleto) *** |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -27,9 +26,9 @@ displayed_sidebar: docs
 Una vez ejecutado el comando:
 
 * El parámetro *invisible* devuelve True si el atributo “Invisible” ha sido definido para la tabla, de lo contrario False. El atributo invisible permite ocultar la tabla en los editores estándar de 4D (etiquetas, gráficos...).
-* El parámetro *trigGuardarNuevo* devuelve True si el trigger “Al guardar un registro nuevo” se ha activado para la tabla, de lo contrario False.
-* El parámetro *trigGuardaReg* devuelve True si el trigger “Al guardar un registro existente” se ha activado para la tabla, de lo contrario False.
-* El parámetro *trigBorrarReg* devuelve True si el trigger “Al borrar un registro” se ha activado para esta tabla, de lo contrario False.
+* El parámetro *trigSaveNew* devuelve True si el trigger “Al guardar un registro nuevo” se ha activado para la tabla, de lo contrario False.
+* El parámetro *trigSaveRec* devuelve True si el trigger “Al guardar un registro existente” se ha activado para la tabla, de lo contrario False.
+* El parámetro *trigDelRec* devuelve True si el trigger “Al borrar un registro” se ha activado para esta tabla, de lo contrario False.
 
 ## Ver también 
 
@@ -43,5 +42,3 @@ Una vez ejecutado el comando:
 | --- | --- |
 | Número de comando | 687 |
 | Hilo seguro | yes |
-
-
