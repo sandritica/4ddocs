@@ -5,31 +5,29 @@ slug: /commands/get-list-item-parameter-arrays
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET LIST ITEM PARAMETER ARRAYS.Syntax-->**GET LIST ITEM PARAMETER ARRAYS** ( {* ;} *lista* : Integer, Text ; *refElemento* : Integer, * ; *arrSelectores* : Text array {; *arrValores* : Text array} )<!-- END REF-->
+<!--REF #_command_.GET LIST ITEM PARAMETER ARRAYS.Syntax-->**GET LIST ITEM PARAMETER ARRAYS** ( {* ;} *list* : Integer, Text ; *itemRef* : Integer, Operator ; *arrSelection* : Text array {; *arrValues* : Text array} )<!-- END REF-->
 <!--REF #_command_.GET LIST ITEM PARAMETER ARRAYS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, lista es un nombre de objeto (cadena)Si se omite, lista es un número de referencia de lista |
-| lista | Integer, Text | &#8594; | Número de referencia de lista oNombre de objeto de tipo lista (si se pasa *) |
-| refElemento | Integer, * | &#8594; | Número de referencia del elemento o 0 para el último elemento añadido a la lista o * para el elemento actual de la lista |
-| arrSelectores | Text array | &#8592; | Array de los nombres de parámetros |
-| arrValores | Text array | &#8592; | Array de los valores de los parámetros |
-</div>
+| * | Operator | &#8594; | Si se especifica, lista es un nombre de objeto (cadena)Si se omite, lista es un número de referencia de lista |
+| list | Integer, Text | &#8594; | Número de referencia de lista oNombre de objeto de tipo lista (si se pasa *) |
+| itemRef | Integer, Operator | &#8594;  | Número de referencia del elemento o 0 para el último elemento añadido a la lista o * para el elemento actual de la lista |
+| arrSelection | Text array | &#8592; | Array de los nombres de parámetros |
+| arrValues | Text array | &#8592; | Array de los valores de los parámetros |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.GET LIST ITEM PARAMETER ARRAYS.Summary-->El comando **GET LIST ITEM PARAMETER ARRAYS** permite recuperar en una sola llamada el conjunto de los parámetros (así como también, opcionalmente, sus valores) asociados al elemento *refElemento* de la lista jerárquica cuya referencia o nombre de objeto se pasó en el parámetro *lista*.<!-- END REF-->
+<!--REF #_command_.GET LIST ITEM PARAMETER ARRAYS.Summary-->El comando **GET LIST ITEM PARAMETER ARRAYS** permite recuperar en una sola llamada el conjunto de los parámetros (así como también, opcionalmente, sus valores) asociados al elemento *itemRef* de la lista jerárquica cuya referencia o nombre de objeto se pasó en el parámetro *lista*.<!-- END REF-->
 
 Los parámetros asociados a los elementos permiten almacenar información adicional sobre cada elemento. Se definen con la ayuda del comando [SET LIST ITEM PARAMETER](set-list-item-parameter.md).
 
-Si pasa el primer parámetro opcional *\**, indica que el parámetro *lista* es un nombre de objeto (cadena) correspondiente a una representación de lista en el formulario. Si no pasa este parámetro, indica que el parámetro *lista* es una referencia de lista jerárquica (*RefList*). Si utiliza una sola representación de lista o trabaja con los elementos estructurales (el segundo *\** se omite), puede utilizar indiferentemente una u otra sintaxis. Sin embargo, si utiliza varias representaciones de una misma lista y trabaja con el elemento actual (se pasa el segundo \*), debe utilizar la sintaxis basada en el nombre del objeto, ya que cada representación puede tener su propio elemento actual.
+Si pasa el primer parámetro opcional *\**, indica que el parámetro *lista* es un nombre de objeto (cadena) correspondiente a una representación de lista en el formulario. Si no pasa este parámetro, indica que el parámetro *list* es una referencia de lista jerárquica (*RefList*). Si utiliza una sola representación de lista o trabaja con los elementos estructurales (el segundo *\** se omite), puede utilizar indiferentemente una u otra sintaxis. Sin embargo, si utiliza varias representaciones de una misma lista y trabaja con el elemento actual (se pasa el segundo \*), debe utilizar la sintaxis basada en el nombre del objeto, ya que cada representación puede tener su propio elemento actual.
 
-**GET LIST ITEM PARAMETER ARRAYS** devuelve los parámetros definidos para el elemento *refElemento* en el array texto *arrSelectores*. Cuando se pasa el array texto *arrValores*, el comando lo utiliza para devolver los valores asociados con estos parámetros.
+**GET LIST ITEM PARAMETER ARRAYS** devuelve los parámetros definidos para el elemento *refElemento* en el array texto *arrSelectores*. Cuando se pasa el array texto *arrValues*, el comando lo utiliza para devolver los valores asociados con estos parámetros.
 
-*arrValores* debe ser un array de tipo texto. Si tiene valores asociados que no son textuales (tipo numérico o Booleano), convertidos en cadenas (True="1", False="0").
+*arrValues* debe ser un array de tipo texto. Si tiene valores asociados que no son textuales (tipo numérico o Booleano), convertidos en cadenas (True="1", False="0").
 
 ## Ejemplo 
 
@@ -48,7 +46,6 @@ Dada la siguiente lista jerárquica:
 ```
 
 Para mayor simplicidad la lista se asoció a una lista objeto con el mismo nombre ("<>HL").
-
 Cuando el elemento "Martin" se selecciona en la lista, puede recuperar sus parámetros ejecutando el siguiente código:
 
 ```4d
@@ -84,5 +81,3 @@ Si también quiere obtener los valores de los parámetros, escriba:
 | --- | --- |
 | Número de comando | 1195 |
 | Hilo seguro | no |
-
-
