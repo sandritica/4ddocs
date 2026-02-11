@@ -7,7 +7,6 @@ displayed_sidebar: docs
 
 <!--REF #_command_.INTEGER TO BLOB.Syntax-->**INTEGER TO BLOB** ( *entero* : Integer ; *BLOB* : Blob ; *byteOrden* : Integer {; offset | *} )<!-- END REF-->
 <!--REF #_command_.INTEGER TO BLOB.Params-->
-<div class="no-index">
 
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
@@ -16,7 +15,7 @@ displayed_sidebar: docs
 | byteOrden | Integer | &#8594; | 0 Orden de bytes en modo nativo 1 Orden de los bytes Macintosh 2 Orden de los bytes PC |
 | offset &#124; * | Variable, Operador | &#8596; | Offset expresado en bytes en el BLOB o * para añadir el valor |
 |  |  |  | Nuevo offset después de la escritura si se omite * |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -43,7 +42,7 @@ Después de llamar el comando, se devuelve la variable del parámetro *offset*, 
 
 ### Nota 
 
-**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver *Pasar blobs y objetos blob a comandos 4D* en developer.4d.com.
+**Nota de compatibilidad**: como este comando altera el blob pasado como parámetro, no soporta objetos blob (tipo 4D.Blob). Ver [Pasar blobs y objetos blob a comandos 4D](../Concepts/dt_blob.md#passing-blobs-and-blob-objects-to-4d-commands).
 
 ## Ejemplo 1 
 
@@ -123,5 +122,3 @@ Después de la ejecución de este código:
 | --- | --- |
 | Número de comando | 548 |
 | Hilo seguro | yes |
-
-
