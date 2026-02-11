@@ -5,27 +5,25 @@ slug: /commands/get-list-item
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GET LIST ITEM.Syntax-->**GET LIST ITEM** ( {* ;} *lista* : Integer, Text ; posicionElem | * ; *refElem* : Integer ; *textoElem* : Text {; *sublista* : Integer ; *desplegada* : Boolean} )<!-- END REF-->
+<!--REF #_command_.GET LIST ITEM.Syntax-->**GET LIST ITEM** ( {* ;} *list* : Integer, Text ; *itemPos* : Integer, Operator ; *itemRef* : Integer ; *itemText* : Text {; *sublist* : Integer ; *expanded* : Boolean} )<!-- END REF-->
 <!--REF #_command_.GET LIST ITEM.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | * | Operador | &#8594; | Si se especifica lista es un nombre de objeto (cadena) Si se omite, lista es un número de referencia de lista |
-| lista | Integer, Text | &#8594; | Número de referencia de lista (si se omite *) o Nombre del objeto de tipo lista (si se pasa *) |
-| posicionElem &#124; * | Operador, Entero largo | &#8594; | Posición del elemento en lista(s) desplegada(s) o contraída(s) * para el elemento actual de la lista. |
-| refElem | Integer | &#8592; | Número de referencia del elemento |
-| textoElem | Text | &#8592; | Texto del elemento de la lista |
-| sublista | Integer | &#8592; | Número de referencia de la sublista (si la hay) |
-| desplegada | Boolean | &#8592; | Si una sublista está asociada: TRUE = la sublista está desplegada FALSE = la sublista está contraída |
-</div>
+| list | Integer, Text | &#8594; | Número de referencia de lista (si se omite *) o Nombre del objeto de tipo lista (si se pasa *) |
+| itemPos | Integer, Operator | &#8594; | Posición del elemento en lista(s) desplegada(s) o contraída(s) * para el elemento actual de la lista. |
+| itemRef  | Integer | &#8592; | Número de referencia del elemento |
+| itemText | Text | &#8592; | Texto del elemento de la lista |
+| sublist | Integer | &#8592; | Número de referencia de la sublista (si la hay) |
+| expanded  | Boolean | &#8592; | Si una sublista está asociada: TRUE = la sublista está desplegada FALSE = la sublista está contraída |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.GET LIST ITEM.Summary-->El comando GET LIST ITEM devuelve la información sobre el elemento especificado por *posicionElem* de la lista cuyo número de referencia o nombre de objeto se pasa en *lista*.<!-- END REF--> 
+<!--REF #_command_.GET LIST ITEM.Summary-->El comando GET LIST ITEM devuelve la información sobre el elemento especificado por *itemPos* de la lista cuyo número de referencia o nombre de objeto se pasa en *list*.<!-- END REF--> 
 
-Si pasa el primer parámetro opcional \*, indica que el parámetro *lista* es un nombre de objeto (cadena) correspondiente a una representación de lista en el formulario. Si no pasa este parámetro, indica que el parámetro *lista* es una referencia de lista jerárquica (RefLista). Si utiliza sólo una representación de lista, puede utilizar indiferentemente una u otra sintaxis. Por el contrario, si usted utiliza varias representaciones de una misma lista, la lista basada en el nombre del objeto es necesaria ya que cada representación puede tener su propia configuración desplegada/contraída y su propio elemento actual. 
+Si pasa el primer parámetro opcional \*, indica que el parámetro *list* es un nombre de objeto (cadena) correspondiente a una representación de lista en el formulario. Si no pasa este parámetro, indica que el parámetro *list* es una referencia de lista jerárquica (RefLista). Si utiliza sólo una representación de lista, puede utilizar indiferentemente una u otra sintaxis. Por el contrario, si usted utiliza varias representaciones de una misma lista, la lista basada en el nombre del objeto es necesaria ya que cada representación puede tener su propia configuración desplegada/contraída y su propio elemento actual. 
 
 **Nota:** si utiliza el carácter @ en el nombre de la lista y el formulario contiene varias listas que responden a este nombre, el comando GET LIST ITEM sólo aplicará al primer objeto cuyo nombre corresponda. 
 
@@ -33,10 +31,10 @@ La posición debe expresarse respecto al estado actual desplegado/contraído de 
 
 Después de la llamada, recupera:
 
-* El número de referencia del elemento en *refElem*.
-* El texto del elemento en *textElem*.
+* El número de referencia del elemento en *itemRef*.
+* El texto del elemento en *itemText*.
 
-Si pasa los parámetros opcionales *sublista* y *desplegada*:
+Si pasa los parámetros opcionales *sublist* y *expanded*:
 
 * *subLista* devuelve el número de referencia de la sublista asociada al elemento. Si el elemento no tiene sublista, *subLista* devuelve cero (0).
 * Si el elemento tiene una sublista, *desplegada* devuelve TRUE si la sublista está desplegada, y FALSE si está contraída.
@@ -74,5 +72,3 @@ Consulte el ejemplo del comando [APPEND TO LIST](append-to-list.md "APPEND TO LI
 | --- | --- |
 | Número de comando | 378 |
 | Hilo seguro | no |
-
-
