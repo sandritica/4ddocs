@@ -5,17 +5,16 @@ slug: /commands/graph
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GRAPH.Syntax-->**GRAPH** ( *grafImagen* : Picture ; *grafNum* : Integer, Object ; *xCategorias* : Array {; *...yValores* : Array} )<!-- END REF-->
+<!--REF #_command_.GRAPH.Syntax-->**GRAPH** ( *graphPicture* : Picture ; *graphNumber* : Integer ; *xLabels* : Array {; *...yElements* : Array} )<br/>**GRAPH** ( *graphPicture* : Picture ; *graphSettings* : Object ; *xLabels* : Array {; *...yElements* : Array} )<!-- END REF-->
 <!--REF #_command_.GRAPH.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| grafImagen | Picture | &#8594; | Variable imagen |
-| grafNum | Integer, Object | &#8594; | Número de tipo de gráfico |
-| xCategorias | Array | &#8594; | Categorías para el eje x |
-| yValores | Array | &#8594; | Valores a representar gráficamente (hasta 8) |
-</div>
+| graphPicture | Picture | &#8594;  | Variable imagen |
+| graphNumber | Integer | &#8594;  | Número de tipo de gráfico |
+| graphSettings | Object | &#8594;  | Objeto: parámetros del gráfico |
+| xLabels | Array | &#8594;  | Categorías para el eje x |
+| yElements | Array | &#8594;  | Valores a representar gráficamente (hasta 8) |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -26,16 +25,16 @@ Los gráficos generados por este comando pueden ser dibujados vía el motor de r
 
 **Nota:** SVG (Scalable Vector Graphics) es un formato de archivo gráfico vectorial (extensión .svg). Basado en XML, este formato está ampliamente extendido y puede mostrarse particularmente en navegadores web. Para mayor información, consulte la siguiente dirección: [http://www.w3.org.Graphics/SVG](http://www.w3.org.graphics/SVG/)/. El comando [SVG EXPORT TO PICTURE](svg-export-to-picture.md) también puede ser utilizado para tomar ventaja del motor SVG integrado.
 
-En el parámetro *grafImagen*, pase el nombre de la variable imagen que muestra el gráfico en el formulario.
+En el parámetro *graphPicture*, pase el nombre de la variable imagen que muestra el gráfico en el formulario.
 
 El segundo parámetro define el tipo de gráfico a utilizar. Hay dos posibilidades:
 
-* pasar un parámetro *grafNum* de tipo *Entero largo* (todas las versiones de 4D): en este caso, debe pasar un número entre 1 y 8\. Los diferentes tipos de gráficos se describen en el ejemplo abajo. Después de dibujar un gráfico, puede cambiar el tipo modificando el valor de *grafNum* y ejecutando nuevamente el comando **GRAPH**. Luego puede modificar ciertas características del gráfico llamando al comando [GRAPH SETTINGS](graph-settings.md). Ver el ejemplo 1.
-* pasar un parámetro *grafParams* de tipo [Objeto](# "Datos estructurados como forma de objeto nativo 4D") (no soportado en 4D Server en Windows): en este caso, debe pasar un objeto que contenga las diversas propiedades del gráfico a definir. Para ello, puede utilizar las constantes que se encuentran en el tema "*Parámetros Gráficos*" (ver más adelante). Esta sintaxis permite definir el tipo de gráfico junto con sus parámetros específicos (leyenda, xmin, etc.) en una sola llamada. Esto permite a los usuarios guardar los gráficos generados como imágenes SVG regulares y hace que sea posible visualizarlos utilizando un navegador estándar como Firefox, Chrome, IE o Safari (los gráficos generados cumplen con la norma SVG implementada en los navegadores). Además, esta sintaxis le permite acceder a varios ajustes adicionales, que le permiten personalizar, por ejemplo, el espaciado entre las barras, los márgenes, colores de la barra, etc. Ver los ejemplos 2, 3 y 4\. **Advertencia**: si utiliza esta sintaxis, el comando [GRAPH SETTINGS](graph-settings.md) NO debe llamarse.
+* pasar un parámetro *graphNumber* de tipo *Entero largo* (todas las versiones de 4D): en este caso, debe pasar un número entre 1 y 8\. Los diferentes tipos de gráficos se describen en el ejemplo abajo. Después de dibujar un gráfico, puede cambiar el tipo modificando el valor de *grafNum* y ejecutando nuevamente el comando **GRAPH**. Luego puede modificar ciertas características del gráfico llamando al comando [GRAPH SETTINGS](graph-settings.md). Ver el ejemplo 1.
+* pasar un parámetro *graphSettings* de tipo [Objeto](# "Datos estructurados como forma de objeto nativo 4D") (no soportado en 4D Server en Windows): en este caso, debe pasar un objeto que contenga las diversas propiedades del gráfico a definir. Para ello, puede utilizar las constantes que se encuentran en el tema "*Parámetros Gráficos*" (ver más adelante). Esta sintaxis permite definir el tipo de gráfico junto con sus parámetros específicos (leyenda, xmin, etc.) en una sola llamada. Esto permite a los usuarios guardar los gráficos generados como imágenes SVG regulares y hace que sea posible visualizarlos utilizando un navegador estándar como Firefox, Chrome, IE o Safari (los gráficos generados cumplen con la norma SVG implementada en los navegadores). Además, esta sintaxis le permite acceder a varios ajustes adicionales, que le permiten personalizar, por ejemplo, el espaciado entre las barras, los márgenes, colores de la barra, etc. Ver los ejemplos 2, 3 y 4\. **Advertencia**: si utiliza esta sintaxis, el comando [GRAPH SETTINGS](graph-settings.md) NO debe llamarse.
 
-El parámetro *xCategorias* define las etiquetas que serán utilizadas por el eje x. (la parte inferior del gráfico). Este dato puede ser de tipo alfa, hora, fecha o numérico. Debe haber el mismo de elementos de array en *xCategorias* que en cada *yValores*.
+El parámetro *xLabels* define las etiquetas que serán utilizadas por el eje x. (la parte inferior del gráfico). Este dato puede ser de tipo alfa, hora, fecha o numérico. Debe haber el mismo de elementos de array en *xCategorias* que en cada *yValores*.
 
-Los datos especificados por *yValores* son los datos a graficar. Los datos deben ser de tipo numérico. Se puede graficar hasta ocho conjuntos de datos. Los gráficos por sectores sólo representan los primeros *yValores*.
+Los datos especificados por *yElements* son los datos a graficar. Los datos deben ser de tipo numérico. Se puede graficar hasta ocho conjuntos de datos. Los gráficos por sectores sólo representan los primeros *yValores*.
 
 ### IDs automáticos 
 
@@ -131,27 +130,21 @@ Sintaxis con *grafNumber*: el siguiente ejemplo muestra los diferentes tipos de 
 
 Las siguientes imágenes muestran los gráficos resultantes:
 
-* *vTipo* igual 1, usted obtiene un gráfico en **Columnas**  
+* *vType* igual 1, usted obtiene un gráfico en **Columnas**  
 ![](../assets/en/commands/pict847107.fr.png)
-
-* *vTipo* igual a 2, obtiene un gráfico en **Columnas proporcionales**  
+* *vType* igual a 2, obtiene un gráfico en **Columnas proporcionales**  
 ![](../assets/en/commands/pict847109.fr.png)
-
-* *vTipo* igual a 3, obtiene un gráfico en **Columnas apiladas**  
+* *vType* igual a 3, obtiene un gráfico en **Columnas apiladas**  
 ![](../assets/en/commands/pict847111.fr.png)
-
-* *vTipo* igual a 4, obtiene un gráfico en **Líneas**  
+* *vType* igual a 4, obtiene un gráfico en **Líneas**  
 ![](../assets/en/commands/pict847114.fr.png)
-
-* *vTipo* igual a 5, obtiene un gráfico en **Áreas**  
+* *vType* igual a 5, obtiene un gráfico en **Áreas**  
 ![](../assets/en/commands/pict847118.fr.png)
-
-* *vTipo* igual a 6, obtiene un gráfico en **Puntos**  
+* *vType* igual a 6, obtiene un gráfico en **Puntos**  
 ![](../assets/en/commands/pict847120.fr.png)
-
-* *vTipo* igual a 7, obtiene un gráfico en **Sectores**  
+* *vType* igual a 7, obtiene un gráfico en **Sectores**  
 ![](../assets/en/commands/pict847122.fr.png)
-* *vTipo* igual a 8, obtiene un gráfico en **Imágenes**  
+* *vType* igual a 8, obtiene un gráfico en **Imágenes**  
 ![](../assets/en/commands/pict847124.fr.png)
 
 ## Ejemplo 2 
@@ -292,5 +285,3 @@ En este ejemplo, personalizamos algunos parámetros:
 | --- | --- |
 | Número de comando | 169 |
 | Hilo seguro | yes |
-
-
