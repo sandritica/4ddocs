@@ -5,14 +5,12 @@ slug: /commands/goto-object
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.GOTO OBJECT.Syntax-->**GOTO OBJECT** ( {* ;} *objeto* : Field, Variable )<!-- END REF-->
+<!--REF #_command_.GOTO OBJECT.Syntax-->**GOTO OBJECT** ( {* ;} *object* : Variable, Field )<!-- END REF-->
 <!--REF #_command_.GOTO OBJECT.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica = objeto es un nombre de objeto (cadena) Si se omite = objeto es un campo o una variable |
-| objeto | Field, Variable | &#8594; | Nombre del objeto (si se especifica *) o Campo o Variable (si se omite *) a donde ir |
+| * | Operator | &#8594; | Si se especifica = objeto es un nombre de objeto (cadena) Si se omite = objeto es un campo o una variable |
+| object | Field, Variable | &#8594; | Nombre del objeto (si se especifica *) o Campo o Variable (si se omite *) a donde ir |
 </div>
 <!-- END REF-->
 
@@ -24,7 +22,7 @@ Si especifica el parámetro opcional *\**, indica un nombre de objeto (una caden
 
 Para eliminar todo foco en el formulario actual, llame al comando mientras pasa un nombre de objeto vacío en *objeto* (ver ejemplo 2).
 
-El comando GOTO OBJECT puede utilizarse en el contexto de un subformulario. Cuando se llama desde un subformulario, busca primero el objeto en el subformulario, luego, si la búsqueda no encuentra nada allí, extiende la búsqueda a objetos del formulario padre.
+El comando **GOTO OBJECT** puede utilizarse en el contexto de un subformulario. Cuando se llama desde un subformulario, busca primero el objeto en el subformulario, luego, si la búsqueda no encuentra nada allí, extiende la búsqueda a objetos del formulario padre.
 
 ## Ejemplo 1 
 
@@ -58,5 +56,3 @@ Ver el ejemplo del comando [REJECT](reject.md "REJECT").
 | --- | --- |
 | Número de comando | 206 |
 | Hilo seguro | no |
-
-
