@@ -5,22 +5,22 @@ slug: /commands/integer-to-blob
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.INTEGER TO BLOB.Syntax-->**INTEGER TO BLOB** ( *entero* : Integer ; *BLOB* : Blob ; *byteOrden* : Integer {; offset | *} )<!-- END REF-->
+<!--REF #_command_.INTEGER TO BLOB.Syntax-->**INTEGER TO BLOB** ( *integer* : Integer ; *blob* : Blob ; *byteOrder* : Integer {; offset} )<br/>**INTEGER TO BLOB** ( *integer* : Integer ; *blob* : Blob ; *byteOrder* : Integer {; *} )<!-- END REF-->
 <!--REF #_command_.INTEGER TO BLOB.Params-->
 
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| entero | Integer | &#8594; | Valor entero a escribir en el BLOB |
+| integer | Integer | &#8594; | Valor entero a escribir en el BLOB |
 | Blob | Blob | &#8594; | BLOB a recibir el valor entero |
 | byteOrden | Integer | &#8594; | 0 Orden de bytes en modo nativo 1 Orden de los bytes Macintosh 2 Orden de los bytes PC |
-| offset &#124; * | Variable, Operador | &#8596; | Offset expresado en bytes en el BLOB o * para añadir el valor |
-|  |  |  | Nuevo offset después de la escritura si se omite * |
+| offset | Variable | &#8596; | Offset expresado en bytes en el BLOB<br/>Nuevo offset después de la escritura si se omite *  |
+| * | Operator | &#8594; | * para añadir el valor |
 
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.INTEGER TO BLOB.Summary-->El comando INTEGER TO BLOB escribe el valor entero (2 bytes) *entero* en el BLOB *blob*.<!-- END REF-->
+<!--REF #_command_.INTEGER TO BLOB.Summary-->El comando **INTEGER TO BLOB** escribe el valor entero (2 bytes) *integer* en el BLOB *blob*.<!-- END REF-->
 
 El parámetro *byteOrden* fija el orden de los bytes ("byte ordering) del valor entero a escribir (2 bytes). Usted pasa uno de las siguientes constantes predefinidas suministradas 4D:
 
