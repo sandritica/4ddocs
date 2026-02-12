@@ -11,13 +11,13 @@ displayed_sidebar: docs
 | --- | --- | --- | --- |
 | * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es un campo o una variable |
 | object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o<br/>Campo o variable (si se omite *) |
-| posCol | Integer | &#8594; | Ubicación de la nueva columna duplicada |
-| nomCol | Text | &#8594; | Nombre de la nueva columna |
-| varCol | Array, Field, Variable, Pointer | &#8594; | Nombre de la variable array de la columna o campo o variable |
-| nomEncab | Text | &#8594; | Nombre del objeto del encabezado de la columna |
-| varEncab | Integer, Pointer | &#8594; | Variable del encabezado de la columna |
-| nomPie | Text | &#8594; | Nombre del objeto del pie de la columna |
-| varPie | Variable, Pointer | &#8594; | Variable del pie de la columna |
+| colPosition | Integer | &#8594; | Ubicación de la nueva columna duplicada |
+| colName | Text | &#8594; | Nombre de la nueva columna |
+| colVariable | Array, Field, Variable, Pointer | &#8594; | Nombre de la variable array de la columna o campo o variable |
+| headerName | Text | &#8594; | Nombre del objeto del encabezado de la columna |
+| headerVar | Integer, Pointer | &#8594; | Variable del encabezado de la columna |
+| footerName | Text | &#8594; | Nombre del objeto del pie de la columna |
+| footerVar | Variable, Pointer | &#8594; | Variable del pie de la columna |
 
 <!-- END REF-->
 
@@ -34,19 +34,19 @@ Los parámetros *object* y *\** designan la columna a duplicar. Si pasa el pará
 
 **Nota:** este comando no hace nada cuando se aplica a la primera columna de un list box que se muestra en el modo jerárquico.  
   
-La nueva columna duplicada aparece justo antes de la columna designada por el parámetro *posicionCol*. Si el parámetro *posicionCol* es mayor que el número total de columnas, a continuación, la columna duplicada se coloca después de la última columna.  
+La nueva columna duplicada aparece justo antes de la columna designada por el parámetro *colPosition*. Si el parámetro *colPosition* es mayor que el número total de columnas, a continuación, la columna duplicada se coloca después de la última columna.  
   
-En los parámetros *nomCol* y *varCol*, pase el nombre del objeto y de la variable de la nueva columna duplicada.  
+En los parámetros *colName* y *colVariable*, pase el nombre del objeto y de la variable de la nueva columna duplicada.  
 
-* Para list box de tipo array, *varCol* corresponde al nombre del array cuyo contenido se mostrará en la columna. Puede pasar un puntero Nil (->\[\]) en un contexto dinámico (ver abajo).
-* Para list box de tipo selección, puede pasar un campo o una variable en el parámetro *varCol*. Así que el contenido de la columna será el valor del campo o de la variable, evaluada para cada registro de la selección asociada al list box. Este tipo de contenido sólo se puede utilizar cuando la propiedad "Fuente de datos" del list box es Selección actual o Selección temporal.
+* Para list box de tipo array, *colVariable* corresponde al nombre del array cuyo contenido se mostrará en la columna. Puede pasar un puntero Nil (->\[\]) en un contexto dinámico (ver abajo).
+* Para list box de tipo selección, puede pasar un campo o una variable en el parámetro *colVariable*. Así que el contenido de la columna será el valor del campo o de la variable, evaluada para cada registro de la selección asociada al list box. Este tipo de contenido sólo se puede utilizar cuando la propiedad "Fuente de datos" del list box es Selección actual o Selección temporal.
 * Para los list box de tipo colección o selección de entidades, pase un puntero Nil (->\[\]) en *varCol*; deberá llamar a [LISTBOX SET COLUMN FORMULA](listbox-set-column-formula.md) luego para especificar la expresión fuente de datos.
 
 Recuerde que la fuente de datos de la columna original no se duplica: debe establecer una variable, array o campo fuente de la nueva columna duplicada.  
   
-En los parámetros *nomEncab* y *variableEncab*, pase el nombre del objeto y la variable del encabezado de la nueva columna duplicada. También puede pasar el nombre del objeto y la variable del pie de la columna insertada en los parámetros *nomPie* y *variablePie*. Si omite el parámetro *variablePie*, 4D utiliza una variable dinámica.  
+En los parámetros *headerName* y *headerVariable*, pase el nombre del objeto y la variable del encabezado de la nueva columna duplicada. También puede pasar el nombre del objeto y la variable del pie de la columna insertada en los parámetros *nomPie* y *variablePie*. Si omite el parámetro *variablePie*, 4D utiliza una variable dinámica.  
   
-**Nota**: los nombres de objetos deben ser únicos en un formulario. Debe asegurarse de que los nombres pasados ​​en *nomCol*, *nomEncab* y *nomPie* nohayan sido utilizados. De lo contrario, la columna no se duplica y se genera un error.  
+**Nota**: los nombres de objetos deben ser únicos en un formulario. Debe asegurarse de que los nombres pasados ​​en *colName*, *headerName* y *footerName* nohayan sido utilizados. De lo contrario, la columna no se duplica y se genera un error.  
   
 Este comando debe ser utilizado en el contexto de mostrar un formulario. Se le llama por lo general en el evento de formulario On Load o después de una acción usuario (evento On Clicked).
 
