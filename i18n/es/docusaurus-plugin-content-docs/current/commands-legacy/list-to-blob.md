@@ -5,11 +5,11 @@ slug: /commands/list-to-blob
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LIST TO BLOB.Syntax-->**LIST TO BLOB** ( *lista* : Integer ; *BLOB* : Blob {; *} )<!-- END REF-->
+<!--REF #_command_.LIST TO BLOB.Syntax-->**LIST TO BLOB** ( *list* : Integer ; *blob* : Blob {; *} )<!-- END REF-->
 <!--REF #_command_.LIST TO BLOB.Params-->
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| lista | Integer | &#8594; | Lista jerárquica a almacenar en el BLOB |
+| list | Integer | &#8594; | Lista jerárquica a almacenar en el BLOB |
 | Blob | Blob | &#8594; | BLOB a recibir la lista jerárquica |
 | * | Operador | &#8594; | * añadir el valor |
 
