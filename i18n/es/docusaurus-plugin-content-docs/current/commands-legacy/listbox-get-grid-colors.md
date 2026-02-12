@@ -5,14 +5,12 @@ slug: /commands/listbox-get-grid-colors
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX GET GRID COLORS.Syntax-->**LISTBOX GET GRID COLORS** ( * ; *objeto* : Text ; *colorH* : Text, Integer ; *colorV* : Text, Integer )<br/>**LISTBOX GET GRID COLORS** ( *objeto* : Field, Variable ; *colorH* : Text, Integer ; *colorV* : Text, Integer )<!-- END REF-->
+<!--REF #_command_.LISTBOX GET GRID COLORS.Syntax-->**LISTBOX GET GRID COLORS** ( * ; *object* : Text ; *hColor* : Text, Integer ; *vColor* : Text, Integer )<br/>**LISTBOX GET GRID COLORS** ( *object* : Variable ; *hColor* : Text, Integer ; *vColor* : Text, Integer )<!-- END REF-->
 <!--REF #_command_.LISTBOX GET GRID COLORS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| object | Text, Variable | &#8594; | Nombre de objeto formulario (si se especifica *) o Variable (si se omite *) |
 | colorH | Text, Integer | &#8592; | Valor de color RGB para las líneas horizontales |
 | colorV | Text, Integer | &#8592; | Valor de color RGB para las líneas verticales |
 </div>
@@ -39,5 +37,3 @@ En *colorH* y *colorV*, el comando devuelve los valores de los colores RGB. El f
 | --- | --- |
 | Número de comando | 1200 |
 | Hilo seguro | no |
-
-
