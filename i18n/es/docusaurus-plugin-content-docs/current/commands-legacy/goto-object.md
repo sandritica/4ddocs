@@ -11,16 +11,16 @@ displayed_sidebar: docs
 | --- | --- | --- | --- |
 | * | Operator | &#8594; | Si se especifica = objeto es un nombre de objeto (cadena) Si se omite = objeto es un campo o una variable |
 | object | Field, Variable | &#8594; | Nombre del objeto (si se especifica *) o Campo o Variable (si se omite *) a donde ir |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.GOTO OBJECT.Summary-->El comando GOTO OBJECT se utiliza para seleccionar el objeto editable *objeto* como el área activa del formulario.<!-- END REF--> Es equivalente de un clic del usuario en el área o de utilizar la tecla Tab para seleccionar el campo o la variable. 
+<!--REF #_command_.GOTO OBJECT.Summary-->El comando **GOTO OBJECT** se utiliza para seleccionar el objeto editable *object* como el área activa del formulario.<!-- END REF--> Es equivalente de un clic del usuario en el área o de utilizar la tecla Tab para seleccionar el campo o la variable. 
 
-Si especifica el parámetro opcional *\**, indica un nombre de objeto (una cadena) en *objeto*. Si omite el parámetro opcional *\**, indica un campo o una variable en *objeto*. En este caso, especifique una referencia de campo o de variable (objetos de campos o variables únicamente) en lugar de una cadena. Para mayor información sobre nombres de objetos, consulte la sección . 
+Si especifica el parámetro opcional *\**, indica un nombre de objeto (una cadena) en *object*. Si omite el parámetro opcional *\**, indica un campo o una variable en *object*. En este caso, especifique una referencia de campo o de variable (objetos de campos o variables únicamente) en lugar de una cadena. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades Objeto*.  
 
-Para eliminar todo foco en el formulario actual, llame al comando mientras pasa un nombre de objeto vacío en *objeto* (ver ejemplo 2).
+Para eliminar todo foco en el formulario actual, llame al comando mientras pasa un nombre de objeto vacío en *object* (ver ejemplo 2).
 
 El comando **GOTO OBJECT** puede utilizarse en el contexto de un subformulario. Cuando se llama desde un subformulario, busca primero el objeto en el subformulario, luego, si la búsqueda no encuentra nada allí, extiende la búsqueda a objetos del formulario padre.
 
