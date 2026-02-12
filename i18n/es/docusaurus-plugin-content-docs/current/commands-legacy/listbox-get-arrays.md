@@ -5,45 +5,43 @@ slug: /commands/listbox-get-arrays
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX GET ARRAYS.Syntax-->**LISTBOX GET ARRAYS** ( * ; *objeto* : Text ; *arrNomsCols* : Text array ; *arrNomsEncabezados* : Text array ; *arrVarCols* : Pointer array ; *arrVarEncabezados* : Pointer array ; *arrColsVisibles* : Boolean array ; *arrEstilos* : Pointer array {; *arrNomsPies* : Text array ; *arrVarsPies* : Pointer array} )<br/>**LISTBOX GET ARRAYS** ( *objeto* : Field, Variable ; *arrNomsCols* : Text array ; *arrNomsEncabezados* : Text array ; *arrVarCols* : Pointer array ; *arrVarEncabezados* : Pointer array ; *arrColsVisibles* : Boolean array ; *arrEstilos* : Pointer array {; *arrNomsPies* : Text array ; *arrVarsPies* : Pointer array} )<!-- END REF-->
+<!--REF #_command_.LISTBOX GET ARRAYS.Syntax-->**LISTBOX GET ARRAYS** ( * ; *object* : Text ; *arrColNames* : Text array ; *arrHeaderNames* : Text array ; *arrColVars* : Pointer array ; *arrHeaderVars* : Pointer array ; *arrColsVisible* : Boolean array ; *arrStyles* : Pointer array {; *arrFooterNames* : Text array ; *arrFooterVars* : Pointer array} )<br/>**LISTBOX GET ARRAYS** ( *object* : Variable ; *arrColNames* : Text array ; *arrHeaderNames* : Text array ; *arrColVars* : Pointer array ; *arrHeaderVars* : Pointer array ; *arrColsVisible* : Boolean array ; *arrStyles* : Pointer array {; *arrFooterNames* : Text array ; *arrFooterVars* : Pointer array} )<!-- END REF-->
 <!--REF #_command_.LISTBOX GET ARRAYS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
-| arrNomsCols | Text array | &#8592; | Nombres de objeto de las columnas |
-| arrNomsEncabezados | Text array | &#8592; | Nombres de objeto de los títulos |
-| arrVarCols | Pointer array | &#8592; | Punteros hacia las variables de las columnas |
-| arrVarEncabezados | Pointer array | &#8592; | Punteros hacia campos o Nil |
-| arrColsVisibles | Boolean array | &#8592; | Visibilidad de cada columna |
-| arrEstilos | Pointer array | &#8592; | Punteros a los arrays o a las variables de estilos de colores y de visibilidad o Nil |
-| arrNomsPies | Text array | &#8592; | Nombres de los objetos de pies de columna |
-| arrVarsPies | Pointer array | &#8592; | Punteros a las variables de pies de columna |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| arrColNames  | Text array | &#8592; | Nombres de objeto de las columnas |
+| arrHeaderNames | Text array | &#8592; | Nombres de objeto de los títulos |
+| arrColVars | Pointer array | &#8592; | Punteros hacia las variables de las columnas |
+| arrHeaderVars | Pointer array | &#8592; | Punteros hacia campos o Nil |
+| arrColsVisible | Boolean array | &#8592; | Visibilidad de cada columna |
+| arrStyles | Pointer array | &#8592; | Punteros a los arrays o a las variables de estilos de colores y de visibilidad o Nil |
+| arrFooterNames | Text array | &#8592; | Nombres de los objetos de pies de columna |
+| arrFooterVars | Pointer array | &#8592; | Punteros a las variables de pies de columna |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX GET ARRAYS.Summary-->El comando **LISTBOX GET ARRAYS** devuelve un conjunto de arrays sincronizados ofreciendo información sobre cada columna (visible o invisible) del list box designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX GET ARRAYS.Summary-->El comando **LISTBOX GET ARRAYS** devuelve un conjunto de arrays sincronizados ofreciendo información sobre cada columna (visible o invisible) del list box designado por los parámetros *object* y *\**.<!-- END REF-->
 
-Si pasa el parámetro opcional \*, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *objeto* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*. 
+Si pasa el parámetro opcional \*, indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*. 
 
 Una vez se ejecuta el comando: 
 
-* El array *arrNomsCols* contiene la lista de los nombres de los objetos para cada columna del list box.
-* El array *arrNomsEncabezados* contiene la lista de los nombres de los objetos para cada título de columna del list box.
-* El array *arrVarCol*s contiene los punteros hacia las variables (arrays) asociadas a cada columna del list box. Para un listbox de tipo selección, *arrVarCols* contiene:  
+* El array *arrColNames* contiene la lista de los nombres de los objetos para cada columna del list box.
+* El array *arrHeaderNames* contiene la lista de los nombres de los objetos para cada título de columna del list box.
+* El array *arrColVars* contiene los punteros hacia las variables (arrays) asociadas a cada columna del list box. Para un listbox de tipo selección, *arrColVars* contiene:  
    * Para una columna asociada a un campo, un puntero al campo asociado,  
    * Para una columna asociada a una variable, un puntero a la variable,  
    * Para una columna asociada a una expresión, un puntero Nil.
-* El array *arrVarEncabezados* contiene punteros hacia las variables asociadas a cada título de columna del list box.
-* El array *arrColsVisibles* contiene un valor Booleano para cada columna, indicando si la columna es visible ([True](true.md "True")) o oculta ([False](false.md "False")) en el list box.
-* El array *arrEstilos* contiene, para un list box de tipo array, cuatro hacia cuatro arrays que permiten aplicar individualmente un estilo, un color de fuente, un color de fondo y un control de visualización personalizado a cada fila del list box. Estos arrays son asociados al list box en la Lista de propiedades del modo Diseño o vía el comando [LISTBOX SET ARRAY](listbox-set-array.md). Si un array no es especificado para el list box, el elemento correspondiente en *arrEstilos* contendrá un puntero Nil.  
+* El array *arrHeaderVars* contiene punteros hacia las variables asociadas a cada título de columna del list box.
+* El array *arrColsVisible* contiene un valor Booleano para cada columna, indicando si la columna es visible ([True](true.md "True")) o oculta ([False](false.md "False")) en el list box.
+* El array *arrStyles* contiene, para un list box de tipo array, cuatro hacia cuatro arrays que permiten aplicar individualmente un estilo, un color de fuente, un color de fondo y un control de visualización personalizado a cada fila del list box. Estos arrays son asociados al list box en la Lista de propiedades del modo Diseño o vía el comando [LISTBOX SET ARRAY](listbox-set-array.md). Si un array no es especificado para el list box, el elemento correspondiente en *arrStyles* contendrá un puntero Nil.  
 El cuarto del puntero corresponde ya sea a un array booleano (array de líneas ocultas), o a un array entero largo (array utilizado para definir las líneas ocultas, desactivadas y no seleccionables), en función de la implementación utilizada para el array de control de líneas (ver *Propiedades específicas de los list box*).  
-Para un list box de tipo selección, colección o selección de entidades, *arrEstilos* contiene:
-* * Por cada configuración definida vía una variable, un puntero a la variable,  
+Para un list box de tipo selección, colección o selección de entidades, *arrStyles* contiene:
+   * Por cada configuración definida vía una variable, un puntero a la variable,  
    * Por cada configuración definida vía una expresión, un puntero Nil.
 
 ## Ver también 
@@ -58,5 +56,3 @@ Para un list box de tipo selección, colección o selección de entidades, *arrE
 | --- | --- |
 | Número de comando | 832 |
 | Hilo seguro | no |
-
-
