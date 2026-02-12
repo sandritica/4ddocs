@@ -5,30 +5,28 @@ slug: /commands/listbox-get-array
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get array.Syntax-->**LISTBOX Get array** ( * ; *objeto* : Text ; *tipoArray* : Integer ) : Pointer<br/>**LISTBOX Get array** ( *objeto* : Field, Variable ; *tipoArray* : Integer ) : Pointer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get array.Syntax-->**LISTBOX Get array** ( * ; *object* : Text ; *arrType* : Integer ) : Pointer<br/>**LISTBOX Get array** ( *object* : Variable ; *arrType* : Integer ) : Pointer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get array.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si * se especifica) o<br/>Variable (si * se omite) |
-| tipoArray | Integer | &#8594; | Tipo de array |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si * se especifica) o<br/>Variable (si * se omite) |
+| arrType  | Integer | &#8594; | Tipo de array |
 | Resultado | Pointer | &#8592; | Puntero al array asociado a la propiedad |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
 <!--REF #_command_.LISTBOX Get array.Summary-->**Nota:** este comando sólo funciona con los list box de tipo array.<!-- END REF-->
 
-El comando **LISTBOX Get array** devuelve un puntero al array *tipoArray* del list box o de la columna de list box designada por los parámetros *objeto* y *\** .
+El comando **LISTBOX Get array** devuelve un puntero al array *arrType* del list box o de la columna de list box designada por los parámetros *object* y *\** .
 
 Los arrays de estilo, de color, de color de fondo o de control de líneas pueden estar asociados a los list box de tipo de array o (excepto el array de control de líneas) a las columnas de list box array usando la lista de propiedades en modo *Diseño* o el comando [LISTBOX SET ARRAY](listbox-set-array.md).
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Puede designar un list box o una columna de list box como parámetro *objeto*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Puede designar un list box o una columna de list box como parámetro *object*.
 
-Pase en *tipoArray*, el tipo de array de propiedad a obtener. Puede utilizar una de las siguientes constantes, del tema "*Listbox*":
+Pase en *arrType*, el tipo de array de propiedad a obtener. Puede utilizar una de las siguientes constantes, del tema "*Listbox*":
 
 | Constante                 | Tipo         | Valor | Comentario                       |
 | ------------------------- | ------------ | ----- | -------------------------------- |
@@ -69,5 +67,3 @@ Ejemplos típicos de uso:
 | --- | --- |
 | Número de comando | 1278 |
 | Hilo seguro | no |
-
-
