@@ -5,22 +5,20 @@ slug: /commands/listbox-get-print-information
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX GET PRINT INFORMATION.Syntax-->**LISTBOX GET PRINT INFORMATION** ( * ; *objeto* : Text ; *selector* : Integer ; *info* : Integer )<br/>**LISTBOX GET PRINT INFORMATION** ( *objeto* : Field, Variable ; *selector* : Integer ; *info* : Integer )<!-- END REF-->
+<!--REF #_command_.LISTBOX GET PRINT INFORMATION.Syntax-->**LISTBOX GET PRINT INFORMATION** ( * ; *object* : Text ; *selector* : Integer ; *info* : Integer )<br/>**LISTBOX GET PRINT INFORMATION** ( *object* : Variable ; *selector* : Integer ; *info* : Integer )<!-- END REF-->
 <!--REF #_command_.LISTBOX GET PRINT INFORMATION.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
 | selector | Integer | &#8594; | Información a obtener |
 | info | Integer | &#8592; | Valor actual |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX GET PRINT INFORMATION.Summary-->El comando LISTBOX GET PRINT INFORMATION devuelve la información actual relativa a la impresión del objeto list box designado por los parámetros *objeto* y *\** .<!-- END REF--> Este comando permite controlar la impresión del contenido del list box.
+<!--REF #_command_.LISTBOX GET PRINT INFORMATION.Summary-->El comando **LISTBOX GET PRINT INFORMATION** devuelve la información actual relativa a la impresión del objeto list box designado por los parámetros *objeto* y *\** .<!-- END REF--> Este comando permite controlar la impresión del contenido del list box.
 
 Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. 
 
@@ -76,5 +74,3 @@ Impresión de al menos 500 líneas del list box, conociendo que algunas líneas 
 | --- | --- |
 | Número de comando | 1110 |
 | Hilo seguro | no |
-
-
