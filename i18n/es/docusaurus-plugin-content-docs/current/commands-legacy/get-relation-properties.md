@@ -22,7 +22,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.GET RELATION PROPERTIES.Summary-->El comando GET RELATION PROPERTIES devuelve las propiedades de la relación (si la hay) que comienza del campo fuente definido por *numTabla* y *numCamp* o por *ptrCamp*.<!-- END REF--> 
+<!--REF #_command_.GET RELATION PROPERTIES.Summary-->El comando GET RELATION PROPERTIES devuelve las propiedades de la relación (si la hay) que comienza del campo fuente definido por *tableNum* y *fieldNum* o por *fieldPtr*.<!-- END REF--> 
 
 Puede pasar:
 
@@ -35,7 +35,7 @@ Una se haya ejecutado el comando:
 * El parámetro *discriminante* contiene el número del campo discriminante (de la tabla objetivo) definido dentro de esta relación. Si no se ha definido un campo discriminante en esta relación, o si ninguna relación parte del campo fuente, este parámetro devuelve 0.
 * Los parámetro *autoOne* y *autoMuchos* devuelven [True](true.md "True") si, respectivamente, las opciones “Relación uno a muchos automática” y “Relación muchos a uno automática” se han seleccionado para esta relación; de lo contrario, devuelven [False](false.md "False").
 
-**Nota:** los parámetros *autoUno* y *autoMany* también devolverán [True](true.md "True") si ninguna relación parte del campo fuente (en este caso devuelven valores no significativos.). El valor de los parámetros *oneTable* y *oneField* permiten asegurarse de que una relación existe. 
+**Nota:** los parámetros *autoOne* y *autoMany* también devolverán [True](true.md "True") si ninguna relación parte del campo fuente (en este caso devuelven valores no significativos.). El valor de los parámetros *oneTable* y *oneField* permiten asegurarse de que una relación existe. 
 
 ## Ver también 
 
