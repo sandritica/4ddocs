@@ -22,7 +22,7 @@ displayed_sidebar: docs
 
 **Nota:** este comando no hace nada si se aplica a la primera columna de un list box mostrado en modo jerárquico.
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades del objecto*. 
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades del objecto*. 
 
 Si no pasa el parámetro opcional *number*, el comando simplemente elimina la columna definida en el parámetro *colPosition*.
 
