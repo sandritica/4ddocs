@@ -5,29 +5,27 @@ slug: /commands/listbox-get-auto-row-height
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get auto row height.Syntax-->**LISTBOX Get auto row height**  ( * ; *objeto* : Text ; *selector* : Integer {; *unidad* : Integer} )  : Integer<br/>**LISTBOX Get auto row height**  ( *objeto* : Field, Variable ; *selector* : Integer {; *unidad* : Integer} )  : Integer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get auto row height.Syntax-->**LISTBOX Get auto row height** ( * ; *object* : Text ; *selector* : Integer {; *unit* : Integer} )  : Integer<br/>**LISTBOX Get auto row height** ( *object* : Variable ; *selector* : Integer {; *unit* : Integer} )  : Integer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get auto row height.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable. |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable. |
+| object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite *) |
 | selector | Integer | &#8594; | Valor altura a obtener: lk row min height o lk row max height |
-| unidad | Integer | &#8594; | Unidad de valor de altura: 0 = píxeles, 1 = líneas |
+| unit | Integer | &#8594; | Unidad de valor de altura: 0 = píxeles, 1 = líneas |
 | Resultado | Integer | &#8592; | Valor de altura de línea seleccionado |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX Get auto row height.Summary-->El comando **LISTBOX Get auto row height**  devuelve el valor de altura de fila mínimo o máximo actual definido para el objeto list box designado utilizando los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX Get auto row height.Summary-->El comando **LISTBOX Get auto row height**  devuelve el valor de altura de fila mínimo o máximo actual definido para el objeto list box designado utilizando los parámetros *object* y *\**.<!-- END REF-->
 
 El valor actual mínimo o máximo de la altura de la fila puede definirse en la lista de propiedades (ver *Altura automática de fila*) o en el proceso actual utilizando el comando [LISTBOX SET AUTO ROW HEIGHT](listbox-set-auto-row-height.md).
 
 **Nota**: este comando solo se puede usar con list boxes "collection o entity selection" y "array".
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Para más información acerca de los nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Para más información acerca de los nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
 En *selector*, pase el tipo de valor a obtener. Puede utilizar una de las siguientes constantes del tema *Listbox*:
 
@@ -36,7 +34,7 @@ En *selector*, pase el tipo de valor a obtener. Puede utilizar una de las siguie
 | lk row max height | Entero largo | 33    |
 | lk row min height | Entero largo | 32    |
 
-De forma predeterminada, el comando devuelve el valor en píxeles. Puede pasar una de las siguientes constantes del tema *Listbox* en el parámetro *unidad* para definir la unidad a utilizar:
+De forma predeterminada, el comando devuelve el valor en píxeles. Puede pasar una de las siguientes constantes del tema *Listbox* en el parámetro *unit* para definir la unidad a utilizar:
 
 | Constante | Tipo         | Valor | Comentario                                                                                        |
 | --------- | ------------ | ----- | ------------------------------------------------------------------------------------------------- |
@@ -64,5 +62,3 @@ Usted desea obtener el número máximo de líneas para una línea de list box:
 | --- | --- |
 | Número de comando | 1502 |
 | Hilo seguro | no |
-
-
