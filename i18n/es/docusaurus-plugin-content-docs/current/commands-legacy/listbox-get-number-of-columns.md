@@ -5,23 +5,21 @@ slug: /commands/listbox-get-number-of-columns
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get number of columns.Syntax-->**LISTBOX Get number of columns** ( * ; *objeto* : Text ) : Integer<br/>**LISTBOX Get number of columns** ( *objeto* : Field, Variable ) : Integer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get number of columns.Syntax-->**LISTBOX Get number of columns** ( * ; *object* : Text ) : Integer<br/>**LISTBOX Get number of columns** ( *object* : Variable ) : Integer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get number of columns.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
 | Resultado | Integer | &#8592; | Número de columnas |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX Get number of columns.Summary-->El comando LISTBOX Get number of columns devuelve el número total de columnas (visibles o invisibles) presentes en el list box designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX Get number of columns.Summary-->El comando **LISTBOX Get number of columns** devuelve el número total de columnas (visibles o invisibles) presentes en el list box designado por los parámetros *object* y *\**.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *objeto* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*. 
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*. 
 
 ## Ver también 
 
@@ -33,5 +31,3 @@ Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nom
 | --- | --- |
 | Número de comando | 831 |
 | Hilo seguro | no |
-
-
