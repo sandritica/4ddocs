@@ -5,25 +5,23 @@ slug: /commands/listbox-get-objects
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX GET OBJECTS.Syntax-->**LISTBOX GET OBJECTS** ( * ; *objeto* : Text ; *arrayNomObjeto* : Text array )<br/>**LISTBOX GET OBJECTS** ( *objeto* : Field, Variable ; *arrayNomObjeto* : Text array )<!-- END REF-->
+<!--REF #_command_.LISTBOX GET OBJECTS.Syntax-->**LISTBOX GET OBJECTS** ( * ; *object* : Text ; *arrObjectNames* : Text array )<br/>**LISTBOX GET OBJECTS** ( *object* : Variable ; *arrObjectNames* : Text array )<!-- END REF-->
 <!--REF #_command_.LISTBOX GET OBJECTS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre del objeto (si * se especifica) o Variable (si * se omite) |
-| arrayNomObjeto | Text array | &#8592; | Nombres de los sub objetos del list box (encabezados, columnas, pies) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre del objeto formulario (si * se especifica) o Variable (si * se omite) |
+| arrObjectNames  | Text array | &#8592; | Nombres de los sub objetos del list box (encabezados, columnas, pies) |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX GET OBJECTS.Summary-->El comando **LISTBOX GET OBJECTS** devuelve un array que contiene los nombres de todos los objetos que componen el list box designado por los parámetros *objeto* y *\** .<!-- END REF-->  
+<!--REF #_command_.LISTBOX GET OBJECTS.Summary-->El comando **LISTBOX GET OBJECTS** devuelve un array que contiene los nombres de todos los objetos que componen el list box designado por los parámetros *object* y *\** .<!-- END REF-->  
   
-Al pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (una cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
+Al pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (una cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
   
-En *arrayNomObjeto*, pase un array texto que es llenado automáticamente por el comando. Los nombres de los objetos son devueltos en su orden de presentación, con la siguiente secuencia:
+En *arrObjectNames*, pase un array texto que es llenado automáticamente por el comando. Los nombres de los objetos son devueltos en su orden de presentación, con la siguiente secuencia:
 
 | nomCol1      |
 | ------------ |
@@ -68,5 +66,3 @@ Usted quiere cargar un formulario y obtener la lista de todos los objetos de los
 | --- | --- |
 | Número de comando | 1302 |
 | Hilo seguro | no |
-
-
