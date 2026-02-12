@@ -17,7 +17,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.Last field number.Summary-->El comando Last field number devuelve el número de campo más alto de los campos en la tabla cuyo número o puntero se pasa en *tableNum* o *tablePtr*.<!-- END REF--> 
+<!--REF #_command_.Last field number.Summary-->El comando **Last field number** devuelve el número de campo más alto de los campos en la tabla cuyo número o puntero se pasa en *tableNum* o *tablePtr*.<!-- END REF--> 
 
 Los campos están numerados en el orden en el cual fueron creados. Si ningún campo ha sido borrado de la tabla, este comando devuelve el número de campos que contiene la tabla. En el caso de bucles interactivos sobre los números de campo de la tabla, debe utilizar el comando [Is field number valid](is-field-number-valid.md "Is field number valid") con el fin de verificar que el campo no ha sido eliminado.
 
