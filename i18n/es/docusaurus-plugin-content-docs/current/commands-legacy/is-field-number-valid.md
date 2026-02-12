@@ -13,7 +13,7 @@ displayed_sidebar: docs
 | tablePtr | Pointer | &#8594;  | Puntero a una tabla |
 | fieldNum | Integer | &#8594;  | Número de campo |
 | Resultado | Boolean | &#8592; | True = el campo existe en la tabla False = el campo no existe en la tabla |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
