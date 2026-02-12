@@ -9,7 +9,7 @@ displayed_sidebar: docs
 <!--REF #_command_.INSERT IN LIST.Params-->
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, lista es un nombre de objeto (cadena) Si se omite, lista es un número de referencia de lista |
+| * | Operator | &#8594; | Si se especifica, lista es un nombre de objeto (cadena) Si se omite, lista es un número de referencia de lista |
 | list | Integer, Text | &#8594; | Número de referencia de lista (si se omite *) o Nombre del objeto de tipo lista (si se pasa *) |
 | beforeItemRef | Integer, Operator | &#8594;  |Número de referencia del elemento o 0 para el último elemento añadido a la lista o * para el elemento de la lista actualmente seleccionado |
 | itemText | Text | &#8594; | Texto para el nuevo elemento (max. 255 caracteres) |
@@ -21,7 +21,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.INSERT IN LIST.Summary-->El comando INSERT IN LIST inserta el elemento designado por el parámetro *itemRef* en la lista cuyo número de referencia se pasa en *list*.<!-- END REF-->
+<!--REF #_command_.INSERT IN LIST.Summary-->El comando **INSERT IN LIST** inserta el elemento designado por el parámetro *itemRef* en la lista cuyo número de referencia se pasa en *list*.<!-- END REF-->
 
 Si pasa el primer parámetro opcional *\**, indica que el parámetro *list* es un nombre de objeto (cadena) correspondiente a una representación de la lista en el formulario. Si no pasa este parámetro, indica que el parámetro *list* es una referencia de lista jerárquica  (RefLista). Si utiliza una sola representación de lista o trabaja con los elementos estructurales (se omite el segundo *\** ), puede utilizar indiferentemente una u otra sintaxis. Por el contrario, si utiliza varias representaciones de la misma lista y trabaja con el elemento actual (se pasa el segundo *\**), la sintaxis basada en el nombre del objeto es requerida ya que cada representación tiene su propio elemento actual.
 
