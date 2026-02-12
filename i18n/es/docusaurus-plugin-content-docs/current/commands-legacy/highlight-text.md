@@ -25,7 +25,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.HIGHLIGHT TEXT.Summary-->El comando `HIGHLIGHT TEXT` selecciona una parte de texto en *objeto*.<!-- END REF-->  
+<!--REF #_command_.HIGHLIGHT TEXT.Summary-->El comando `HIGHLIGHT TEXT` selecciona una parte de texto en *object*.<!-- END REF-->  
   
 Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de un objeto (una cadena) Si no pasa el parámetro \*, indica que el parámetro *object* es un campo o una variable. En este caso, pase la referencia del campo o de la variable (campos o variables de formulario únicamente) en lugar de una cadena.  
 
