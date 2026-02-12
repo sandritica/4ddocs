@@ -20,7 +20,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX EXPAND.Summary-->El comando **LISTBOX EXPAN**D se utiliza para desplegar las líneas de ruptura del objeto list box designado por los parámetros objeto y \*.<!-- END REF-->  
+<!--REF #_command_.LISTBOX EXPAND.Summary-->El comando **LISTBOX EXPAND** se utiliza para desplegar las líneas de ruptura del objeto list box designado por los parámetros objeto y \*.<!-- END REF-->  
   
 Si pasa el parámetro opcional \*, indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.   
   
