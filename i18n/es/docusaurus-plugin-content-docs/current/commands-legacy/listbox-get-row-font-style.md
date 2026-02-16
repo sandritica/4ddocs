@@ -5,31 +5,30 @@ slug: /commands/listbox-get-row-font-style
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get row font style.Syntax-->**LISTBOX Get row font style** ( * ; *objeto* : Text ; *linea* : Integer ) : Integer<br/>**LISTBOX Get row font style** ( *objeto* : Field, Variable ; *linea* : Integer ) : Integer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get row font style.Syntax-->**LISTBOX Get row font style** ( * ; *object* : Text ; *row* : Integer ) : Integer<br/>**LISTBOX Get row font style** ( *object* : Variable ; *row* : Integer ) : Integer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get row font style.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre del objeto(si se especifica *) o<br/>Variable (si se omite *) |
-| linea | Integer | &#8594; | Número de línea |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre del objeto(si se especifica *) o<br/>Variable (si se omite *) |
+| row | Integer | &#8594; | Número de línea |
 | Resultado | Integer | &#8592; | Valor de estilo |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
 <!--REF #_command_.LISTBOX Get row font style.Summary-->**Nota:** este comando sólo funciona con los list box de tipo array.<!-- END REF-->
 
-El comando **LISTBOX Get row font style** devuelve el estilo de fuente de una línea o de una celda del list box designado por los parámetros *objeto* y *\** .
+El comando **LISTBOX Get row font style** devuelve el estilo de fuente de una línea o de una celda del list box designado por los parámetros *object* y *\** .
 
-Al pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Puede designar como parámetro *objeto* un list box o una columna de list box:
+Al pasar el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. 
+Puede designar como parámetro *object* un list box o una columna de list box:
 
-* si *objeto* designa un list box, el comando devuelve el estilo de la línea.
-* si *objeto* designa una columna, el comando devuelve el estilo de la celda.
+* si *object* designa un list box, el comando devuelve el estilo de la línea.
+* si *object* designa una columna, el comando devuelve el estilo de la celda.
 
-En *linea*, pase el número de la línea cuyo estilo desea obtener. 
+En *row*, pase el número de la línea cuyo estilo desea obtener. 
 
 **Nota:** el comando no tiene en cuenta los estados oculto/visible de las líneas del list box.
 
