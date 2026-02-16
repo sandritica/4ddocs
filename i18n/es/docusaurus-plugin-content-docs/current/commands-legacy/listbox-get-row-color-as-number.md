@@ -5,18 +5,16 @@ slug: /commands/listbox-get-row-color-as-number
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get row color as number.Syntax-->**LISTBOX Get row color as number** ( * ; *objeto* : Text ; *fila* : Integer {; *tipoColor* : Integer} )  : Integer<br/>**LISTBOX Get row color as number** ( *objeto* : Field, Variable ; *fila* : Integer {; *tipoColor* : Integer} )  : Integer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get row color as number.Syntax-->**LISTBOX Get row color as number** ( * ; *object* : Text ; *row* : Integer {; *colorType* : Integer} )  : Integer<br/>**LISTBOX Get row color as number** ( *object* : Variable ; *row* : Integer {; *colorType* : Integer} )  : Integer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get row color as number.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si * se especifica) o <br/>Variable (si * se omite) |
-| fila | Integer | &#8594; | Número de fila |
-| tipoColor | Integer | &#8594; | Listbox color de fuente (por defecto) o Listbox color de fondo |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si * se especifica) o <br/>Variable (si * se omite) |
+| row | Integer | &#8594; | Número de fila |
+| colorType  | Integer | &#8594; | Listbox color de fuente (por defecto) o Listbox color de fondo |
 | Resultado | Integer | &#8592; | Valor de color |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
@@ -55,6 +53,7 @@ Dado el siguiente list box:
   // vColor3 contiene 0x00FF0000 (rojo)
 ```
 
+
 ## Ver también 
 
 *Listbox*  
@@ -67,5 +66,3 @@ Dado el siguiente list box:
 | --- | --- |
 | Número de comando | 1271 |
 | Hilo seguro | no |
-
-
