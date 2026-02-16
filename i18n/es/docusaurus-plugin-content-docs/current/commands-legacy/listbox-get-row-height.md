@@ -5,26 +5,24 @@ slug: /commands/listbox-get-row-height
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX Get row height.Syntax-->**LISTBOX Get row height**  ( * ; *objeto* : Text ; *linea* : Integer ) : Integer<br/>**LISTBOX Get row height**  ( *objeto* : Field, Variable ; *linea* : Integer ) : Integer<!-- END REF-->
+<!--REF #_command_.LISTBOX Get row height.Syntax-->**LISTBOX Get row height** ( * ; *object* : Text ; *row* : Integer ) : Integer<br/>**LISTBOX Get row height** ( *object* : Variable ; *row* : Integer ) : Integer<!-- END REF-->
 <!--REF #_command_.LISTBOX Get row height.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite *) |
-| linea | Integer | &#8594; | Línea de list box, cuya altura desea obtener |
+| object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite *) |
+| row | Integer | &#8594; | Línea de list box, cuya altura desea obtener |
 | Resultado | Integer | &#8592; | Altura de la fila |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX Get row height.Summary-->El comando **LISTBOX Get row height**  devuelve la altura de la *fila* especificada en el objeto list box designado utilizando el *objeto* y los parámetros *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX Get row height.Summary-->El comando **LISTBOX Get row height**  devuelve la altura de la *row* especificada en el objeto list box designado utilizando el *object* y los parámetros *\**.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia variable en lugar de una cadena. Para más información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia variable en lugar de una cadena. Para más información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
-Si la *linea* especificada no existe en el list box, el comando devuelve 0 (cero).
+Si la *row* especificada no existe en el list box, el comando devuelve 0 (cero).
 
 El valor de la altura de la línea se expresa:
 
@@ -43,5 +41,3 @@ El valor de la altura de la línea se expresa:
 | --- | --- |
 | Número de comando | 1408 |
 | Hilo seguro | no |
-
-
