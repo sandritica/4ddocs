@@ -5,35 +5,33 @@ slug: /commands/listbox-select-break
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SELECT BREAK.Syntax-->**LISTBOX SELECT BREAK** ( * ; *objeto* : Text ; *linea* : Integer ; *columna* : Integer {; *accion* : Integer} )<br/>**LISTBOX SELECT BREAK** ( *objeto* : Field, Variable ; *linea* : Integer ; *columna* : Integer {; *accion* : Integer} )<!-- END REF-->
+<!--REF #_command_.LISTBOX SELECT BREAK.Syntax-->**LISTBOX SELECT BREAK** ( * ; *object* : Text ; *row* : Integer ; *column* : Integer {; *action* : Integer} )<br/>**LISTBOX SELECT BREAK** ( *object* : Variable ; *row* : Integer ; *column* : Integer {; *action* : Integer} )<!-- END REF-->
 <!--REF #_command_.LISTBOX SELECT BREAK.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o variable (si se omite *) |
-| linea | Integer | &#8594; | Número de línea de la ruptura |
-| columna | Integer | &#8594; | Número de columna de la ruptura |
-| accion | Integer | &#8594; | Acción de selección |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o variable (si se omite *) |
+| row | Integer | &#8594; | Número de línea de la ruptura |
+| column | Integer | &#8594; | Número de columna de la ruptura |
+| action | Integer | &#8594; | Acción de selección |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SELECT BREAK.Summary-->El comando LISTBOX SELECT BREAK se utiliza para seleccionar líneas de ruptura en el objeto list box designado por los parámetros *objeto* y *\**.<!-- END REF--> El list box debe mostrarse en modo jerárquico.   
+<!--REF #_command_.LISTBOX SELECT BREAK.Summary-->El comando **LISTBOX SELECT BREAK** se utiliza para seleccionar líneas de ruptura en el objeto list box designado por los parámetros *object* y *\**.<!-- END REF--> El list box debe mostrarse en modo jerárquico.   
   
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
   
 Las líneas de ruptura se añaden para representar la jerarquía, pero no corresponden a las líneas existentes en el array. Para designar una línea de ruptura a seleccionar, debe pasar en los parámetros línea y columna el número de línea y de columna correspondiente a la primera ocurrencia en el array correspondiente. Estos valores son devueltos por el comando [LISTBOX GET CELL POSITION](listbox-get-cell-position.md) cuando el usuario ha seleccionado una línea de ruptura. Este principio se describe en el párrafo "Gestión de las líneas de ruptura" de la sección *List box jerárquicos*.  
   
-El parámetro *accion*, si se pasa, puede definir la acción de selección que debe efectuarse cuando una selección de líneas de ruptura existe en el list box. Puede pasar un valor o una de las siguientes constantes, que se encuentra en el tema "*Listbox*" el tema:
+El parámetro *action*, si se pasa, puede definir la acción de selección que debe efectuarse cuando una selección de líneas de ruptura existe en el list box. Puede pasar un valor o una de las siguientes constantes, que se encuentra en el tema "*Listbox*" el tema:
 
 | Constante                | Tipo         | Valor | Comentario                                                                                                                                                                                                                                                                               |
 | ------------------------ | ------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | lk add to selection      | Entero largo | 1     | La línea seleccionada se añade a la selección existente. Si la línea seleccionada ya pertenece a la selección existente, el comando no hace nada.                                                                                                                                        |
 | lk remove from selection | Entero largo | 2     | La línea seleccionada se remueve de la selección existente. Si la línea especificada no pertenece a la selección existente, el comando no hace nada.                                                                                                                                     |
-| lk replace selection     | Entero largo | 0     | La línea seleccionada se convierte en la nueva selección, reemplazando la selección existente. El comando tiene el mismo efecto que un clic de usuario en una línea (sin embargo, el evento On Clicked no se genera). Esta es la acción por defecto (si se omite el parámetro *acción*). |
+| lk replace selection     | Entero largo | 0     | La línea seleccionada se convierte en la nueva selección, reemplazando la selección existente. El comando tiene el mismo efecto que un clic de usuario en una línea (sin embargo, el evento On Clicked no se genera). Esta es la acción por defecto (si se omite el parámetro *action*). |
 
 **Nota:** si ha seleccionado la opción **Ocultar el resaltado de selección** para un:
 
@@ -70,5 +68,3 @@ Este es el resultado:
 | --- | --- |
 | Número de comando | 1117 |
 | Hilo seguro | no |
-
-
