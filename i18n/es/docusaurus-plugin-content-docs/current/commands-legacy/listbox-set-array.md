@@ -5,30 +5,28 @@ slug: /commands/listbox-set-array
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET ARRAY.Syntax-->**LISTBOX SET ARRAY** ( * ; *objeto* : Text ; *tipoArray* : Integer ; *ptrArray* : Pointer )<br/>**LISTBOX SET ARRAY** ( *objeto* : Field, Variable ; *tipoArray* : Integer ; *ptrArray* : Pointer )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET ARRAY.Syntax-->**LISTBOX SET ARRAY** ( * ; *object* : Text ; *arrType* : Integer ; *arrPtr* : Pointer )<br/>**LISTBOX SET ARRAY** ( *object* : Variable ; *arrType* : Integer ; *arrPtr* : Pointer )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET ARRAY.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o<br/>Variable (si se omite *) |
-| tipoArray | Integer | &#8594; | Tipo de array |
-| ptrArray | Pointer | &#8594; | Array a asociar a la propiedad |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o<br/>Variable (si se omite *) |
+| arrType  | Integer | &#8594; | Tipo de array |
+| arrPtr  | Pointer | &#8594; | Array a asociar a la propiedad |
+
 <!-- END REF-->
 
 ## Descripción 
 
 <!--REF #_command_.LISTBOX SET ARRAY.Summary-->**Nota**: este comando sólo funciona con los list box de tipo array.<!-- END REF-->  
   
-El comando **LISTBOX SET ARRAY** asocia un array de tipo *tipoArray* al list box o a la columna de list box designada por los parámetros *objeto* y *\** .  
+El comando **LISTBOX SET ARRAY** asocia un array de tipo *arrType* al list box o a la columna de list box designada por los parámetros *object* y *\** .  
   
 **Nota**: los arrays de estilo, de colores o de color de fondo o de control de líneas también pueden estar asociados a los list box de tipo array utilizando la lista de propiedades en modo Diseño.  
   
-Si pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Puede designar como parámetro *objeto* un list box o una columna de list box.  
+Si pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Puede designar como parámetro *object* un list box o una columna de list box.  
   
-En *tipoArray*, pase el tipo de array a asociar al list box o a la columna. Puede utilizar una de las siguientes constantes del tema "*Listbox*":
+En *arrType*, pase el tipo de array a asociar al list box o a la columna. Puede utilizar una de las siguientes constantes del tema "*Listbox*":
 
 | Constante                 | Tipo         | Valor | Comentario                       |
 | ------------------------- | ------------ | ----- | -------------------------------- |
@@ -37,9 +35,8 @@ En *tipoArray*, pase el tipo de array a asociar al list box o a la columna. Pued
 | lk font color array       | Entero largo | 0     |                                  |
 | lk row height array       | Entero largo | 4     | (Licencia 4D View Pro requerida) |
 | lk style array            | Entero largo | 2     |                                  |
-  
-  
-En el parámetro *ptrArray*, se pasa un puntero al array a utilizar para soportar el tipo de propiedad.
+    
+En el parámetro *arrPtr*, se pasa un puntero al array a utilizar para soportar el tipo de propiedad.
 
 ## Ejemplo 1 
 
@@ -74,5 +71,3 @@ Usted desea definir un array de altura de línea para un list box:
 | --- | --- |
 | Número de comando | 1279 |
 | Hilo seguro | no |
-
-
