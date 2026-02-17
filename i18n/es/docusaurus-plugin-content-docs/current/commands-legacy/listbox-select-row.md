@@ -5,39 +5,36 @@ slug: /commands/listbox-select-row
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SELECT ROW.Syntax-->**LISTBOX SELECT ROW** ( * ; *objeto* : Text ; *posicionL* : Integer {; *accion* : Integer} )<br/>**LISTBOX SELECT ROW** ( *objeto* : Field, Variable ; *posicionL* : Integer {; *accion* : Integer} )<!-- END REF-->
+<!--REF #_command_.LISTBOX SELECT ROW.Syntax-->**LISTBOX SELECT ROW** ( * ; *object* : Text ; *rowPosition* : Integer {; *action* : Integer} )<br/>**LISTBOX SELECT ROW** ( *object* : Variable ; *rowPosition* : Integer {; *action* : Integer} )<!-- END REF-->
 <!--REF #_command_.LISTBOX SELECT ROW.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
-| posicionL | Integer | &#8594; | Número de la fila a seleccionar |
-| accion | Integer | &#8594; | Acción de selección |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| rowPosition | Integer | &#8594; | Número de la fila a seleccionar |
+| action | Integer | &#8594; | Acción de selección |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SELECT ROW.Summary-->El comando LISTBOX SELECT ROW selecciona la fila cuyo número se pasa en *posicion* en el list box designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX SELECT ROW.Summary-->El comando **LISTBOX SELECT ROW** selecciona la fila cuyo número se pasa en *position* en el list box designado por los parámetros *object* y *\**.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *objeto* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
-El parámetro opcional *accion*, si se pasa, se utiliza para definir la acción de selección a ejecutar cuando una selección de filas ya existe en el list box. Puede pasar un valor o una de las siguientes constantes (ubicadas en el tema “\[#title id="274"/\]”):
+El parámetro opcional *action*, si se pasa, se utiliza para definir la acción de selección a ejecutar cuando una selección de filas ya existe en el list box. Puede pasar un valor o una de las siguientes constantes (ubicadas en el tema “*List Box*”):
 
 | Constante                | Tipo         | Valor | Comentario                                                                                                                                                                                                                                                                               |
 | ------------------------ | ------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | lk add to selection      | Entero largo | 1     | La línea seleccionada se añade a la selección existente. Si la línea seleccionada ya pertenece a la selección existente, el comando no hace nada.                                                                                                                                        |
 | lk remove from selection | Entero largo | 2     | La línea seleccionada se remueve de la selección existente. Si la línea especificada no pertenece a la selección existente, el comando no hace nada.                                                                                                                                     |
-| lk replace selection     | Entero largo | 0     | La línea seleccionada se convierte en la nueva selección, reemplazando la selección existente. El comando tiene el mismo efecto que un clic de usuario en una línea (sin embargo, el evento On Clicked no se genera). Esta es la acción por defecto (si se omite el parámetro *acción*). |
+| lk replace selection     | Entero largo | 0     | La línea seleccionada se convierte en la nueva selección, reemplazando la selección existente. El comando tiene el mismo efecto que un clic de usuario en una línea (sin embargo, el evento On Clicked no se genera). Esta es la acción por defecto (si se omite el parámetro *action*). |
 
-Cuando el parámetro *posicion* no corresponde exactamente a un número de fila existente, el comando actúa de la siguiente manera:
+Cuando el parámetro *position* no corresponde exactamente a un número de fila existente, el comando actúa de la siguiente manera:
 
-* Si *posicion* es <0, el comando no hace nada, cualquiera que sea el valor del parámetro *accion*.
-* Si *posicion* es 0 y el parámetro *accion* contiene lk replace selection o se omite, todas las filas del list box son seleccionadas. Si el parámetro *accion* contiene lk remove from selection, todas las filas del list box son deseleccionadas.
-* Si el valor de *posicion* es superior al número total de filas contenidas en el list box (sólo en el caso de un array de tipo listbox), el array booleano asociado a el list box es redimensionado automáticamente y la acción de selección se efectúa. Este mecanismo permite utilizar LISTBOX SELECT ROW con los comandos “estándar” de gestión de arrays (tales como [APPEND TO ARRAY](append-to-array.md)) que no provocan la sincronización inmediata del listbox.
-
+* Si *position* es <0, el comando no hace nada, cualquiera que sea el valor del parámetro *action*.
+* Si *position* es 0 y el parámetro *action* contiene lk replace selection o se omite, todas las filas del list box son seleccionadas. Si el parámetro *action* contiene lk remove from selection, todas las filas del list box son deseleccionadas.
+* Si el valor de *position* es superior al número total de filas contenidas en el list box (sólo en el caso de un array de tipo listbox), el array booleano asociado a el list box es redimensionado automáticamente y la acción de selección se efectúa. Este mecanismo permite utilizar LISTBOX SELECT ROW con los comandos “estándar” de gestión de arrays (tales como [APPEND TO ARRAY](append-to-array.md)) que no provocan la sincronización inmediata del listbox.
 Después de la ejecución del método, los arrays son sincronizados: si el array fuente del listbox ha sido redimensionado efectivamente, la acción de selección se lleva a cabo. De lo contrario, el array booleano asociado con el list box vuelve a su tamaño inicial y el comando no hace nada.
 
 **Notas:**
@@ -62,5 +59,3 @@ Después de la ejecución del método, los arrays son sincronizados: si el array
 | --- | --- |
 | Número de comando | 912 |
 | Hilo seguro | no |
-
-
