@@ -5,27 +5,25 @@ slug: /commands/listbox-set-auto-row-height
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET AUTO ROW HEIGHT.Syntax-->**LISTBOX SET AUTO ROW HEIGHT** ( * ; *objeto* : Text ; *selector* : Integer ; *valor* : Integer ; *unidad* : Integer )<br/>**LISTBOX SET AUTO ROW HEIGHT** ( *objeto* : Field, Variable ; *selector* : Integer ; *valor* : Integer ; *unidad* : Integer )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET AUTO ROW HEIGHT.Syntax-->**LISTBOX SET AUTO ROW HEIGHT** ( * ; *object* : Text ; *selector* : Integer ; *value* : Integer ; *unit* : Integer )<br/>**LISTBOX SET AUTO ROW HEIGHT** ( *object* : Variable ; *selector* : Integer ; *value* : Integer ; *unit* : Integer )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET AUTO ROW HEIGHT.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable. |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena). Si se omite, objeto es una variable. |
+| object | Text, Variable | &#8594; | Nombre del objeto (si se especifica *) o Variable (si se omite) |
 | selector | Integer | &#8594; | Valor de la altura a definir: lk row min height o lk row max height |
-| valor | Integer | &#8594; | Valor mínimo o máximo de la altura de la fila |
-| unidad | Integer | &#8594; | Unidad de valor de altura: 0 = píxeles, 1 = líneas |
+| value | Integer | &#8594; | Valor mínimo o máximo de la altura de la fila |
+| unit | Integer | &#8594; | Unidad de valor de altura: 0 = píxeles, 1 = líneas |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SET AUTO ROW HEIGHT.Summary-->El comando LISTBOX SET AUTO ROW HEIGHT le permite establecer el valor de altura de fila mínimo o máximo en el objeto de list box designado utilizando los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX SET AUTO ROW HEIGHT.Summary-->El comando **LISTBOX SET AUTO ROW HEIGHT* le permite establecer el valor de altura de fila mínimo o máximo en el objeto de list box designado utilizando los parámetros *object* y *\**.<!-- END REF-->
 
 **Nota**: este comando solo se tiene en cuenta si el list box está definido en modo de altura automática de fila (ver *Altura automática de fila*), lo cual está disponible sólo para listboxes "collection o entity selection" y "array". De lo contrario, no tiene ningún efecto.
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Para más información acerca de los nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena. Para más información acerca de los nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
 En *selector*, pase el tipo de valor a definir. Puede utilizar una de las siguientes constantes del tema *Listbox*:
 
@@ -34,9 +32,9 @@ En *selector*, pase el tipo de valor a definir. Puede utilizar una de las siguie
 | lk row max height | Entero largo | 33    |
 | lk row min height | Entero largo | 32    |
 
-En *valor*, pase el valor correspondiente en la *unidad* apropiada.
+En *value*, pase el valor correspondiente en la *unidad* apropiada.
 
-El parámetro *unidad* puede ajustarse utilizando una de las siguientes constantes del tema *Listbox*:
+El parámetro *unit* puede ajustarse utilizando una de las siguientes constantes del tema *Listbox*:
 
 | Constante | Tipo         | Valor | Comentario                                                                                        |
 | --------- | ------------ | ----- | ------------------------------------------------------------------------------------------------- |
@@ -66,5 +64,3 @@ Usted desea definir las alturas mínimas y máximas para un list box con una alt
 | --- | --- |
 | Número de comando | 1501 |
 | Hilo seguro | no |
-
-
