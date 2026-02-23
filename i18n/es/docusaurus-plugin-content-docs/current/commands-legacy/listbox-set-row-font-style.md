@@ -5,37 +5,35 @@ slug: /commands/listbox-set-row-font-style
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET ROW FONT STYLE.Syntax-->**LISTBOX SET ROW FONT STYLE** ( * ; *objeto* : Text ; *fila* : Integer ; *estilo* : Integer )<br/>**LISTBOX SET ROW FONT STYLE** ( *objeto* : Field, Variable ; *fila* : Integer ; *estilo* : Integer )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET ROW FONT STYLE.Syntax-->**LISTBOX SET ROW FONT STYLE** ( * ; *object* : Text ; *row* : Integer ; *style* : Integer )<br/>**LISTBOX SET ROW FONT STYLE** ( *object* : Variable ; *row* : Integer ; *style* : Integer )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET ROW FONT STYLE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si * se especifica) o <br/>Variable (si * se omite) |
-| fila | Integer | &#8594; | Número de fila |
-| estilo | Integer | &#8594; | Estilo de fuente |
-</div>
+| * | Text, Variable | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | any | &#8594; | Nombre de objeto (si * se especifica) o <br/>Variable (si * se omite) |
+| row | Integer | &#8594; | Número de fila |
+| style | Integer | &#8594; | Estilo de fuente |
+
 <!-- END REF-->
 
 ## Descripción 
 
 <!--REF #_command_.LISTBOX SET ROW FONT STYLE.Summary-->**Nota:** este comando sólo funciona con los list boxes de tipo array.<!-- END REF-->  
   
-El comando **LISTBOX SET ROW FONT STYLE** establece un estilo de fuente para una fila o una celda en el list box tipo array designado por los parámetros *objeto* y *\** .  
+El comando **LISTBOX SET ROW FONT STYLE** establece un estilo de fuente para una fila o una celda en el list box tipo array designado por los parámetros *object* y *\** .  
   
-Al pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro objeto es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
+Al pasar el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro objeto es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
   
-Puede designar un list box o una columna de list box en el parámetro de *objeto*:
+Puede designar un list box o una columna de list box en el parámetro de *object*:
 
-* Cuando el *objeto* designa un list box, el comando se aplica a la fila.
-* Cuando el *objeto* designa una columna de list box, el comando se aplica a la celda ubicada en la intersección de la columna/fila.
+* Cuando el *object* designa un list box, el comando se aplica a la fila.
+* Cuando el *object* designa una columna de list box, el comando se aplica a la celda ubicada en la intersección de la columna/fila.
 
-En *fila*, pase el número de la fila en la que desea aplicar el nuevo estilo.  
+En *row*, pase el número de la fila en la que desea aplicar el nuevo estilo.  
   
 **Nota:** el comando no tiene en cuenta ningún estado oculto/visible de las filas del list box.  
   
-En *estilo*, se pasa un valor de estilo. Debe utilizar uno (o una combinación) de las constantes que se encuentran en el tema *Estilos de fuente*:  
+En *style*, se pasa un valor de estilo. Debe utilizar uno (o una combinación) de las constantes que se encuentran en el tema *Estilos de fuente*:  
   
 | Constante | Tipo         | Valor |
 | --------- | ------------ | ----- |
@@ -43,7 +41,6 @@ En *estilo*, se pasa un valor de estilo. Debe utilizar uno (o una combinación) 
 | Italic    | Entero largo | 2     |
 | Plain     | Entero largo | 0     |
 | Underline | Entero largo | 4     |
-  
   
 Si un array de estilos de fuente se ha asociado con el list box o columna, sólo el elemento correspondiente a la fila se modifica. En otras palabras, la ejecución del comando tiene el mismo efecto, en este caso, como modificación de un elemento del array estilo de fuente.  
 Si no hay un array estilo de fuente asociado con el list box o columna, se creará de forma dinámica cuando se llama a este comando. Se puede acceder a ellos usando el comando [LISTBOX Get array](listbox-get-array.md).  
@@ -87,5 +84,3 @@ Después de la segunda declaración, todas las celdas de la tercera fila cambian
 | --- | --- |
 | Número de comando | 1268 |
 | Hilo seguro | no |
-
-
