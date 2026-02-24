@@ -5,21 +5,19 @@ slug: /commands/listbox-set-static-columns
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET STATIC COLUMNS.Syntax-->**LISTBOX SET STATIC COLUMNS** ( * ; *objeto* : Text ; *numColumnas* : Integer )<br/>**LISTBOX SET STATIC COLUMNS** ( *objeto* : Field, Variable ; *numColumnas* : Integer )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET STATIC COLUMNS.Syntax-->**LISTBOX SET STATIC COLUMNS** ( * ; *object* : Text ; *numColumn* : Integer )<br/>**LISTBOX SET STATIC COLUMNS** ( *object* : Variable ; *numColumn* : Integer )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET STATIC COLUMNS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
-| numColumnas | Integer | &#8594; | Número de columnas a convertir estáticas |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto formulario (si se especifica *) o Variable (si se omite *) |
+| numColumn | Integer | &#8594; | Número de columnas a convertir estáticas |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SET STATIC COLUMNS.Summary-->El comando **LISTBOX SET STATIC COLUMNS** define las primeras *numColumnas* columnas (empezando por la izquierda) en el list box designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.LISTBOX SET STATIC COLUMNS.Summary-->El comando **LISTBOX SET STATIC COLUMNS** define las primeras *numColumns* columnas (empezando por la izquierda) en el list box designado por los parámetros *object* y *\**.<!-- END REF-->
 
 Las columnas estáticas no pueden moverse en el list box.
 
@@ -36,5 +34,3 @@ Las columnas estáticas no pueden moverse en el list box.
 | --- | --- |
 | Número de comando | 1153 |
 | Hilo seguro | no |
-
-
