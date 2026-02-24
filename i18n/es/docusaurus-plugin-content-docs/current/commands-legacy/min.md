@@ -5,15 +5,13 @@ slug: /commands/min
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Min.Syntax-->**Min** ( *series* : Field, Array {; *rutaAtributo* : Text} ) : any<!-- END REF-->
+<!--REF #_command_.Min.Syntax-->**Min** ( *series* : Field, Array {; *attributePath* : Text} ) : any<!-- END REF-->
 <!--REF #_command_.Min.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | series | Field, Array | &#8594; | Datos para los cuales devuelve el valor mínimo |
-| rutaAtributo | Text | &#8594; | Ruta de atributo para el cual calcular el valor mínimo |
-| Resultado | Date, Real | &#8592; | Valor mínimo en series |
+| attributePath | Text | &#8594; | Ruta de atributo para el cual calcular el valor mínimo |
+| Resultado | any | &#8592; | Valor mínimo en series |
 </div>
 <!-- END REF-->
 
@@ -25,7 +23,7 @@ Si la selección de *series* está vacía, **Min** devuelve 0.
 
 Puede pasar en *series* un array (de una o dos dimensiones). En este caso, el array debe ser de tipo Entero, Entero largo, Real o Fecha.
 
-Este comando acepta un parámetro opcional de tipo texto *rutaAtributo*, que puede utilizar si *series* es un campo de tipo Objeto. Le permite definir la ruta del atributo a calcular. Utilice la notación estándar para definir las rutas de los atributos anidados, por ejemplo "company.address.number". Recuerde que los nombres de los atributos de objetos tienen en cuanta las mayúsculas y minúsculas.  
+Este comando acepta un parámetro opcional de tipo texto *attributePath*, que puede utilizar si *series* es un campo de tipo Objeto. Le permite definir la ruta del atributo a calcular. Utilice la notación estándar para definir las rutas de los atributos anidados, por ejemplo "company.address.number". Recuerde que los nombres de los atributos de objetos tienen en cuanta las mayúsculas y minúsculas.  
 Sólo los valores numéricos de los atributos se utilizan para el calculo. Si hay valores en la ruta del atributo que no son de tipo numérico, se omiten.
 
 Si el comando se ejecuta correctamente, la variable sistema OK toma el valor 1\. Si se interrumpe (por ejemplo si el usuario hace clic en el botón **Detener** del termómetro de progreso), la variable OK toma el valor 0.
@@ -38,7 +36,7 @@ El siguiente ejemplo es un método de objeto para la variable *vMin* ubicada en 
  vMin:=Min([Employees]Salary)
 ```
 
-**Note:** asegúrese de que el evento formulario "On printing break" esté seleccionado para la variable.
+**Nota:** asegúrese de que el evento formulario "On printing break" esté seleccionado para la variable.
 
 El siguiente método se llama para imprimir los registros en la selección y activar el proceso de ruptura:
 
@@ -87,5 +85,3 @@ Para un ejemplo de cálculo de un atributo campo de objeto, consulte el ejemplo 
 | Número de comando | 4 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
