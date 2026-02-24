@@ -5,26 +5,24 @@ slug: /commands/listbox-set-rows-height
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET ROWS HEIGHT.Syntax-->**LISTBOX SET ROWS HEIGHT** ( * ; *objeto* : Text ; *altura* : Integer {; *unidad* : Integer} )<br/>**LISTBOX SET ROWS HEIGHT** ( *objeto* : Field, Variable ; *altura* : Integer {; *unidad* : Integer} )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET ROWS HEIGHT.Syntax-->**LISTBOX SET ROWS HEIGHT** ( * ; *object* : Text ; *height* : Integer {; *unit* : Integer} )<br/>**LISTBOX SET ROWS HEIGHT** ( *object* : Variable ; *height* : Integer {; *unit* : Integer} )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET ROWS HEIGHT.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
-| altura | Integer | &#8594; | Altura de la fila (en píxeles) |
-| unidad | Integer | &#8594; | Unidad de valor de altura:0 o se omite = píxeles, 1 = líneas |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto formulario (si se especifica *) o Variable (si se omite *) |
+| height | Integer | &#8594; | Altura de la fila (en píxeles) |
+| unit | Integer | &#8594; | Unidad de valor de altura:0 o se omite = píxeles, 1 = líneas |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SET ROWS HEIGHT.Summary-->El comando **LISTBOX SET ROWS HEIGHT** le permite modificar por programación la altura de las filas del objeto list box designado por los parámetros *objeto* y *\**.<!-- END REF--> 
+<!--REF #_command_.LISTBOX SET ROWS HEIGHT.Summary-->El comando **LISTBOX SET ROWS HEIGHT** le permite modificar por programación la altura de las filas del objeto list box designado por los parámetros *object* y *\**.<!-- END REF--> 
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *objeto* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
-Por defecto, si omite el parámetro *unidad*, la altura se expresa en píxeles. Para modificar la unidad, en el parámetro *unidad* pase una de las siguientes constantes, ubicadas en el tema *Listbox*:
+Por defecto, si omite el parámetro *unit*, la altura se expresa en píxeles. Para modificar la unidad, en el parámetro *unit* pase una de las siguientes constantes, ubicadas en el tema *Listbox*:
 
 | Constante | Tipo         | Valor | Comentario                                                                                        |
 | --------- | ------------ | ----- | ------------------------------------------------------------------------------------------------- |
@@ -45,5 +43,3 @@ Por defecto, si omite el parámetro *unidad*, la altura se expresa en píxeles. 
 | --- | --- |
 | Número de comando | 835 |
 | Hilo seguro | no |
-
-
