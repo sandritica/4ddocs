@@ -5,24 +5,22 @@ slug: /commands/method-set-attribute
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.METHOD SET ATTRIBUTE.Syntax-->**METHOD SET ATTRIBUTE** ( *ruta* : Text ; *tipoAtrib* : Integer ; *valorAtrib* : Boolean, Text {; ...(*tipoAtrib* : Integer, *valorAtrib* : Boolean, Text)}{; *operador* : *} )<!-- END REF-->
+<!--REF #_command_.METHOD SET ATTRIBUTE.Syntax-->**METHOD SET ATTRIBUTE** ( *path* : Text ; *attribType* : Integer ; *attribValue* : Boolean, Text {; ...(*attribType* : Integer ; *attribValue* : Boolean, Text)}{; *} )<!-- END REF-->
 <!--REF #_command_.METHOD SET ATTRIBUTE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| ruta | Text | &#8594; | Ruta del método proyecto |
-| tipoAtrib | Integer | &#8594; | Tipo de atributo |
-| valorAtrib | Boolean, Text | &#8594; | True = seleccionar el atributo  False = deseleccionar el atributo |
-| operador | * | &#8594; | Si se pasa = el comando se aplica a la base local cuando se ejecuta desde un  componente (parámetro ignorado fuera de este contexto) |
+| path | Text | &#8594; | Ruta del método proyecto |
+| attribType | Integer | &#8594; | Tipo de atributo |
+| attribValue | Boolean, Text | &#8594; | True = seleccionar el atributo  False = deseleccionar el atributo |
+| operator | * | &#8594; | Si se pasa = el comando se aplica a la base local cuando se ejecuta desde un  componente (parámetro ignorado fuera de este contexto) |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.METHOD SET ATTRIBUTE.Summary-->El comando **METHOD SET ATTRIBUTE** permite definir el valor del atributo *tipoAtrib* para el método proyecto designado por el parámetro *ruta*.<!-- END REF--> Este comando sólo funciona con métodos proyecto. Si pasa una *ruta* invalida, se genera un error. 
+<!--REF #_command_.METHOD SET ATTRIBUTE.Summary-->El comando **METHOD SET ATTRIBUTE** permite definir el valor del atributo *attribType* para el método proyecto designado por el parámetro *path*.<!-- END REF--> Este comando sólo funciona con métodos proyecto. Si pasa una *ruta* invalida, se genera un error. 
 
-En el parámetro *tipoAtrib*, pase un valor que indique el tipo de atributo a definir. Puede utilizar las siguientes constantes, del tema *Acceso objetos diseño*:
+En el parámetro *attribType*, pase un valor que indique el tipo de atributo a definir. Puede utilizar las siguientes constantes, del tema *Acceso objetos diseño*:
 
 | Constante                    | Tipo         | Valor | Comentario                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------------------- | ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,12 +33,12 @@ En el parámetro *tipoAtrib*, pase un valor que indique el tipo de atributo a de
 | Attribute published WSDL     | Entero largo | 4     | Corresponde a la opción "Publicado en WSDL"                                                                                                                                                                                                                                                                                                                                                       |
 | Attribute shared             | Entero largo | 5     | Corresponde a la opción "Compartido entre componentes y base local"                                                                                                                                                                                                                                                                                                                               |
 
-Puede pasar en el parámetro *valorAtrib:*
+Puede pasar en el parámetro *attribValue:*
 
 * **True** para seleccionar la opción correspondiente y **False** para deseleccionarla o,
-* una cadena (nombre de carpeta) si utilizó la constante Attribute folder name en *tipoAtrib*.
+* una cadena (nombre de carpeta) si utilizó la constante Attribute folder name en *attribType*.
 
-Puede pasar múltiples pares *tipoAtrib*;*valorAtrib* en una sola llamada.
+Puede pasar múltiples pares *attribType*;*attribValue* en una sola llamada.
 
 Puede ejecutar este comando desde un componente, pero en este caso debe pasar el parámetro *\**, por el acceso en sólo escritura al código del componente. Si omite el parámetro *\** en este contexto, se genera el error -9763.
 
@@ -76,5 +74,3 @@ Definición de varios pares de atributos/valores:
 | --- | --- |
 | Número de comando | 1192 |
 | Hilo seguro | no |
-
-
