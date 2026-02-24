@@ -5,14 +5,12 @@ slug: /commands/new-object
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.New object.Syntax-->**New object** ( *propiedad* : Text ; *valor* : any {; ...(*propiedad* : Text, *valor* : any)} ) : Object<!-- END REF-->
+<!--REF #_command_.New object.Syntax-->**New object** ( *property* : Text ; *value* : any {; ...(*property* : Text ; *value* : any)} ) : Object<!-- END REF-->
 <!--REF #_command_.New object.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| propiedad | Text | &#8594; | Nombre de la propiedad a crear |
-| valor | any | &#8594; | Valor de la propiedad |
+| property | Text | &#8594; | Nombre de la propiedad a crear |
+| value | any | &#8594; | Valor de la propiedad |
 | Resultado | Object | &#8592; | Nuevo objeto del lenguaje |
 </div>
 <!-- END REF-->
@@ -27,8 +25,8 @@ Si no pasa ningún parámetro, **New object** crea un objeto vacío y devuelve s
 
 Opcionalmente, puede prefijar el nuevo objeto pasando uno o varios pares *propiedad*/*valor* como parámetros:
 
-* En el parámetro *propiedad*, pase la etiqueta de la propiedad a crear. Note que el parámetro *propiedad* es sensible a mayúsculas y minúsculas.
-* En el parámetro *valor*, pase el valor que desea definir para la propiedad. Varios tipos de datos son soportados:  
+* En el parámetro *property*, pase la etiqueta de la propiedad a crear. Note que el parámetro *propiedad* es sensible a mayúsculas y minúsculas.
+* En el parámetro *value*, pase el valor que desea definir para la propiedad. Varios tipos de datos son soportados:  
    * número (real, entero...) Los valores numéricos se almacenan siempre como reales.  
    * texto  
    * booleano  
@@ -115,5 +113,3 @@ Con este comando, puede fácilmente manejar objetos en bucles:
 | --- | --- |
 | Número de comando | 1471 |
 | Hilo seguro | yes |
-
-
