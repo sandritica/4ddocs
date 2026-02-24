@@ -5,32 +5,31 @@ slug: /commands/listbox-set-table-source
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LISTBOX SET TABLE SOURCE.Syntax-->**LISTBOX SET TABLE SOURCE** ( * ; *objeto* : Text ; numTabla | tempo {; *nomSel* : Text} )<br/>**LISTBOX SET TABLE SOURCE** ( *objeto* : Field, Variable ; numTabla | tempo {; *nomSel* : Text} )<!-- END REF-->
+<!--REF #_command_.LISTBOX SET TABLE SOURCE.Syntax-->**LISTBOX SET TABLE SOURCE** ( * ; *object* : Text ; *tableNum* : Integer {; *highlightName* : Text} )<br/>**LISTBOX SET TABLE SOURCE** ( *object* : Variable ; *tableNum* : Integer {; *highlightName* : Text} )<br/>**LISTBOX SET TABLE SOURCE** ( * ; *object* : Text ; *selName* : Text {; *highlightName* : Text} )<br/>**LISTBOX SET TABLE SOURCE** ( *object* : Variable ; *selName* : Text {; *highlightName* : Text} )<!-- END REF-->
 <!--REF #_command_.LISTBOX SET TABLE SOURCE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite*) |
-| numTabla &#124; tempo | Entero largo, Cadena | &#8594; | Número de la tabla de la cual utilizarla selección actual o nombre de la selección temporal a utilizar |
-| nomSel | Text | &#8594; | Nombre del conjunto seleccionado |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable | &#8594; | Nombre de objeto formulario (si se especifica *) o Variable (si se omite*) |
+| tableNum | Integer | &#8594;  | Número de la tabla de la cual utilizarla selección actual |
+| selName | Text | &#8594;  | Selección temporal a utilizar |
+| highlightName | Text | &#8594;  | Nombre del conjunto seleccionado |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LISTBOX SET TABLE SOURCE.Summary-->El comando **LISTBOX SET TABLE SOURCE** permite modificar la fuente de datos mostrada en el listbox diseñado por los parámetros *\** y *objeto*
+<!--REF #_command_.LISTBOX SET TABLE SOURCE.Summary-->El comando **LISTBOX SET TABLE SOURCE** permite modificar la fuente de datos mostrada en el listbox diseñado por los parámetros *\** y *object*
 
 **Nota:** este comando sólo puede utilizarse cuando la propiedad “Fuente de datos” del list box es **Selección actual** o **Selección temporal** (para mayor información, consulte la sección *Gestión programada de los objetos de tipo List box*).<!-- END REF--> El comando no hace nada si lo utiliza con un list box asociado a un array, colecciones o selecciones de entidades.
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es una variable. En este caso, no pase una cadena sino una referencia de variable. Para mayor infomación sobre nombres de objetos, por favor consulte la sección indica que el parámetro *objeto* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *objeto* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es una variable. En este caso, no pase una cadena sino una referencia de variable. Para mayor infomación sobre nombres de objetos, por favor consulte la sección indica que el parámetro *object* es un nombre de objeto (cadena). Si omite este parámetro, indica que el parámetro *object* es una variable. En ese caso, no pasa una cadena, sino una referencia de variable. Para mayor información sobre nombres de objetos, consulte la sección *Propiedades de los objetos*.
 
-Si pasa un número de tabla como parámetro *numTabla*, el list box se llenará con los datos de los registros en la selección actual de la tabla.
+Si pasa un número de tabla como parámetro *tableNum*, el list box se llenará con los datos de los registros en la selección actual de la tabla.
 
-Si pasa un nombre de selección temporal como parámetro *tempo*, el list box se llenará con los datos de los registros que pertenecen a la selección temporal.
+Si pasa un nombre de selección temporal como parámetro *selName*, el list box se llenará con los datos de los registros que pertenecen a la selección temporal.
 
-El parámetro opcional *nomSubrayado* permite asociar un conjunto resaltado al list box. El conjunto resaltado se utiliza para la gestión de resaltar los registros por el usuario en el list box.  
+El parámetro opcional *highlightName* permite asociar un conjunto resaltado al list box. El conjunto resaltado se utiliza para la gestión de resaltar los registros por el usuario en el list box.  
   
 Si el list box ya contiene las columnas, sus contenidos se actualizarán después de la ejecución del comando.
 
@@ -46,5 +45,3 @@ Si el list box ya contiene las columnas, sus contenidos se actualizarán despué
 | --- | --- |
 | Número de comando | 1013 |
 | Hilo seguro | no |
-
-
