@@ -5,23 +5,21 @@ slug: /commands/longint-to-blob
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.LONGINT TO BLOB.Syntax-->**LONGINT TO BLOB** ( *enteroLargo* : Integer ; *BLOB* : Blob ; *byteOrden* : Integer {; offset | *} )<!-- END REF-->
+<!--REF #_command_.LONGINT TO BLOB.Syntax-->**LONGINT TO BLOB** ( *longint* : Integer ; *blob* : Blob ; *byteOrder* : Integer {; offset : Variable} )<br/>**LONGINT TO BLOB** ( *longint* : Integer ; *blob* : Blob ; *byteOrder* : Integer {; *} )<!-- END REF-->
 <!--REF #_command_.LONGINT TO BLOB.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| enteroLargo | Integer | &#8594; | Valor de tipo Entero largo a escribir en el BLOB |
+| longInt | Integer | &#8594; | Valor de tipo Entero largo a escribir en el BLOB |
 | Blob | Blob | &#8594; | BLOB a recibir el valor Entero largo |
-| byteOrden | Integer | &#8594; | 0 Orden de bytes nativo 1 Orden de bytes Macintosh 2 Orden de bytes PC |
-| offset &#124; * | Variable, Operador | &#8596; | Offset en el BLOB (expresado en bytes) o * para añadir el valor |
-|  |  |  | Nuevo offset después de la escritura si se omite * |
-</div>
+| byteOrder | Integer | &#8594; | 0 Orden de bytes nativo 1 Orden de bytes Macintosh 2 Orden de bytes PC |
+| offset | Variable | &#8596; | Offset en el BLOB (expresado en bytes) <br/>Nuevo offset después de la escritura si se omite * |
+| * | Operator | &#8594; | Añadir el valor |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.LONGINT TO BLOB.Summary-->El comando LONGINT TO BLOB escribe el valor de tipo Entero largo (4 bytes) *enteroLargo* en el BLOB *blob*.<!-- END REF-->
+<!--REF #_command_.LONGINT TO BLOB.Summary-->El comando **LONGINT TO BLOB** escribe el valor de tipo Entero largo (4 bytes) *integer* en el BLOB *blob*.<!-- END REF-->
 
 El parámetro *byteOrder* fija el orden de los bytes ("byte ordering") del valor Entero largo (4 bytes) a escribir. Se pasa una de las siguientes constantes predefinidas de 4D:
 
@@ -123,5 +121,3 @@ Después de la ejecución de este código:
 | --- | --- |
 | Número de comando | 550 |
 | Hilo seguro | yes |
-
-
