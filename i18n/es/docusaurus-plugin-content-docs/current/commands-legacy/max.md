@@ -5,16 +5,14 @@ slug: /commands/max
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.Max.Syntax-->**Max** ( *series* : Field, Array {; *rutaAtributo* : Text} ) : any<!-- END REF-->
+<!--REF #_command_.Max.Syntax-->**Max** ( *series* : Field, Array {; *attributePath* : Text} ) : any<!-- END REF-->
 <!--REF #_command_.Max.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
 | series | Field, Array | &#8594; | Datos para los cuales se devuelve el valor  máximo |
-| rutaAtributo | Text | &#8594; | Ruta de atributo para el cual calcular el valor máximo |
-| Resultado | Date, Real | &#8592; | Máximo valor en series |
-</div>
+| attributePath | Text | &#8594; | Ruta de atributo para el cual calcular el valor máximo |
+| Resultado | any | &#8592; | Máximo valor en series |
+
 <!-- END REF-->
 
 ## Descripción 
@@ -25,7 +23,7 @@ Puede pasar un array (una o dos dimensiones) en *series*. En este caso, el array
 
 Si la selección de *series* está vacía, **Max** devuelve 0.
 
-Este comando acepta un parámetro opcional de tipo texto *rutaAtributo*, que puede utilizar si *series* es un campo de tipo Objeto. Le permite definir la ruta del atributo a calcular. Utilice la notación estándar para definir las rutas de los atributos anidados, por ejemplo "company.address.number". Recuerde que los nombres de los atributos de objetos tienen en cuanta las mayúsculas y minúsculas.  
+Este comando acepta un parámetro opcional de tipo texto *attributePath*, que puede utilizar si *series* es un campo de tipo Objeto. Le permite definir la ruta del atributo a calcular. Utilice la notación estándar para definir las rutas de los atributos anidados, por ejemplo "company.address.number". Recuerde que los nombres de los atributos de objetos tienen en cuanta las mayúsculas y minúsculas.  
 Sólo los valores numéricos de los atributos se utilizan para el calculo. Si hay valores en la ruta del atributo que no son de tipo numérico, se omiten.
 
 Si el comando se ejecuta correctamente, la variable sistema OK toma el valor 1\. Si se interrumpe (por ejemplo si el usuario hace clic en el botón **Detener** del termómetro de progreso), la variable OK toma el valor 0.
@@ -79,5 +77,3 @@ Para un ejemplo de cálculo de un atributo campo de objeto, consulte el ejemplo 
 | Número de comando | 3 |
 | Hilo seguro | yes |
 | Modifica variables | OK |
-
-
