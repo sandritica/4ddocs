@@ -5,30 +5,29 @@ slug: /commands/ob-set
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OB SET.Syntax-->**OB SET** ( *objeto* : Object, Object ; *propiedad* : Text ; *valor* : Expression {; ...(*propiedad* : Text, *valor* : Expression)} )<!-- END REF-->
+<!--REF #_command_.OB SET.Syntax-->**OB SET** ( *object* : Object ; *property* : Text ; *value* : Expression {; ...(*property* : Text ; *value* : Expression)} )<!-- END REF-->
 <!--REF #_command_.OB SET.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| objeto | Object, Object | &#8594; | Objeto estructurado |
-| propiedad | Text | &#8594; | Nombre de la propiedad a configurar |
-| valor | Expression | &#8594; | Nuevo valor de la propiedad |
+| object | Object, Object | &#8594; | Objeto estructurado |
+| property  | Text | &#8594; | Nombre de la propiedad a configurar |
+| value | Expression | &#8594; | Nuevo valor de la propiedad |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OB SET.Summary-->El comando **OB SET** crea o modifica uno o más pares de *propiedad*/*valor* en el objeto de lenguaje designado por el parámetro *objeto*.<!-- END REF-->debe haber sido definido usando el comando *C\_OBJECT* o designar un campo objeto 4D.
+<!--REF #_command_.OB SET.Summary-->El comando **OB SET** crea o modifica uno o más pares de *property*/*value* en el objeto de lenguaje designado por el parámetro *object*.<!-- END REF-->debe haber sido definido usando el comando *C\_OBJECT* o designar un campo objeto 4D.
 
-En el parámetro *propiedad*, pase la etiqueta de la propiedad a crear o modificar. Si la propiedad ya existe en *objeto*, su valor se actualiza. Si no existe, se crea.  
+En el parámetro *property*, pase la etiqueta de la propiedad a crear o modificar. Si la propiedad ya existe en *object*, su valor se actualiza. Si no existe, se crea.  
   
-Tenga en cuenta, que el parámetro *propiedad* es sensible a las mayúsculas y minúsculas.
+Tenga en cuenta, que el parámetro *property* es sensible a las mayúsculas y minúsculas.
 
-En el parámetro *valor*, pase el valor que desea definir para la propiedad. Se admiten varios tipos de datos. Tenga en cuenta que:  
+En el parámetro *value*, pase el valor que desea definir para la propiedad. Se admiten varios tipos de datos. Tenga en cuenta que:  
+
 * si pasa un puntero, se mantiene como es, se evalúa utilizando el comando [JSON Stringify](json-stringify.md)
 * si pasa una fecha, se almacenará con el tipo de fecha o como texto en formato ISO dependiendo de la configuración actual de la fecha de la base. Para más información, consulte la opción "Utilizar tipo de fecha en lugar de formato de fecha ISO en objetos" en *Página Compatibilidad*.
-* si pasa una hora, se almacena en forma de un número de segundos (real) en *objeto*
+* si pasa una hora, se almacena en forma de un número de segundos (real) en *object*
 * si pasa un objeto de lenguaje o una colección, el comando utiliza una referencia y no una copia. Toda modificación aplicada al objeto o colección se informará a todas las referencias
 * a partir de 4D v16 R4, puede pasar una imagen de todo tipo soportado (ver *Formatos nativos soportados*).
 
@@ -179,7 +178,6 @@ Usted desea definir una colección como un valor propiedad. Puede escribir:
  $myCol:=New collection("Mike";25;"Denis";12;"Henry";4;True)
  OB SET($person;"Name";"Jones";"Children";$myCol)
 ```
-
 ## Ejemplo 12 
 
 Usted desea almacenar una imagen en un campo objeto. Puede escribir:
@@ -205,5 +203,3 @@ Usted desea almacenar una imagen en un campo objeto. Puede escribir:
 | --- | --- |
 | Número de comando | 1220 |
 | Hilo seguro | yes |
-
-
