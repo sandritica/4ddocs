@@ -5,14 +5,12 @@ slug: /commands/new-shared-object
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.New shared object.Syntax-->**New shared object** ( *propiedad* : Text ; *valor* : any {; ...(*propiedad* : Text, *valor* : any)} ) : Object<!-- END REF-->
+<!--REF #_command_.New shared object.Syntax-->**New shared object** ( *property* : Text ; *value* : any {; ...(*property* : Text ; *value* : any)} ) : Object<!-- END REF-->
 <!--REF #_command_.New shared object.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| propiedad | Text | &#8594; | Nombre de la propiedad a crear |
-| valor | any | &#8594; | Valor de la propiedad |
+| property | Text | &#8594; | Nombre de la propiedad a crear |
+| value | any | &#8594; | Valor de la propiedad |
 | Resultado | Object | &#8592; | Nuevo objeto compartido |
 </div>
 <!-- END REF-->
@@ -27,10 +25,10 @@ Si no pasa ningún parámetro, **New shared object** crea un objeto vacío y dev
 
 **Nota:** *C\_OBJECT* declara una variable del tipo [Objeto](# "Datos estructurados como forma de objeto nativo 4D") pero no crea un objeto.
 
-Opcionalmente, puede rellenar el nuevo objeto pasando uno o varios pares de *propiedad*/*valor* como parámetros:
+Opcionalmente, puede llenar el nuevo objeto pasando uno o varios pares de *property*/*value* como parámetros:
 
-* En el parámetro *propiedad*, pase la etiqueta de la propiedad que se creará (hasta 255 caracteres). Tenga en cuenta que el parámetro de propiedad es sensible a mayúsculas y minúsculas.
-* En el parámetro *valor*, pase el valor que desea definir para la propiedad. Los objetos compartidos solo pueden contener valores de los siguientes tipos:  
+* En el parámetro *property*, pase la etiqueta de la propiedad que se creará (hasta 255 caracteres). Tenga en cuenta que el parámetro de propiedad es sensible a mayúsculas y minúsculas.
+* En el parámetro *value*, pase el valor que desea definir para la propiedad. Los objetos compartidos solo pueden contener valores de los siguientes tipos:  
    * número (real, entero largo...) Los valores numéricos siempre se almacenan como reales.  
    * texto  
    * booleano  
@@ -76,5 +74,3 @@ Usted desea crear y modificar un objeto compartido. La estructura debe llamarse 
 | --- | --- |
 | Número de comando | 1526 |
 | Hilo seguro | yes |
-
-
