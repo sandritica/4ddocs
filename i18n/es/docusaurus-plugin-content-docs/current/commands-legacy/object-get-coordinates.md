@@ -5,26 +5,24 @@ slug: /commands/object-get-coordinates
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT GET COORDINATES.Syntax-->**OBJECT GET COORDINATES** ( * ; *objeto* : Text ; *izquierdo* : Integer ; *superior* : Integer ; *derecho* : Integer ; *inferior* : Integer )<br/>**OBJECT GET COORDINATES** ( *objeto* : Field, Variable ; *izquierdo* : Integer ; *superior* : Integer ; *derecho* : Integer ; *inferior* : Integer )<!-- END REF-->
+<!--REF #_command_.OBJECT GET COORDINATES.Syntax-->**OBJECT GET COORDINATES** ( * ; *object* : Text ; *left* : Integer ; *top* : Integer ; *right* : Integer ; *bottom* : Integer )<br/>**OBJECT GET COORDINATES** ( *object* : Variable, Field ; *left* : Integer ; *top* : Integer ; *right* : Integer ; *bottom* : Integer )<!-- END REF-->
 <!--REF #_command_.OBJECT GET COORDINATES.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es el nombre del objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
-| izquierdo | Integer | &#8592; | Coordenada izquierada del objeto |
-| superior | Integer | &#8592; | Coordenada superior del objeto |
-| derecho | Integer | &#8592; | Coordenada derecha del objeto |
-| inferior | Integer | &#8592; | Coordenada inferior del objeto |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es el nombre del objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
+| left | Integer | &#8592; | Coordenada izquierada del objeto |
+| suptop | Integer | &#8592; | Coordenada superior del objeto |
+| right | Integer | &#8592; | Coordenada derecha del objeto |
+| bottom  | Integer | &#8592; | Coordenada inferior del objeto |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT GET COORDINATES.Summary-->El comando **OBJECT GET COORDINATES**devuelve las coordenadas *izquierda*, *superior*, *derecha* e *inferior* (en puntos) en las variables o campos de los objetos del formulario actual definido por los parámetros *\** y *objeto*.<!-- END REF-->
+<!--REF #_command_.OBJECT GET COORDINATES.Summary-->El comando **OBJECT GET COORDINATES** devuelve las coordenadas *left*, *top*, *right* (en puntos) en las variables o campos de los objetos del formulario actual definido por los parámetros *\** y *object*.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (una cadena de caracteres). Si no pasa el parámetro opcional \*, indica que *objeto* es un campo o una variable. En este caso, no se pasa una cadena sino una referencia de un campo o de una variable (campo o variable de tipo objeto únicamente).
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (una cadena de caracteres). Si no pasa el parámetro opcional \*, indica que *object* es un campo o una variable. En este caso, no se pasa una cadena sino una referencia de un campo o de una variable (campo o variable de tipo objeto únicamente).
 
 Si pasa un nombre de objeto en el parámetro objeto y utiliza el carácter arroba (“@”) para seleccionar más de un objeto, las coordenadas devueltas serán las del rectángulo formado por todos los objetos concernientes. 
 
@@ -32,7 +30,7 @@ Si pasa un nombre de objeto en el parámetro objeto y utiliza el carácter arrob
 
 Si el objeto no existe o si no se llama el comando en el contexto de un formulario, las coordenadas devueltas son (0;0;0;0).
 
-En el contexto de los list box, el comando **OBJECT GET COORDINATES** puede devolver las coordenadas de partes específicas del listbox, es decir, columnas, encabezados, pies de página, y no sólo los del objeto listbox padre. En las versiones anteriores a v14 R5, este comando siempre devuelve las coordenadas del listbox padre, independientemente del área pasada como parámetro. A partir de ahora, cuando el *objet*o referenciado es un encabezado, una columna o un pie de listbox, las coordenadas devueltas son los del sub-objeto listbox designado. Puede utilizar esta nueva funcionalidad, por ejemplo, para mostrar un pequeño icono en la celda de encabezado de un listbox cuando se pasa sobre él, indicándole al usuario que puede hacer clic para mostrar un menú contextual.  
+En el contexto de los list box, el comando **OBJECT GET COORDINATES** puede devolver las coordenadas de partes específicas del listbox, es decir, columnas, encabezados, pies de página, y no sólo los del objeto listbox padre. En las versiones anteriores a v14 R5, este comando siempre devuelve las coordenadas del listbox padre, independientemente del área pasada como parámetro. A partir de ahora, cuando el *object* referenciado es un encabezado, una columna o un pie de listbox, las coordenadas devueltas son los del sub-objeto listbox designado. Puede utilizar esta nueva funcionalidad, por ejemplo, para mostrar un pequeño icono en la celda de encabezado de un listbox cuando se pasa sobre él, indicándole al usuario que puede hacer clic para mostrar un menú contextual.  
 Para mantener la coherencia, el marco de referencia utilizado es el mismo cuando el objeto es un sub-objeto list box o un objeto list box: el origen es la esquina superior izquierda del formulario que contiene el objeto. Para los sub-objetos de listbox, las coordenadas devueltas son teóricas; tienen en cuenta el estado de desplazamiento del list box antes de que ocurra un clipping (es decir, el corte de acuerdo con las coordenadas del list box padre). Como resultado, el sub-objeto puede que no sea visible (o sólo parcialmente) en sus coordenadas, y estas coordenadas pueden estar fuera de los límites del formulario (o incluso ser negativas). Para averiguar si el sub\-objeto es visible (y que parte es visible) es necesario comparar las coordenadas devueltas con las coordenadas del listbox, mientras tiene en cuenta las siguientes reglas:
 
 * Todos los sub-objetos se recortan según las coordenadas de su listbox padre (devueltas por **OBJECT GET COORDINATES** en el list box).
@@ -93,5 +91,3 @@ El método devuelve las coordenadas teóricas. Si el listbox es redimensionado, 
 | --- | --- |
 | Número de comando | 663 |
 | Hilo seguro | no |
-
-
