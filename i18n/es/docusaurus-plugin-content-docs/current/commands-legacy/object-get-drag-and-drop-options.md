@@ -20,7 +20,7 @@ displayed_sidebar: docs
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT GET DRAG AND DROP OPTIONS.Summary-->El comando **OBJECT GET DRAG AND DROP OPTIONS** devuelve las opciones de arrastrar y soltar para el objeto o los objetos designados por los parámetros *objeto* y *\** para el proceso actual.<!-- END REF-->  
+<!--REF #_command_.OBJECT GET DRAG AND DROP OPTIONS.Summary-->El comando **OBJECT GET DRAG AND DROP OPTIONS** devuelve las opciones de arrastrar y soltar para el objeto o los objetos designados por los parámetros *object* y *\** para el proceso actual.<!-- END REF-->  
   
 Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (una cadena). Si no pasa este parámetro, esto indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
   
