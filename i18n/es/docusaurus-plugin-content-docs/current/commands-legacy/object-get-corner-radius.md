@@ -5,21 +5,19 @@ slug: /commands/object-get-corner-radius
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get corner radius.Syntax-->**OBJECT Get corner radius** ( * ; *objeto* : Text ) : Integer<br/>**OBJECT Get corner radius** ( *objeto* : Field, Variable ) : Integer<!-- END REF-->
+<!--REF #_command_.OBJECT Get corner radius.Syntax-->**OBJECT Get corner radius** ( * ; *object* : Text ) : Integer<br/>**OBJECT Get corner radius** ( *object* : Variable, Field ) : Integer<!-- END REF-->
 <!--REF #_command_.OBJECT Get corner radius.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable o un campo |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es una variable o un campo |
+| object | any | &#8594; | Nombre de objeto (si se especifica *) o Campo o variable (si se omite *) |
 | Resultado | Integer | &#8592; | Radio de esquinas redondeadas (en píxeles) |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get corner radius.Summary-->El comando **OBJECT Get corner radius** devuelve el valor actual del radio de la esquina para el objeto designado por el parámetro *objeto*.<!-- END REF--> Este valor puede haber sido definido a nivel del formulario utilizando la *propiedad radio de esquina* o para el proceso actual con el comando [OBJECT SET CORNER RADIUS](object-set-corner-radius.md).
+<!--REF #_command_.OBJECT Get corner radius.Summary-->El comando **OBJECT Get corner radius** devuelve el valor actual del radio de la esquina para el objeto designado por el parámetro *object*.<!-- END REF--> Este valor puede haber sido definido a nivel del formulario utilizando la *propiedad radio de esquina* o para el proceso actual con el comando [OBJECT SET CORNER RADIUS](object-set-corner-radius.md).
 
 El comando **OBJECT Get corner radius** puede utilizarse con los siguientes objetos de formulario:
 
@@ -27,7 +25,7 @@ El comando **OBJECT Get corner radius** puede utilizarse con los siguientes obje
 * entradas (sólo proyectos 4D)
 * áreas de texto (sólo proyectos 4D)
 
-Al pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).
+Al pasar el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).
 
 Este comando devuelve el radio de esquinas redondeadas en píxeles.
 
@@ -55,5 +53,3 @@ El siguiente código puede añadirse a un método de un botón:
 | --- | --- |
 | Número de comando | 1324 |
 | Hilo seguro | no |
-
-
