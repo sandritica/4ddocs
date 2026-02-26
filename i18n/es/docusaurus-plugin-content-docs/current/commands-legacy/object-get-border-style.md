@@ -5,25 +5,23 @@ slug: /commands/object-get-border-style
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get border style.Syntax-->**OBJECT Get border style** ( * ; *objeto* : Text ) : Integer<br/>**OBJECT Get border style** ( *objeto* : Field, Variable ) : Integer<!-- END REF-->
+<!--REF #_command_.OBJECT Get border style.Syntax-->**OBJECT Get border style** ( * ; *object* : Text ) : Integer<br/>**OBJECT Get border style** ( *object* : Variable, Field ) : Integer<!-- END REF-->
 <!--REF #_command_.OBJECT Get border style.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o <br/>Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *) o <br/>Campo o variable (si se omite *) |
 | Resultado | Integer | &#8592; | Estilo de línea de borde |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get border style.Summary-->El comando **OBJECT Get border style** devuelve el estilo de línea de borde del objeto o de los objetos designado(s) por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.OBJECT Get border style.Summary-->El comando **OBJECT Get border style** devuelve el estilo de línea de borde del objeto o de los objetos designado(s) por los parámetros *object* y *\**.<!-- END REF-->
 
 Puede definir el estilo de línea del borde para un objeto en modo de diseño utilizando la lista de propiedades, o utilizando el comando [OBJECT SET BORDER STYLE](object-set-border-style.md).
 
-Si pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).
+Si pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).
 
 El comando devuelve un valor que corresponde al estilo de la línea fronteriza. Puede comparar el valor recibido con las siguientes constantes, que se encuentran en el tema "*Propiedades de los objetos*":
 
@@ -47,5 +45,3 @@ El comando devuelve un valor que corresponde al estilo de la línea fronteriza. 
 | --- | --- |
 | Número de comando | 1263 |
 | Hilo seguro | no |
-
-
