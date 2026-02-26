@@ -5,35 +5,29 @@ slug: /commands/object-get-best-size
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT GET BEST SIZE.Syntax-->**OBJECT GET BEST SIZE** ( * ; *objeto* : Text ; *largOpt* : Integer ; *altOpt* : Integer {; *anchoMax* : Integer} )<br/>**OBJECT GET BEST SIZE** ( *objeto* : Field, Variable ; *largOpt* : Integer ; *altOpt* : Integer {; *anchoMax* : Integer} )<!-- END REF-->
+<!--REF #_command_.OBJECT GET BEST SIZE.Syntax-->**OBJECT GET BEST SIZE** ( * ; *object* : Text ; *bestWidth* : Integer ; *bestHeight* : Integer {; *maxWidth* : Integer} )<br/>**OBJECT GET BEST SIZE** ( *object* : Variable, Field ; *bestWidth* : Integer ; *bestHeight* : Integer {; *maxWidth* : Integer} )<!-- END REF-->
 <!--REF #_command_.OBJECT GET BEST SIZE.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre del objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
-| largOpt | Integer | &#8592; | Largo óptimo del objeto |
-| altOpt | Integer | &#8592; | Alto óptimo del objeto |
-| anchoMax | Integer | &#8594; | Largo máximo del objeto |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre del objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
+| bestWidth  | Integer | &#8592; | Largo óptimo del objeto |
+| bestHeight  | Integer | &#8592; | Alto óptimo del objeto |
+| maxWidth  | Integer | &#8594; | Largo máximo del objeto |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT GET BEST SIZE.Summary-->El comando **OBJECT GET BEST SIZE** devuelve en los parámetros *largOpt* y *altOpt*, el largo y alto “óptimo” del objeto de formulario designado por los parámetros *\** y *objeto*.<!-- END REF--> Estos valores se expresan en píxeles. Este comando es particularmente útil para la visualización o impresión de informes complejos, asociados al comando [OBJECT MOVE](object-move.md).
+<!--REF #_command_.OBJECT GET BEST SIZE.Summary-->El comando **OBJECT GET BEST SIZE** devuelve en los parámetros *bestWidth* y *bestHeight*, el largo y alto “óptimo” del objeto de formulario designado por los parámetros *\** y *object*.<!-- END REF--> Estos valores se expresan en píxeles. Este comando es particularmente útil para la visualización o impresión de informes complejos, asociados al comando [OBJECT MOVE](object-move.md).
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (una cadena de caracteres). Si no pasa el parámetro \*, indica que *objeto* es un campo o una variable. En este caso, usted no pasa una cadena sino una referencia de un campo o de una variable (de tipo objeto únicamente).
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (una cadena de caracteres). Si no pasa el parámetro \*, indica que *object* es un campo o una variable. En este caso, usted no pasa una cadena sino una referencia de un campo o de una variable (de tipo objeto únicamente).
 
-Los valores óptimos devueltos indican el tamaño mínimo del objeto de manera que su contenido actual sea incluido completamente en los límites. Por o general estos valores sólo son significativos para objetos que contengan texto. Este cálculo tiene en cuenta la fuente, su tamaño, estilo y contenido del objeto. También tiene en cuenta la incorporación de guiones y de retornos de carro. 
-
-Note que en el caso de los botones 3D, el funciona igual si el botón contiene únicamente un ícono.
-
-Si el objeto especificado está vacío, el *largOpt* devuelto es 0\. 
+Los valores óptimos devueltos indican el tamaño mínimo del objeto de manera que su contenido actual sea incluido completamente en los límites. Por lo general estos valores sólo son significativos para objetos que contengan texto. Este cálculo tiene en cuenta la fuente, su tamaño, estilo y contenido del objeto. También tiene en cuenta la incorporación de guiones y de retornos de carro. Note que en el caso de los botones 3D, el funciona igual si el botón contiene únicamente un ícono. Si el objeto especificado está vacío, el *maxWidth* devuelto es 0\. 
 
 El tamaño devuelto no tiene en cuenta marcos de gráficos aplicados alrededor del objeto, ni barras de desplazamiento. Para obtener el tamaño real de un objeto en pantalla, es necesario añadir el largo de estos elementos. 
 
-El parámetro opcional *largoMax* le permite atribuir un largo máximo al objeto. Si el largo óptimo del objeto es superior a este valor, **OBJECT GET BEST SIZE** devuelve *largoMax* en el parámetro *largoOpt* y aumenta el alto óptimo en consecuencia.
+El parámetro opcional *maxWidth* le permite atribuir un largo máximo al objeto. Si el largo óptimo del objeto es superior a este valor, **OBJECT GET BEST SIZE** devuelve *maxWidth* en el parámetro *bestWidth* y aumenta el alto óptimo en consecuencia.
 
 Los siguientes objetos son manejados por este comando:
 
@@ -60,5 +54,3 @@ Consulte el ejemplo en el comando [SET PRINT MARKER](set-print-marker.md "SET PR
 | --- | --- |
 | Número de comando | 717 |
 | Hilo seguro | no |
-
-
