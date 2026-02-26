@@ -5,23 +5,21 @@ slug: /commands/object-get-action
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get action.Syntax-->**OBJECT Get action** ( * ; *objeto* : Text ) : Text<br/>**OBJECT Get action** ( *objeto* : Field, Variable ) : Text<!-- END REF-->
+<!--REF #_command_.OBJECT Get action.Syntax-->**OBJECT Get action** ( * ; *object* : Text ) : Text<br/>**OBJECT Get action** ( *object* : Variable, Field ) : Text<!-- END REF-->
 <!--REF #_command_.OBJECT Get action.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o variable |
-| objeto | any | &#8594; | Nombre del objeto (si se especifica *) o <br/>Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o variable |
+| object | Text, Variable, Field | &#8594; | Nombre del objeto (si se especifica *) o <br/>Campo o variable (si se omite *) |
 | Resultado | Text | &#8592; | Nombre de la acción estándar asociada y (si la hay) cadena de parámetros |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get action.Summary-->El comando **OBJECT Get action** devuelve el nombre y (si es el caso) el parámetro de la acción estándar asociada con el objeto designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.OBJECT Get action.Summary-->El comando **OBJECT Get action** devuelve el nombre y (si es el caso) el parámetro de la acción estándar asociada con el objeto designado por los parámetros *object* y *\**.<!-- END REF-->
 
-Pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (solo objeto campo o variable).
+Pasar el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (solo objeto campo o variable).
 
 Puede establecer una acción estándar para un objeto en el Editor de formularios utilizando la lista de propiedades o utilizando el comando [OBJECT SET ACTION](object-set-action.md). **OBJECT Get action** devuelve una cadena que contiene el nombre de la acción estándar asociada al objeto (así como su parámetro, si existe).
 
@@ -52,5 +50,3 @@ Usted desea asociar la acción "Cancelar" con todos los objetos en el formulario
 | --- | --- |
 | Número de comando | 1457 |
 | Hilo seguro | no |
-
-
