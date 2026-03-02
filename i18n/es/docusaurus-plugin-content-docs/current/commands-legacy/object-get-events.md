@@ -5,26 +5,24 @@ slug: /commands/object-get-events
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT GET EVENTS.Syntax-->**OBJECT GET EVENTS** ( * ; *objeto* : Text ; *arrEvents* : Integer array )<br/>**OBJECT GET EVENTS** ( *objeto* : Field, Variable ; *arrEvents* : Integer array )<!-- END REF-->
+<!--REF #_command_.OBJECT GET EVENTS.Syntax-->**OBJECT GET EVENTS** ( * ; *object* : Text ; *arrEvents* : Integer array )<br/>**OBJECT GET EVENTS** ( *object* : Variable, Field ; *arrEvents* : Integer array )<!-- END REF-->
 <!--REF #_command_.OBJECT GET EVENTS.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto "" para designar el formulario (si se especifica *) o  Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto "" para designar el formulario (si se especifica *) o  Campo o variable (si se omite *) |
 | arrEvents | Integer array | &#8592; | Array de eventos desactivados |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT GET EVENTS.Summary-->El comando **OBJECT GET EVENTS** permite obtener la configuración actual de los eventos formulario del formulario, del objeto o de los objetos designado(s) por los parámetros *objeto* y *\**.<!-- END REF--> 
+<!--REF #_command_.OBJECT GET EVENTS.Summary-->El comando **OBJECT GET EVENTS** permite obtener la configuración actual de los eventos formulario del formulario, del objeto o de los objetos designado(s) por los parámetros *object* y *\**.<!-- END REF--> 
 
 Los eventos formulario se pueden activar/desactivar, ya sea utilizando la lista de propiedades o utilizando el comando [OBJECT SET EVENTS](object-set-events.md) si se le llama en el proceso actual.
 
-Si se pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).   
-Para obtener la configuración de los eventos del formulario para el propio formulario, pase el parámetro opcional *\** y una cadena vacía "" en *objeto*: en este caso, usted designa el formulario actual.
+Si se pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).   
+Para obtener la configuración de los eventos del formulario para el propio formulario, pase el parámetro opcional *\** y una cadena vacía "" en *object*: en este caso, usted designa el formulario actual.
 
 **Nota:** si desea obtener los eventos de un subformulario relacionados con una tabla, sólo se puede utilizar la sintaxis basada en el nombre del objeto.
 
@@ -55,5 +53,3 @@ Usted quiere activar dos eventos y obtener la lista de eventos para un objeto:
 | --- | --- |
 | Número de comando | 1238 |
 | Hilo seguro | no |
-
-
