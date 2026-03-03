@@ -5,29 +5,27 @@ slug: /commands/object-get-format
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get format.Syntax-->**OBJECT Get format** ( * ; *objeto* : Text ) : Text<br/>**OBJECT Get format** ( *objeto* : Field, Variable ) : Text<!-- END REF-->
+<!--REF #_command_.OBJECT Get format.Syntax-->**OBJECT Get format** ( * ; *object* : Text ) : Text<br/>**OBJECT Get format** ( *object* : Variable, Field ) : Text<!-- END REF-->
 <!--REF #_command_.OBJECT Get format.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
 | Resultado | Text | &#8592; | Formato de salida del objeto |
 </div>
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get format.Summary-->El comando OBJECT Get format devuelve el formato de salida actual aplicado al objeto especificado en el parámetro *objeto*.<!-- END REF-->
+<!--REF #_command_.OBJECT Get format.Summary-->El comando **OBJECT Get format** devuelve el formato de salida actual aplicado al objeto especificado en el parámetro *object*.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica un nombre de objeto (en este caso, pase una cadena en *objeto*). Si omite este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, usted no pasa una cadena, sino una referencia de campo o de variable.
+Si pasa el parámetro opcional *\**, indica un nombre de objeto (en este caso, pase una cadena en *objeto*). Si omite este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, usted no pasa una cadena, sino una referencia de campo o de variable.
 
 Este comando devuelve el formato de salida actual del objeto, es decir el formato definido en el entorno Diseño o utilizando el comando [OBJECT SET FORMAT](object-set-format.md). OBJECT Get format funciona con todos los tipos de objetos de formulario (campos o variables) que aceptan un formato de salida: booleano, fecha, hora, imagen, cadena, numérico, como también con rejillas de botones, dials, termómetros, reglas, menús imagen desplegable, botones imagen, botones 3D y encabezados de list box. Para mayor información sobre formatos de salida de estos objetos, consulte la documentación del comando [OBJECT SET FORMAT](object-set-format.md). 
 
 **Nota:** si aplica el comando a un conjunto de objetos, el formulario, se devuelve el formulario del último objeto seleccionado.  
   
-Cuando el comando OBJECT Get format se aplica a objetos de tipo fecha, hora o imagen (formatos definidos como constantes), la cadena que se devuelve corresponde al código del carácter de la constante. Para obtener el valor de la constante, simplemente aplique la función [Character code](character-code.md) al resultado (ver ejemplo a continuación). 
+Cuando el comando **OBJECT Get format** se aplica a objetos de tipo fecha, hora o imagen (formatos definidos como constantes), la cadena que se devuelve corresponde al código del carácter de la constante. Para obtener el valor de la constante, simplemente aplique la función [Character code](character-code.md) al resultado (ver ejemplo a continuación). 
 
 ## Ejemplo 1 
 
@@ -72,5 +70,3 @@ Customized formats are returned untouched:
 | --- | --- |
 | Número de comando | 894 |
 | Hilo seguro | no |
-
-
