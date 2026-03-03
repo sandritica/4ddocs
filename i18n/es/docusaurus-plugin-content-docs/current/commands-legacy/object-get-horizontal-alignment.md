@@ -5,23 +5,21 @@ slug: /commands/object-get-horizontal-alignment
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get horizontal alignment.Syntax-->**OBJECT Get horizontal alignment** ( * ; *objeto* : Text ) : Integer<br/>**OBJECT Get horizontal alignment** ( *objeto* : Field, Variable ) : Integer<!-- END REF-->
+<!--REF #_command_.OBJECT Get horizontal alignment.Syntax-->**OBJECT Get horizontal alignment** ( * ; *object* : Text ) : Integer<br/>**OBJECT Get horizontal alignment** ( *object* : Variable, Field ) : Integer<!-- END REF-->
 <!--REF #_command_.OBJECT Get horizontal alignment.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre del objeto (cadena) Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre del objeto (cadena) Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *), o Campo o variable (si se omite *) |
 | Resultado | Integer | &#8592; | Código de alineación |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get horizontal alignment.Summary-->El comando **OBJECT Get horizontal alignment** devuelve un código indicando el tipo de alineación horizontal aplicada al objeto designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.OBJECT Get horizontal alignment.Summary-->El comando **OBJECT Get horizontal alignment** devuelve un código indicando el tipo de alineación horizontal aplicada al objeto designado por los parámetros *object* y *\**.<!-- END REF-->
 
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* designa el nombre de un objeto (una cadena). Si no pasa el parámetro \*, indica que el parámetro *objeto* designa un campo o una variable. En este caso, usted no pasa una cadena sino la referencia de un campo o de una variable (campo o variable de tipo objeto únicamente).
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* designa el nombre de un objeto (una cadena). Si no pasa el parámetro \*, indica que el parámetro *object* designa un campo o una variable. En este caso, usted no pasa una cadena sino la referencia de un campo o de una variable (campo o variable de tipo objeto únicamente).
 
 **Nota:** si aplica el comando a un grupo de objetos, sólo devuelve el valor de alineación del último objeto.
 
@@ -35,7 +33,6 @@ El código devuelto corresponde a una de las siguientes constantes, ubicadas en 
 | Align right   | Entero largo | 4     |                                               |
 | wk justify    | Entero largo | 5     | Disponible para áreas 4D Write Pro únicamente |
 
-**Nota:** la constante wk justify está disponible en el tema "*4D Write Pro*".
 
 Los objetos de formulario a los cuales se puede aplicar alineación son los siguientes:
 
@@ -67,5 +64,3 @@ Los objetos de formulario a los cuales se puede aplicar alineación son los sigu
 | --- | --- |
 | Número de comando | 707 |
 | Hilo seguro | no |
-
-
