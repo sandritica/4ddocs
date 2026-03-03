@@ -5,23 +5,21 @@ slug: /commands/object-get-help-tip
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get help tip.Syntax-->**OBJECT Get help tip** ( * ; *objeto* : Text ) : Text<br/>**OBJECT Get help tip** ( *objeto* : Field, Variable ) : Text<!-- END REF-->
+<!--REF #_command_.OBJECT Get help tip.Syntax-->**OBJECT Get help tip** ( * ; *object* : Text ) : Text<br/>**OBJECT Get help tip** ( *object* : Variable, Field ) : Text<!-- END REF-->
 <!--REF #_command_.OBJECT Get help tip.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (string)Si se omite, objeto es una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
 | Resultado | Text | &#8592; | Mensaje de ayuda del objeto |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get help tip.Summary-->El comando **OBJECT Get help tip** devuelve el mensaje de ayuda asociado al objeto o a los objetos designados por los parámetros *objeto* y *\** en el proceso actual.<!-- END REF-->  
+<!--REF #_command_.OBJECT Get help tip.Summary-->El comando **OBJECT Get help tip** devuelve el mensaje de ayuda asociado al objeto o a los objetos designados por los parámetros *object* y *\** en el proceso actual.<!-- END REF-->  
   
-Si pasa el parámetro opcional *\**, indica que el parámetro *objeto* es un nombre de objeto (una cadena). Si no pasa este parámetro, esto indica que el parámetro *objeto* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
+Si pasa el parámetro opcional *\**, indica que el parámetro *object* es un nombre de objeto (una cadena). Si no pasa este parámetro, esto indica que el parámetro *object* es una variable. En este caso, se pasa una referencia de variable en lugar de una cadena.  
   
 El comando devuelve el mensaje de ayuda actual asociado al objeto, tal como está definido en el modo Diseño o para el proceso utilizando el comando [OBJECT SET HELP TIP](object-set-help-tip.md). La cadena devuelta muestra el mensaje como aparece cuando se ejecuta el formulario. Si contiene elementos variables (*resname* xliff o referencias 4D), se interpretan en función del contexto. 
 
@@ -45,5 +43,3 @@ El título de un botón imagen se guarda en forma de mensaje de ayuda. Este tít
 | --- | --- |
 | Número de comando | 1182 |
 | Hilo seguro | no |
-
-
