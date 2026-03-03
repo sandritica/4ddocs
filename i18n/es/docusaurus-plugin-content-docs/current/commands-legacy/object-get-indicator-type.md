@@ -5,25 +5,23 @@ slug: /commands/object-get-indicator-type
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get indicator type.Syntax-->**OBJECT Get indicator type** ( * ; *objeto* : Text ) : Integer<br/>**OBJECT Get indicator type** ( *objeto* : Field, Variable ) : Integer<!-- END REF-->
+<!--REF #_command_.OBJECT Get indicator type.Syntax-->**OBJECT Get indicator type** ( * ; *object* : Text ) : Integer<br/>**OBJECT Get indicator type** ( *object* : Variable, Field ) : Integer<!-- END REF-->
 <!--REF #_command_.OBJECT Get indicator type.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
-| objeto | any | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *) o Variable (si se omite *) |
 | Resultado | Integer | &#8592; | Tipo de indicador |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get indicator type.Summary-->El comando **OBJECT Get indicator type** devuelve el tipo del indicador actual asignado al termómetro(s) designado por los parámetros *objeto* y *\**.<!-- END REF-->
+<!--REF #_command_.OBJECT Get indicator type.Summary-->El comando **OBJECT Get indicator type** devuelve el tipo del indicador actual asignado al termómetro(s) designado por los parámetros *object* y *\**.<!-- END REF-->
 
 Puede definir el tipo de indicador utilizando la lista de propiedades en modo de diseño o utilizando el comando [OBJECT SET INDICATOR TYPE](object-set-indicator-type.md).
 
-Si pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable del objeto únicamente).
+Si pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable del objeto únicamente).
 
 Puede comparar el valor devuelto por el comando con las siguientes constantes, que se encuentran en el tema "*Propiedades de los objetos*":
 
@@ -43,5 +41,3 @@ Puede comparar el valor devuelto por el comando con las siguientes constantes, q
 | --- | --- |
 | Número de comando | 1247 |
 | Hilo seguro | no |
-
-
