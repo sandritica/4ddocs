@@ -5,26 +5,24 @@ slug: /commands/object-get-list-reference
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT Get list reference.Syntax-->**OBJECT Get list reference** ( * ; *objeto* : Text {; *tipoLista* : Integer} ) : Integer<br/>**OBJECT Get list reference** ( *objeto* : Field, Variable {; *tipoLista* : Integer} ) : Integer<!-- END REF-->
+<!--REF #_command_.OBJECT Get list reference.Syntax-->**OBJECT Get list reference** ( * ; *object* : Text {; *listType* : Integer} ) : Integer<br/>**OBJECT Get list reference** ( *object* : Variable, Field {; *listType* : Integer} ) : Integer<!-- END REF-->
 <!--REF #_command_.OBJECT Get list reference.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto (si * se especifica) o <br/>Campo o variable (si * se omite) |
-| tipoLista | Integer | &#8594; | Tipo de lista: lista de Selección, lista obligatoria o la lista de excluidos |
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si * se especifica) o <br/>Campo o variable (si * se omite) |
+| listType | Integer | &#8594; | Tipo de lista: lista de Selección, lista obligatoria o la lista de excluidos |
 | Resultado | Integer | &#8592; | Número de referencia de lista |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT Get list reference.Summary-->El comando **OBJECT Get list reference** devuelve el número de referencia (*RefList*) de la lista jerárquica asociada al objeto o grupo de objetos designados por los parámetros *objeto* y *\** .<!-- END REF-->  
+<!--REF #_command_.OBJECT Get list reference.Summary-->El comando **OBJECT Get list reference** devuelve el número de referencia (*RefList*) de la lista jerárquica asociada al objeto o grupo de objetos designados por los parámetros *object* y *\** .<!-- END REF-->  
   
-Si pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).  
+Si pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).  
   
-Por defecto, si omite el parámetro *tipoLista*, el comando devuelve el nombre de la lista de opciones (lista de valores) asociado al objeto. También puede obtener el número de referencia de las listas obligatoria o las listas de excluidos pasando en *tipoLista*, una de las siguientes constantes del tema "*Propiedades de los objetos*":  
+Por defecto, si omite el parámetro *listType*, el comando devuelve el nombre de la lista de opciones (lista de valores) asociado al objeto. También puede obtener el número de referencia de las listas obligatoria o las listas de excluidos pasando en *listType*, una de las siguientes constantes del tema "*Propiedades de los objetos*":  
   
 | Constante     | Tipo         | Valor | Comentario                                                                                         |
 | ------------- | ------------ | ----- | -------------------------------------------------------------------------------------------------- |
@@ -33,7 +31,7 @@ Por defecto, si omite el parámetro *tipoLista*, el comando devuelve el nombre d
 | Required list | Entero largo | 1     | Lista sólo los valores aceptados para la entrada (Opción "Obligatoria" en la Lista de Propiedades) |
 
   
-Si no hay una lista jerárquica asociada al objeto para el *tipoLista* definido, el comando devuelve 0.
+Si no hay una lista jerárquica asociada al objeto para el *listType* definido, el comando devuelve 0.
 
 ## Ver también 
 
@@ -46,5 +44,3 @@ Si no hay una lista jerárquica asociada al objeto para el *tipoLista* definido,
 | --- | --- |
 | Número de comando | 1267 |
 | Hilo seguro | no |
-
-
