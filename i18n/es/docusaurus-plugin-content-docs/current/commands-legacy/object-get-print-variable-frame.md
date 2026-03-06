@@ -5,29 +5,28 @@ slug: /commands/object-get-print-variable-frame
 displayed_sidebar: docs
 ---
 
-<!--REF #_command_.OBJECT GET PRINT VARIABLE FRAME.Syntax-->**OBJECT GET PRINT VARIABLE FRAME** ( * ; *objeto* : Text ; *tamVariable* : Boolean {; *subformFijo* : Integer} )<br/>**OBJECT GET PRINT VARIABLE FRAME** ( *objeto* : Field, Variable ; *tamVariable* : Boolean {; *subformFijo* : Integer} )<!-- END REF-->
+<!--REF #_command_.OBJECT GET PRINT VARIABLE FRAME.Syntax-->**OBJECT GET PRINT VARIABLE FRAME** ( * ; *object* : Text ; *variableFrame* : Boolean {; *fixedSubform* : Integer} )<br/>**OBJECT GET PRINT VARIABLE FRAME** ( *object* : Variable, Field ; *variableFrame* : Boolean {; *fixedSubform* : Integer} )<!-- END REF-->
 <!--REF #_command_.OBJECT GET PRINT VARIABLE FRAME.Params-->
-<div class="no-index">
-
 | Parámetro | Tipo |  | Descripción |
 | --- | --- | --- | --- |
-| * | Operador | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es un campo o una variable |
-| objeto | any | &#8594; | Nombre de objeto (si * se especifica) o <br/>Campo o variable (si * se omite) |
-| tamVariable | Boolean | &#8592; | True = Impresión tamaño variable, False = impresión tamaño fijo |
-| subformFijo | Integer | &#8592; | Opción para impresión de subformularios de tamaño fijo |
-</div>
+| * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena)<br/>Si se omite, objeto es un campo o una variable |
+| object | Text, Variable, Field | &#8594; | Nombre de objeto (si * se especifica) o <br/>Campo o variable (si * se omite) |
+| variableFrame | Boolean | &#8592; | True = Impresión tamaño variable, False = impresión tamaño fijo |
+| fixedSubform | Integer | &#8592; | Opción para impresión de subformularios de tamaño fijo |
+
 <!-- END REF-->
 
 ## Descripción 
 
-<!--REF #_command_.OBJECT GET PRINT VARIABLE FRAME.Summary-->El comando **OBJECT GET PRINT VARIABLE FRAME** obtiene la configuración actual de las opciones de impresión en tamaño variable del objeto o de los objetos designado(s) por los parámetros *objeto* y *\** .<!-- END REF-->  
+<!--REF #_command_.OBJECT GET PRINT VARIABLE FRAME.Summary-->El comando **OBJECT GET PRINT VARIABLE FRAME** obtiene la configuración actual de las opciones de impresión en tamaño variable del objeto o de los objetos designado(s) por los parámetros *object* y *\** .<!-- END REF-->  
   
 Las propiedades de impresión de tamaño variable se pueden definir utilizando la lista de propiedades o el comando [OBJECT SET PRINT VARIABLE FRAME](object-set-print-variable-frame.md).  
-Si pasa el parámetro opcional *\** indica que el parámetro *objeto* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *objeto* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).  
+
+Si pasa el parámetro opcional *\** indica que el parámetro *object* es un nombre de objeto (cadena). Si no se pasa este parámetro, indica que el parámetro *object* es un campo o una variable. En este caso, se pasa una referencia de campo o variable en lugar de una cadena (campo o variable objeto únicamente).  
   
-En el parámetro *tamVariable*, el comando devuelve una variable booleana cuyo valor indica el estado activo (**True**) o inactivo (**False**) de la impresión en tamaño variable.  
+En el parámetro *variableFrame*, el comando devuelve una variable booleana cuyo valor indica el estado activo (**True**) o inactivo (**False**) de la impresión en tamaño variable.  
   
-Si el *objeto* es un subformulario y si la impresión en tamaño variable está desactivada (**False**), el comando también devuelve en el parámetro *subformFijo*, la opción de impresión en tamaño fijo del subformulario. Puede comparar el valor devuelto con las siguientes constantes, del tema "*Propiedades de los objetos*":
+Si el *object* es un subformulario y si la impresión en tamaño variable está desactivada (**False**), el comando también devuelve en el parámetro *fixedSubform*, la opción de impresión en tamaño fijo del subformulario. Puede comparar el valor devuelto con las siguientes constantes, del tema "*Propiedades de los objetos*":
 
 | Constante                               | Tipo         | Valor | Comentario                                                                                                                                                    |
 | --------------------------------------- | ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,5 +43,3 @@ Si el *objeto* es un subformulario y si la impresión en tamaño variable está 
 | --- | --- |
 | Número de comando | 1241 |
 | Hilo seguro | no |
-
-
