@@ -12,7 +12,7 @@ displayed_sidebar: docs
 | * | Operator | &#8594; | Si se especifica, objeto es un nombre de objeto (cadena) Si se omite, objeto es un campo o una variable |
 | object | Text, Variable, Field | &#8594; | Nombre de objeto (si se especifica *) o  Campo o variable (si se omite *) |
 | Resultado | Text | &#8592; | Texto de ejemplo asociado al objeto |
-</div>
+
 <!-- END REF-->
 
 ## Descripción 
