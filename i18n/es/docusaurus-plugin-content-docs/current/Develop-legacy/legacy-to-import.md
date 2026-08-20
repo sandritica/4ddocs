@@ -31,7 +31,7 @@ Por lo tanto, el semáforo protege partes del código. Solo permite el paso de u
 
 ### Comandos para trabajar con semáforos  
 
-En 4D, usted coloca un semáforo llamando al comando [`Semaphore`](../commands/sempahore). Para liberar un semáforo, llame al comando [`CLEAR SEMAPHORE`](../commands/clear-sempahore).
+En 4D, un semáforo se crea con el comando [`Semaphore`](../commands/sempahore). Para liberar un semáforo, llame al comando [`CLEAR SEMAPHORE`](../commands/clear-sempahore).
 
 El comando [`Semaphore`](../commands/sempahore) tiene un comportamiento muy particular ya que potencialmente realiza dos acciones simultáneamente:
 
@@ -70,22 +70,22 @@ Por último, el uso del parámetro opcional *tickCount* del comando [`Semaphore`
 - Si el semáforo se libera antes del final de este límite, se asigna inmediatamente al proceso (Semaphore devuelve False) y la ejecución del código se reanuda,
 - Si el semáforo no se libera antes del final de este límite, entonces la ejecución del código se reanuda.
 
-El comando también prioriza las solicitudes estableciendo una cola de espera. De esta manera, el primer proceso que solicite un semáforo será el primero en obtenerlo. Tenga en cuenta que el tiempo de espera se define en función de las particularidades de la aplicación.
+El comando prioriza las peticiones creando una cola. De esta manera, el primer proceso que solicite un semáforo será el primero en obtenerlo. Tenga en cuenta que el tiempo de espera se define en función de las particularidades de la aplicación.
 
 ### Semáforos locales o globales 
 
 Existen dos tipos de semáforos en 4D: los semáforos locales y los semáforos globales.
 
-- Un semáforo local es accesible por todos los procesos de la misma estación de trabajo y únicamente en esa estación. Un semáforo local puede crearse anteponiendo al nombre del semáforo un signo de dólar ($). Los semáforos locales se utilizan para supervisar operaciones entre procesos que se ejecutan en la misma estación de trabajo. Por ejemplo, un semáforo local puede utilizarse para supervisar el acceso a un array interproceso compartido por todos los procesos de su base de datos monousuario o de la estación de trabajo.
+- Un semáforo local es accesible por todos los procesos de la misma estación de trabajo y únicamente en esa estación. Un semáforo local se crea añadiendo el signo dólar ($) como prefijo en su nombre. Los semáforos locales se utilizan para supervisar operaciones entre procesos que se ejecutan en la misma estación de trabajo. Por ejemplo, un semáforo local puede utilizarse para supervisar el acceso a un array interproceso compartido por todos los procesos de su base de datos monousuario o de la estación de trabajo.
 - Un semáforo global es accesible para todos los usuarios y todos sus procesos. Los semáforos globales se utilizan para supervisar operaciones entre los usuarios de una base de datos multiusuario.
 
 Los semáforos globales y locales son idénticos en su lógica. La diferencia reside en su alcance.
 
-En cliente/servidor, los semáforos globales se comparten entre todos los procesos que se ejecutan en todos los clientes y servidores. Un semáforo local solo se comparte entre los procesos que se ejecutan en la máquina donde se creó.
+En un entorno cliente/servidor, los semáforos globales se comparten entre todos los procesos que se ejecutan en todos los clientes y servidores. Un semáforo local solo se comparte entre los procesos que se ejecutan en la máquina donde se creó.
 
 En las aplicaciones 4D monousuario, los semáforos globales o locales tienen el mismo alcance porque usted es el único usuario. No obstante, si su base de datos se utiliza en ambas configuraciones, asegúrese de utilizar semáforos globales o locales según lo que desee hacer.
 
-**Nota:** Recomendamos utilizar semáforos locales cuando necesite un semáforo para gestionar un aspecto local de un cliente de la aplicación, como la interfaz o un array de variables interproceso. Si utiliza un semáforo global en este caso, no solo provocaría intercambios de red innecesarios, sino que también podría afectar innecesariamente a otras máquinas cliente. El uso de un semáforo local evitaría estos efectos secundarios indeseables.
+**Nota:** recomendamos utilizar semáforos locales cuando necesite un semáforo para gestionar un aspecto local de un cliente de la aplicación, como la interfaz o un array de variables interproceso. Si utiliza un semáforo global en este caso, no solo provocaría intercambios de red innecesarios, sino que también podría afectar innecesariamente a otras máquinas cliente. El uso de un semáforo local evitaría estos efectos secundarios indeseables.
 
 
 <!-- END REF -->
