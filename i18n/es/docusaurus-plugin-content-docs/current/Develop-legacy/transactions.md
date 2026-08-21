@@ -52,7 +52,7 @@ Existen varias formas de realizar la introducción de datos utilizando transacci
  READ ONLY(*)
 ```
 
-2. Para reducir el bloqueo de registros mientras se realiza la entrada de datos, también puede optar por gestionar las transacciones desde el método del formulario y acceder a las tablas en `READ WRITE` sólo cuando sea necesario. La entrada de datos se realiza mediante el formulario de entrada de [Invoices], que contiene la tabla relacionada [Invoice Lines] en un subformulario. El formulario tiene dos botones: *bCancel* y *bOK*, ue no son botones de acción.
+2. Para reducir el bloqueo de registros mientras se realiza la entrada de datos, también puede optar por gestionar las transacciones desde el método del formulario y acceder a las tablas en `READ WRITE` sólo cuando sea necesario. La entrada de datos se realiza mediante el formulario de entrada [Invoices], que contiene la tabla relacionada [Invoice Lines] en un subformulario. El formulario tiene dos botones: *bCancel* y *bOK*, que no son botones de acción.
 
 El bucle de adición se convierte en:
 
@@ -80,7 +80,7 @@ La transacción se inicia en el método del formulario de entrada [Invoices] que
  End case
 ```
 
-Si hace clic en el botón *bCancel*, e cancelará tanto la entrada de datos como la transacción. Este es el método objeto del botón *bCancel*:
+Si hace clic en el botón *bCancel*, se cancelará tanto la entrada de datos como la transacción. Este es el método objeto del botón *bCancel*:
 
 ```4d
  Case of
@@ -207,7 +207,7 @@ Estas implementaciones se resumen en el siguiente gráfico:
 Se han añadido funcionalidades específicas para gestionar los errores:
 
 - El registro actual de cada tabla se bloquea temporalmente si se modifica durante la transacción y se desbloquea automáticamente cuando ésta se reanuda. Este mecanismo es importante para evitar guardados no deseados en partes de la transacción.
-- Si se ejecuta una secuencia no válida como iniciar transacción / suspender transacción / iniciar transacción / reanudar transacción, se genera un error. Este mecanismo evita que los desarrolladores olviden consignar o cancelar cualquier transacción incluida antes de reanudar la transacción suspendida.
+- Si se ejecuta una secuencia no válida como iniciar transacción / suspender transacción / iniciar transacción / reanudar transacción, se genera un error. Este mecanismo evita que los desarrolladores olviden validar o cancelar cualquier transacción incluida antes de reanudar la transacción suspendida.
 
 
 #### Transacciones suspendidas y estado del proceso 
