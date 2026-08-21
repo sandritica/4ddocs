@@ -82,7 +82,7 @@ Si esta opción se selecciona, el trigger se llamará cada vez que un registro s
 
 ## Eventos de base
 
-Un trigger puede ser llamado por uno de los cuatro eventos de base descritos anteriormente. En el trigger, puede detectar qué evento está ocurriendo llamando la función [`Trigger event`](../commands/trigger-event). Esta función devuelve un valor numérico que indica el evento de base.
+Un trigger puede ser llamado por uno de los cuatro eventos de base de datos descritos anteriormente. En el trigger, puede detectar qué evento está ocurriendo llamando la función [`Trigger event`](../commands/trigger-event). Esta función devuelve un valor numérico que indica el evento de base.
 
 Generalmente, se escribe un trigger con una estructura de tipo [`Case of`](../Concepts/flow-control.md#case-ofelseend-case) sobre el resultado devuelto por [`Trigger event`](../commands/trigger-event). 
 
@@ -186,7 +186,7 @@ Utilizando un trigger para la tabla [Empleados], puede implementar la regla [Emp
  End case
 ```
 
-Una vez este trigger está escrito y activado, la línea `SAVE RECORD([Empleados])` del método proyecto generará un error base -15050, y el registro NO se guardará.
+Una vez este trigger está escrito y activado, la línea `SAVE RECORD([Empleados])` del método proyecto generará un error del motor de base de datos -15050, y el registro NO se guardará.
 
 De la misma forma, si un plug-in 4D intenta guardar un registro en [Empleados] con un número de seguridad social incorrecto, el trigger generará el mismo error y el registro no se guardará.
 
@@ -210,7 +210,7 @@ A nivel del proceso, usted administra los errores trigger de la misma manera que
 :::note Notas
 
 - Durante la entrada de datos, si un error trigger es devuelto mientras intenta validar o borrar un registro, el error se trata como un error de índice único. La caja de diálogo de error se muestra, y permanece en la entrada de datos. Incluso si utiliza una base en el entorno Diseño (no en el entorno Aplicación), usted se beneficia del uso de triggers.
-- Cuando se genera un error por un trigger para un registro en el marco de un comando que actúa sobre una selección de registros ([`DELETE SELECTION`](../commands/delete-selection), [`APPLY TO SELECTION`](../commands/apply-to-selection), [`ARRAY TO SELECTION`](../commands/array-to-selection)...), el registro no es procesado pero se registra automáticamente en el Locke[`LockedSet`](../Develop/processes.md#elements-of-a-process). El comando continúa su ejecución hasta el final y no se detecta ningún error. No se llama al método de manejo de errores, si lo hay. Para saber si se han generado errores en este contexto, debe probar `LockedSet` justo después de la llamada al comando. Además, en el trigger, debe almacenar códigos de error, en una colección por ejemplo y manejarlos después.
+- Cuando se genera un error por un trigger para un registro en el marco de un comando que actúa sobre una selección de registros ([`DELETE SELECTION`](../commands/delete-selection), [`APPLY TO SELECTION`](../commands/apply-to-selection), [`ARRAY TO SELECTION`](../commands/array-to-selection)...), el registro no es procesado pero se registra automáticamente en el [`LockedSet`](../Develop/processes.md#elements-of-a-process). El comando continúa su ejecución hasta el final y no se detecta ningún error. No se llama al método de manejo de errores, si lo hay. Para saber si se han generado errores en este contexto, debe probar `LockedSet` justo después de la llamada al comando. Además, en el trigger, debe almacenar códigos de error, en una colección por ejemplo y manejarlos después.
 
 :::
 
