@@ -29,7 +29,7 @@ Los conjuntos son muy económicos en cuanto a espacio de RAM. El tamaño de un c
 
 Puede haber muchos conjuntos para cada tabla. De hecho, los conjuntos pueden guardarse en disco por separado de la base de datos. Para cambiar un registro perteneciente a un conjunto, primero debe utilizar el conjunto como la selección actual y luego modificar el registro o registros.
 
-Un conjunto nunca está en un orden clasificado — los registros simplemente se indican como pertenecientes o no al conjunto. Por otro lado, una selección nombrada está en orden clasificado, pero requiere más memoria en la mayoría de los casos. Para más información sobre las selecciones nombradas, consulte la sección Selecciones nombradas.
+Un conjunto nunca está ordenado, los registros simplemente se indican como pertenecientes o no al conjunto. Por otro lado, una selección nombrada mantiene un orden clasificado, pero requiere más memoria en la mayoría de los casos. Para más información sobre las selecciones nombradas, consulte la sección Selecciones nombradas.
 
 Un conjunto "recuerda" qué registro era el registro actual en el momento en que se creó el conjunto. La siguiente tabla compara los conceptos de la selección actual y de los conjuntos:
 
@@ -72,11 +72,11 @@ La siguiente tabla indica los principios relativos a la visibilidad de los conju
 
 ||Proceso cliente|Otros procesos en el mismo cliente|Otros clientes|Proceso servidor|Otros procesos en el servidor|
 |---|---|---|---|---|---|
-|Creación en un proceso cliente	||||||
+|Creación en proceso cliente	||||||
 |$test|X	|||||
 |test	| X||| X(Trigger)	||
 |<>test	| X|X	||||
-|Creación en un proceso servidor||||||
+|Creación en proceso servidor||||||
 |$test|||| X||
 |test	||||X||
 |<>test||||X| X|
