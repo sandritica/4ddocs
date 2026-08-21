@@ -43,7 +43,7 @@ En las aplicaciones 4D, se modifican los registros utilizando:
 - Comandos: [`MODIFY RECORD`](../commands/add-record) para abrir un formulario de entrada al usuario, listo para modificar datos; [`ARRAY TO SELECTION`](../commands/array-to-selection) para modificar datos en registros seleccionados a partir de un array.
 - La función de importación de datos utilizando los comandos del [tema Importación y exportación](../commands/theme/Import-and-Export) o el cuadro de diálogo de importación.
 - Acción estándar: [`Edit Subrecord`](../Desktop/standard-actions#editsubrecord) que edita un registro en una lista.
-- Comandos de interfaz y menú en el IDE de 4D: **Modificar registro** del menú **Registros** o doble clic en un formulario lista.
+- Comandos de interfaz y menú en el IDE de 4D: **Modificar registro** del menú **Registros** o haciendo doble clic en un formulario de salida.
 
 En la mayoría de los casos, el registro solo se modifica en memoria y debe guardarlo explícitamente a través de la interfaz o mediante un comando como [`SAVE RECORD`](../commands/save-record) o la [acción estándar `accept`](../Desktop/standard-actions#accept) para guardar realmente el registro editado en los datos.
 
@@ -123,7 +123,7 @@ Hay tres números asociados a un registro:
 - **Número de registro**: el número de registro es el número absoluto/físico de un registro. Este número lo devuelve el comando [`Record number`](../commands/record-number).
 Se asigna automáticamente un número de registro a cada nuevo registro y permanece constante para el registro hasta que este se elimina. Los números de registro empiezan en cero. No son únicos porque los números de registro de los registros eliminados se reutilizan para nuevos registros. También cambian cuando la base de datos se [compacta](../MSC/compact.md) o se [repara](../MSC/repair.md).
 - **Número de registro seleccionado**: el número de registro seleccionado es la posición del registro en la selección actual, por lo que depende de la selección actual. Si la selección se cambia u ordena, el número de registro seleccionado probablemente cambiará. La numeración del número de registro seleccionado empieza en uno (1). Este número lo devuelve el comando [`Selected record number`](../commands/selected-record-number).
-- **Número de secuencia**: el número de secuencia es un número único no repetitivo que puede asignarse a un campo de un registro (mediante la propiedad **Autoincremento**, el atributo SQL AUTO_INCREMENT o el comando [`Sequence number`](../commands/sequence-number)). No se almacena automáticamente con cada registro. Empieza por defecto en 1 y se incrementa por cada nuevo registro que se crea. A diferencia de los números de registro, un número de secuencia no se reutiliza cuando se elimina un registro o cuando se compacta o repara una base de datos. Los números de secuencia proporcionan una forma de tener números de ID únicos para los registros. Si un número de secuencia se incrementa durante una transacción, el número no se decrementa si la transacción se cancela.
+- **Autoincremento**: el autoincremento es un número único no repetitivo que puede asignarse a un campo de un registro (mediante la propiedad **Autoincremento**, el atributo SQL AUTO_INCREMENT o el comando [`Sequence number`](../commands/sequence-number)). No se almacena automáticamente con cada registro. Empieza por defecto en 1 y se incrementa por cada nuevo registro que se crea. A diferencia de los números de registro, un número de secuencia no se reutiliza cuando se elimina un registro o cuando se compacta o repara una base de datos. Los números de secuencia proporcionan una forma de tener números de ID únicos para los registros. Si un número de secuencia se incrementa durante una transacción, el número no se decrementa si la transacción se cancela.
 
 :::note Notas
 
@@ -280,7 +280,7 @@ Este ejemplo comprueba de forma eficiente si el registro actual está bloqueado 
              ALERT("El registro ha sido eliminado mientras tanto.")
              OK:=0
           Else
-             If($User="")//¿Está en modo monopuesto?
+             If($User="")//¿Está en modo monousuario?
                 $User:="usted"
              End if
              CONFIRM("El registro ya está siendo utilizado por "+$User+" en el proceso "+$Name+".")
