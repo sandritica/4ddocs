@@ -1,7 +1,7 @@
 ---
 id: overview
-title: 4D database overview
+title: Generalidades base 4D
 ---
 
-## Description
+## Descripción
 
