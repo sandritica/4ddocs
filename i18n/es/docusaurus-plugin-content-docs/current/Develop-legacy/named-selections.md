@@ -11,7 +11,7 @@ displayed_sidebar: docs
 
 Las selecciones nombradas ofrecen una forma sencilla de manipular varias selecciones simultáneamente. Una selección nombrada es una lista ordenada de registros de una tabla en un proceso. A esta lista ordenada se le puede asignar un nombre y mantenerla en memoria. Las selecciones nombradas ofrecen un medio sencillo de conservar en memoria el orden de la selección y el registro actual de la selección.
 
-Los siguientes comandos le permiten trabajar con selecciones nombradas:
+Los siguientes comandos permiten trabajar con selecciones nombradas:
 
 - [`COPY NAMED SELECTION`](../commands/copy-named-selection)
 - [`CUT NAMED SELECTION`](../commands/cut-named-selection)
@@ -30,7 +30,7 @@ Combinar la instrucción `SET QUERY DESTINATION(Into named selection;namedselect
 
 Las selecciones nombradas pueden tener un alcance local, de proceso o interproceso.
 
-Una selección nombrada es local cuando su nombre va precedido de un signo de dólar. Cuando su nombre no va precedido de ningún símbolo, es una selección nombrada de proceso, y es una selección nombrada interproceso si su nombre va precedido de los símbolos (<>) — un signo "menor que" seguido de un signo "mayor que".
+Una selección nombrada es local si su nombre va precedido por el prefijo de signo de dólar. Cuando su nombre no va precedido de ningún símbolo, es una selección nombrada de proceso, y es una selección nombrada interproceso si su nombre va precedido de los símbolos (<>) — un signo "menor que" seguido de un signo "mayor que".
 
 El alcance de una selección nombrada interproceso es idéntico al alcance de una variable interproceso (*obsoleta*). A una selección nombrada interproceso se puede acceder desde cualquier proceso. Con 4D en modo remoto y 4D Server, una selección nombrada interproceso solo está disponible para los procesos del cliente que la creó. Una selección nombrada interproceso no está disponible para otras máquinas cliente.
 Una selección nombrada de proceso solo está disponible dentro del proceso en el que se creó y en el servidor.
@@ -44,7 +44,7 @@ La creación de una selección nombrada requiere acceso a la selección de la ta
 
 ## Visibilidad de las selecciones nombradas
 
-La siguiente tabla indica los principios relativos a la visibilidad de las selecciones nombradas en función de su alcance y del lugar donde se crearon:
+La siguiente tabla describe la visibilidad de las selecciones nombradas según su alcance y lugar de creación:
 
 
 ||Proceso cliente|Otros procesos en el mismo cliente|Otros clientes|Proceso servidor|Otros procesos en el servidor|
@@ -66,7 +66,7 @@ Las diferencias entre los [conjuntos](./sets.md) y las selecciones nombradas son
 - Una selección nombrada es una lista ordenada de registros; un conjunto no lo es.
 - Los conjuntos son muy eficientes en cuanto a memoria, porque solo requieren un bit por cada registro del archivo. Las selecciones nombradas requieren 4 bytes por cada registro de la selección.
 - A diferencia de los conjuntos, las selecciones nombradas no pueden guardarse en disco.
-- Los conjuntos disponen de las operaciones estándar [`INTERSECTION`](../commands/intersection), [`UNION`](../commands/union) y [`DIFFERENCE`](../commands/difference); las selecciones nombradas no pueden combinarse con otras selecciones nombradas.
+- Los conjuntos admiten las operaciones estándar [`INTERSECTION`](../commands/intersection), [`UNION`](../commands/union) y [`DIFFERENCE`](../commands/difference); las selecciones nombradas no pueden combinarse con otras selecciones nombradas.
 
 
 Las similitudes entre las selecciones nombradas y los conjuntos son:
